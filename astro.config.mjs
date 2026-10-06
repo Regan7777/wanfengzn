@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://regan-a19.pages.dev',
+  site: 'https://wanfengzn.com',
   integrations: [
     sitemap({
       filter: (page) => 
