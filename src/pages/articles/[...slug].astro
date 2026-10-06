@@ -1,0 +1,29 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getRelatedArticles } from '../../lib/utils';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article, allArticles: articles }
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  allArticles: CollectionEntry<'articles'>[];
+}
+
+const { article, allArticles } = Astro.props;
+const { Content, headings } = await article.render();
+
+// 计算 3 - 6 篇相关延伸阅读
+const relatedArticles = getRelatedArticles(article, allArticles, 6);
+---
+
+<ArticleLayout article={article} headings={headings} relatedArticles={relatedArticles}>
+  <Content />
+</ArticleLayout>

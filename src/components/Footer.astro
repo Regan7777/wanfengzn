@@ -1,0 +1,90 @@
+---
+import { SITE_CONFIG } from '../config';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-bottom-bar">
+      <div class="copyright-text">
+        &copy; {currentYear} {SITE_CONFIG.siteName} .
+      </div>
+      <div class="footer-meta-links">
+        <a href="/about/" class="footer-meta-link">关于我们</a>
+        <span class="dot">•</span>
+        <a href={SITE_CONFIG.tgChannel} target="_blank" rel="noopener noreferrer" class="footer-meta-link">TG 频道</a>
+        <span class="dot">•</span>
+        <a href="/recommend/" class="footer-meta-link">核心推荐</a>
+        <span class="dot">•</span>
+        <a href="/guide/" class="footer-meta-link">新手指南</a>
+        <span class="dot">•</span>
+        <a href="/privacy/" class="footer-meta-link">隐私政策</a>
+        <span class="dot">•</span>
+        <a href="/sitemap-index.xml" class="footer-meta-link">站点地图</a>
+        <span class="dot">•</span>
+        <a href="/llms.txt" class="footer-meta-link">llms.txt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem 0;
+    margin-top: auto;
+    font-size: 0.825rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copyright-text {
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .footer-meta-links {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-meta-link {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .footer-meta-link:hover {
+    color: #0f172a;
+  }
+
+  .dot {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .footer-bottom-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+</style>

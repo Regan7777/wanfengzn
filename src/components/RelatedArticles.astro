@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  articles: CollectionEntry<'articles'>[];
+  title?: string;
+}
+
+const { articles, title = '相关内容推荐' } = Astro.props;
+
+if (!articles || articles.length === 0) return null;
+---
+
+<section class="related-section">
+  <div class="related-header">
+    <h2 class="related-title">{title}</h2>
+    <p class="related-subtitle">基于主题匹配与深度关联推荐的相关延伸阅读</p>
+  </div>
+  <div class="card-grid">
+    {articles.map((item) => (
+      <ArticleCard article={item} headingLevel="h3" />
+    ))}
+  </div>
+</section>
+
+<style>
+  .related-section {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 2px dashed var(--color-border);
+  }
+
+  .related-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .related-title {
+    font-size: 1.4rem;
+    color: var(--color-text-main);
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .related-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+  }
+</style>

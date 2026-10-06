@@ -1,0 +1,290 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import TOC from '../components/TOC.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import RelatedArticles from '../components/RelatedArticles.astro';
+import { formatDate, estimateReadingTime, getCategoryMeta, getCanonicalUrl } from '../lib/utils';
+import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  headings: { depth: number; slug: string; text: string }[];
+  relatedArticles: CollectionEntry<'articles'>[];
+}
+
+const { article, headings, relatedArticles } = Astro.props;
+const {
+  title,
+  description,
+  category,
+  publishedAt,
+  updatedAt,
+  author,
+  cover,
+  coverAlt,
+  tags,
+  tldr,
+  faq,
+  toc
+} = article.data;
+
+const categoryMeta = getCategoryMeta(category);
+const readTime = estimateReadingTime(article.body);
+const currentUrl = getCanonicalUrl(`/articles/${article.slug}/`);
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: categoryMeta.name, url: `/${categoryMeta.slug}/` },
+  { name: title, url: `/articles/${article.slug}/` }
+];
+
+// JSON-LD Schemas
+const articleSchema = generateArticleSchema({
+  title,
+  description,
+  url: currentUrl,
+  publishedAt,
+  updatedAt,
+  authorName: author,
+  coverUrl: cover
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+const faqSchema = faq ? generateFAQSchema(faq) : null;
+
+const schemas = [articleSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+---
+
+<BaseLayout
+  title={`${title} - ${categoryMeta.name} - 晚风机场服务指南`}
+  description={description}
+  canonicalUrl={currentUrl}
+  ogImage={cover}
+  schemaData={schemas}
+>
+  <article class="article-page">
+    <div class="container article-container">
+      <!-- Breadcrumb -->
+      <Breadcrumb items={breadcrumbs} />
+
+      <!-- Article Header -->
+      <header class="article-header">
+        <div class="header-meta-top">
+          <a href={`/${categoryMeta.slug}/`} class="category-badge">
+            {categoryMeta.name}
+          </a>
+          <span class="meta-date">发布于 {formatDate(publishedAt)}</span>
+          {updatedAt && <span class="meta-updated">（更新于 {formatDate(updatedAt)}）</span>}
+          <span class="meta-divider">•</span>
+          <span class="meta-readtime">{readTime} 分钟阅读</span>
+        </div>
+
+        <h1 class="article-title">{title}</h1>
+
+        <p class="article-description">{description}</p>
+
+        <div class="author-bar">
+          <span class="author-avatar">✍️</span>
+          <span class="author-name">作者：{author}</span>
+        </div>
+      </header>
+
+      <!-- Cover Image if exists -->
+      {cover && (
+        <div class="article-cover-wrapper">
+          <img
+            src={cover}
+            alt={coverAlt || title}
+            width="820"
+            height="460"
+            loading="eager"
+            decoding="async"
+            class="article-cover"
+          />
+        </div>
+      )}
+
+      <!-- TL;DR / Quick Conclusion Box -->
+      {tldr && (
+        <div class="tldr-box">
+          <div class="tldr-header">
+            <span class="tldr-icon">⚡</span>
+            <span class="tldr-title">核心结论 / 快速要点 (TL;DR)</span>
+          </div>
+          <p class="tldr-text">{tldr}</p>
+        </div>
+      )}
+
+      <!-- Table of Contents -->
+      {toc && headings.length > 0 && <TOC headings={headings} />}
+
+      <!-- Markdown Prose Content -->
+      <div class="prose article-body">
+        <slot />
+      </div>
+
+      <!-- FAQ Section if available -->
+      {faq && faq.length > 0 && (
+        <FAQAccordion faqs={faq} title="本专题常见问题解答 (FAQ)" />
+      )}
+
+      <!-- Article Tags Footer -->
+      {tags && tags.length > 0 && (
+        <div class="article-tags-footer">
+          <span class="tags-label">相关标签：</span>
+          <div class="tags-list">
+            {tags.map((tag) => (
+              <a href={`/tag/${encodeURIComponent(tag)}/`} class="tag-badge">
+                #{tag}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Related Articles Recommendation -->
+      <RelatedArticles articles={relatedArticles} />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-page {
+    padding: 2rem 0 4rem;
+  }
+
+  .article-header {
+    margin-bottom: 2rem;
+  }
+
+  .header-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .category-badge {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 0.2rem 0.65rem;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .article-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+  }
+
+  .article-description {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    background-color: var(--color-bg-subtle);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .author-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-cover-wrapper {
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .article-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tldr-box {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border: 1px solid #c7d2fe;
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tldr-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+  }
+
+  .tldr-text {
+    margin: 0;
+    color: #312e81;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .article-tags-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .tags-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .tags-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag-badge {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-secondary);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .tag-badge:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 640px) {
+    .article-title {
+      font-size: 1.65rem;
+    }
+    .article-description {
+      font-size: 1rem;
+    }
+  }
+</style>

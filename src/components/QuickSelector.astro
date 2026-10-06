@@ -1,0 +1,163 @@
+---
+const options = [
+  {
+    icon: '🚀',
+    title: '新手怎么选？',
+    tag: '零基础入门',
+    desc: '搞懂什么是节点、线路与客户端，3分钟选出第一款服务',
+    link: '/guide/'
+  },
+  {
+    icon: '🛡️',
+    title: '稳定优先方案',
+    tag: 'IEPL/IPLC专线',
+    desc: '抗封锁、低延迟、高峰期不拥堵，适合追求高品质体验用户',
+    link: '/recommend/'
+  },
+  {
+    icon: '💰',
+    title: '高性价比/便宜',
+    tag: '预算优先',
+    desc: '月付10-20元高性价比方案，无跑路风险与充值陷阱',
+    link: '/price/'
+  },
+  {
+    icon: '🤖',
+    title: 'AI 平台专属',
+    tag: 'ChatGPT/Claude',
+    desc: '解锁ChatGPT、Claude、Gemini风控，提供纯净住宅原生IP',
+    link: '/use-case/'
+  },
+  {
+    icon: '🎬',
+    title: '4K/8K 流媒体',
+    tag: 'Netflix/YouTube',
+    desc: '原生解锁全区流媒体，大带宽保证秒开不卡顿',
+    link: '/use-case/'
+  },
+  {
+    icon: '📱',
+    title: '客户端教程',
+    tag: '全平台覆盖',
+    desc: 'Windows/Mac/iOS/Android各平台客户端一键配置指南',
+    link: '/clients/'
+  }
+];
+---
+
+<section class="quick-selector-section">
+  <div class="section-header text-center">
+    <h2 class="section-title">快速按需选方案</h2>
+    <p class="section-subtitle">根据您的实际网络需求与使用场景，快速找到最适合的内容与建议</p>
+  </div>
+
+  <div class="selector-grid">
+    {options.map((opt) => (
+      <a href={opt.link} class="selector-card">
+        <div class="card-icon-wrap">
+          <span class="card-icon">{opt.icon}</span>
+        </div>
+        <div class="card-content">
+          <div class="title-row">
+            <span class="card-title">{opt.title}</span>
+            <span class="badge badge-primary">{opt.tag}</span>
+          </div>
+          <p class="card-desc">{opt.desc}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .quick-selector-section {
+    margin: 2.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    color: var(--color-text-main);
+    margin: 0 0 0.35rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .selector-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .selector-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+  }
+
+  .card-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-text-main);
+  }
+
+  .card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .selector-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

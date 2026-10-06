@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const breadcrumbs = [{ name: '免责声明', url: '/disclaimer/' }];
+---
+
+<BaseLayout
+  title="免责声明 - 网络服务选择指南"
+  description="网络服务选择指南法律与使用免责声明。"
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <article class="prose">
+      <h1>免责声明 (Disclaimer)</h1>
+      <p>更新日期：2026年10月5日</p>
+
+      <h2>1. 内容性质与技术交流</h2>
+      <p>
+        本网站所载的所有文章、教程、评测与技术对比仅供互联网技术交流、网络知识普及与学术研究使用。本站不提供任何网络接入服务，亦不直接销售任何连接软件或硬件凭证。
+      </p>
+
+      <h2>2. 法律合规与用户责任</h2>
+      <p>
+        请所有访客严格遵守您所在国家和地区的法律法规。用户因使用第三方网络服务或工具所产生的任何行为与后果，均由使用者本人承担，本站不承担任何法律责任。
+      </p>
+
+      <h2>3. 信息时效性与客观性</h2>
+      <p>
+        网络服务商的节点质量、线路套餐与服务政策可能会随时间发生变更。本站虽力求文章信息的准确性与及时性，但不对第三方服务商的长期可用性作出任何保证。
+      </p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 820px;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    'import-subscription',
+    'switch-nodes',
+    'speed-test',
+    'routing-rules',
+    'auto-start'
+  ];
+
+  return subSlugs.map((sub) => ({
+    params: { sub },
+    props: { sub, topicKey: `tutorials/${sub}` }
+  }));
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `tutorials/${sub}`,
+  path: `/tutorials/${sub}/`,
+  title: `${sub} 图文使用教程`,
+  shortName: `${sub} 教程`,
+  seoTitle: `${sub} 图文使用教程 - 网络服务指南`,
+  description: `手把手教学：轻松掌握 ${sub} 的具体操作步骤与配置要点。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'tutorials',
+  category: 'tutorials',
+  keywords: [`${sub} 教程`],
+  searchIntent: 'Informational',
+  coreAnswer: `按照步骤完成配置，即可实现流畅的规则分流网络体验。`
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'tutorials');
+---
+
+<PillarLayout
+  categorySlug="tutorials"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+/>

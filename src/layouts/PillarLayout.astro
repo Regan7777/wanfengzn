@@ -1,0 +1,251 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import FAQAccordion, { type FAQItem } from '../components/FAQAccordion.astro';
+import { getCanonicalUrl } from '../lib/utils';
+import { generateBreadcrumbSchema, generateItemListSchema, generateFAQSchema } from '../lib/schema';
+
+interface Subtopic {
+  title: string;
+  path: string;
+  description: string;
+}
+
+interface Props {
+  categorySlug: string;
+  title: string;
+  seoTitle?: string;
+  description: string;
+  coreAnswer?: string;
+  subtopics?: Subtopic[];
+  articles: CollectionEntry<'articles'>[];
+  faqs?: FAQItem[];
+}
+
+const {
+  categorySlug,
+  title,
+  seoTitle,
+  description,
+  coreAnswer,
+  subtopics = [],
+  articles,
+  faqs = []
+} = Astro.props;
+
+const currentUrl = getCanonicalUrl(`/${categorySlug}/`);
+
+const breadcrumbs = [
+  { name: title, url: `/${categorySlug}/` }
+];
+
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+const itemListSchema = generateItemListSchema(
+  title,
+  articles.map((art, idx) => ({
+    name: art.data.title,
+    url: `/articles/${art.slug}/`,
+    position: idx + 1
+  }))
+);
+
+const faqSchema = faqs.length > 0 ? generateFAQSchema(faqs) : null;
+const schemas = [breadcrumbSchema, itemListSchema, faqSchema].filter(Boolean);
+---
+
+<BaseLayout
+  title={seoTitle || `${title}｜2026专业知识选择与指导导航 - 晚风机场服务指南`}
+  description={description}
+  canonicalUrl={currentUrl}
+  schemaData={schemas}
+>
+  <!-- Minimalist Light Pillar Hero Banner -->
+  <section class="pillar-hero">
+    <div class="container text-center">
+      <div class="breadcrumb-center-wrapper">
+        <Breadcrumb items={breadcrumbs} />
+      </div>
+      
+      <h1 class="hero-title">{title}</h1>
+      <p class="hero-description">{description}</p>
+
+      {coreAnswer && (
+        <div class="core-answer-card text-left">
+          <div class="answer-badge">💡 专题核心解惑</div>
+          <p class="answer-text">{coreAnswer}</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container pillar-body">
+    <!-- Slot for extra section content (e.g. ComparisonTable) -->
+    <slot />
+
+    <!-- Subtopic Links Grid -->
+    {subtopics.length > 0 && (
+      <section class="subtopic-section">
+        <h2 class="section-title text-center">相关核心细分主题</h2>
+        <div class="subtopic-grid">
+          {subtopics.map((sub) => (
+            <a href={sub.path} class="subtopic-card">
+              <span class="sub-title">{sub.title}</span>
+              <span class="sub-desc">{sub.description}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+      <div class="section-header">
+        <h2 class="section-title">精选专题指南与文章</h2>
+        <p class="section-subtitle">共有 {articles.length} 篇相关深度解析与对比文章</p>
+      </div>
+
+      {articles.length > 0 ? (
+        <div class="card-grid">
+          {articles.map((article) => (
+            <ArticleCard article={article} headingLevel="h3" />
+          ))}
+        </div>
+      ) : (
+        <div class="empty-box text-center">
+          <p>该专题下暂无文章，内容正在持续补充中。</p>
+        </div>
+      )}
+    </section>
+
+    <!-- FAQ Section -->
+    {faqs.length > 0 && <FAQAccordion faqs={faqs} title={`${title} 常见问题解答`} />}
+  </div>
+</BaseLayout>
+
+<style>
+  .pillar-hero {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    padding: 3rem 0 2.5rem;
+    margin-bottom: 32px;
+  }
+
+  .breadcrumb-center-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 820px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.65;
+  }
+
+  .core-answer-card {
+    background-color: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.15rem 1.35rem;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .answer-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+  }
+
+  .answer-text {
+    margin: 0;
+    font-size: 0.975rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  .pillar-body {
+    padding-bottom: 4rem;
+  }
+
+  .subtopic-section {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    border-bottom: none;
+  }
+
+  .section-subtitle {
+    font-size: 0.925rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .subtopic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .subtopic-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .subtopic-card:hover {
+    transform: translateY(-2px);
+    border-color: #0f172a;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sub-title {
+    font-weight: 700;
+    color: var(--color-text-main);
+    font-size: 1rem;
+  }
+
+  .sub-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .articles-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .empty-box {
+    padding: 3rem;
+    background-color: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-border);
+    color: var(--color-text-muted);
+  }
+</style>

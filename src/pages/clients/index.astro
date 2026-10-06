@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && entry.data.category === 'clients';
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+
+<PillarLayout
+  categorySlug="clients"
+  title="多平台连接客户端推荐与下载导航"
+  description="涵盖 Windows、macOS、Android、iOS 与路由器全平台主流客户端软件介绍、对比与一键配置指引。"
+  coreAnswer="Windows 推荐 Clash Verge / Sing-box；macOS 推荐 Clash Verge / Surge；iOS 推荐 Shadowrocket / Stash；Android 推荐 Flclash / Surfboard。"
+  articles={articles}
+/>

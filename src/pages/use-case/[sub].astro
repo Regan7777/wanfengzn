@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    'chatgpt',
+    'claude',
+    'gemini',
+    'ai',
+    'video',
+    'social',
+    'office',
+    'gaming',
+    'coding',
+    'multi-device'
+  ];
+
+  return subSlugs.map((sub) => ({
+    params: { sub },
+    props: { sub, topicKey: `use-case/${sub}` }
+  }));
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `use-case/${sub}`,
+  path: `/use-case/${sub}/`,
+  title: `${sub.toUpperCase()} 场景专属服务指南`,
+  shortName: `${sub} 场景`,
+  seoTitle: `${sub.toUpperCase()} 场景网络服务选择指南 - 网络服务指南`,
+  description: `针对 ${sub} 特定使用场景选购网络服务的硬性指标与推荐线路。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'use-case',
+  category: 'use-case',
+  keywords: [`${sub} 机场推荐`],
+  searchIntent: 'Commercial',
+  coreAnswer: `为保证 ${sub} 的流畅体验，建议优先选择具备原生住宅 IP 或独享入口的节点。`
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'use-case' || art.data.category === 'recommend');
+---
+
+<PillarLayout
+  categorySlug="use-case"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+/>

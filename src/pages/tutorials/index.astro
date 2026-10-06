@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && entry.data.category === 'tutorials';
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+
+<PillarLayout
+  categorySlug="tutorials"
+  title="网络服务图文使用教程｜零基础快速上手"
+  description="手把手教学：包含客户端安装包下载、订阅链接导入、节点切换、规则模式选择与开机自启配置全流程。"
+  coreAnswer="导入订阅链接后，务必将路由模式切换为‘规则模式 (Rule)’，以便自动识别国内流量直连与海外流量转发。"
+  articles={articles}
+/>

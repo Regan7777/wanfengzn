@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && (entry.data.category === 'ranking' || entry.data.category === 'recommend');
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const rankingFaqs = [
+  {
+    question: "排行榜的评分维度包含哪些？",
+    answer: "排行榜综合考虑：1. 晚高峰20:00-23:00真实丢包率与测速；2. 运营时间长短（是否超过3年）；3. 专线比例；4. 客服工单响应速度。"
+  },
+  {
+    question: "排行榜多久更新一次？",
+    answer: "我们每月进行一次例行网络测试，并根据服务商线路调整实时更新榜单排名，确保数据的准确性与时效性。"
+  }
+];
+---
+
+<PillarLayout
+  categorySlug="ranking"
+  title="2026机场排行榜单｜综合、稳定与性价比排名"
+  description="基于实际晚高峰测速、线路质量、服务稳定性与用户口碑整理的网络服务商排行榜单。涵盖综合榜、稳定榜与性价比榜。"
+  coreAnswer="排行榜并非一成不变，推荐用户根据自己的实际预算与需求看榜选方案：办公选稳定专线榜，学生选高性价比榜。"
+  articles={articles}
+  faqs={rankingFaqs}
+/>

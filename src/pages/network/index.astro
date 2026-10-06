@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && entry.data.category === 'network';
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+
+<PillarLayout
+  categorySlug="network"
+  title="网络线路知识详解｜IEPL、IPLC、BGP与节点区别"
+  description="深入浅出剖析 IEPL 国际以太网专线、IPLC 内网专线、BGP 入口中转与直连线路的区别，掌握选购的核心物理学逻辑。"
+  coreAnswer="IEPL/IPLC 专线不过公网防火墙，稳定度最高；BGP 中转优化跨网入口体验；公网直连价格低廉但易受干扰。"
+  articles={articles}
+/>

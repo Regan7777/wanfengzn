@@ -1,0 +1,46 @@
+---
+import SEO from '../components/SEO.astro';
+import Schema from '../components/Schema.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  schemaData?: object | object[] | null;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl,
+  ogImage,
+  schemaData = null,
+  noindex = false
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      canonicalUrl={canonicalUrl}
+      ogImage={ogImage}
+      noindex={noindex}
+    />
+    <Schema schemaData={schemaData} />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

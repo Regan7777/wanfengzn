@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCategoryMeta, getCanonicalUrl } from '../../lib/utils';
+import { generateBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  const categories = Array.from(new Set(articles.map((a) => a.data.category)));
+
+  return categories.map((cat) => {
+    const filtered = articles.filter((a) => a.data.category === cat);
+    filtered.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+    return {
+      params: { category: cat },
+      props: { categorySlug: cat, articles: filtered }
+    };
+  });
+}
+
+const { categorySlug, articles } = Astro.props;
+const categoryMeta = getCategoryMeta(categorySlug);
+const currentUrl = getCanonicalUrl(`/category/${categorySlug}/`);
+
+const breadcrumbs = [
+  { name: categoryMeta.name, url: `/${categorySlug}/` },
+  { name: '文章分类', url: `/category/${categorySlug}/` }
+];
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+---
+
+<BaseLayout
+  title={`${categoryMeta.name}相关文章 - 晚风机场服务指南`}
+  description={categoryMeta.description}
+  canonicalUrl={currentUrl}
+  schemaData={breadcrumbSchema}
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <header class="page-header">
+      <h1 class="page-title">{categoryMeta.name} 分类文章</h1>
+      <p class="page-subtitle">{categoryMeta.description}（共收录 {articles.length} 篇）</p>
+    </header>
+
+    <div class="card-grid">
+      {articles.map((article) => (
+        <ArticleCard article={article} headingLevel="h2" showCategory={false} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+  }
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -1,0 +1,223 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const searchIndexData = allArticles.map((art) => ({
+  title: art.data.title,
+  description: art.data.description,
+  url: `/articles/${art.slug}/`,
+  category: art.data.category,
+  tags: art.data.tags || [],
+  publishedAt: art.data.publishedAt
+}));
+
+const breadcrumbs = [{ name: '全站搜索', url: '/search/' }];
+---
+
+<BaseLayout
+  title="全站搜索 - 晚风机场服务指南"
+  description="实时搜索2026机场推荐、服务商评测、IEPL专线分析、客户端教程与故障排查文章。"
+  noindex={true}
+>
+  <div class="container search-page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <header class="search-header">
+      <h1 class="page-title">全站文章与指南搜索</h1>
+      <p class="page-subtitle">输入关键词快速查找文章、服务商对比与使用教程</p>
+    </header>
+
+    <div class="search-box-wrapper">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="例如：2026机场推荐、IEPL专线、ChatGPT、客户端下载..."
+        class="search-input"
+        autofocus
+      />
+    </div>
+
+    <!-- Search Results List -->
+    <div id="search-results-stats" class="search-stats"></div>
+    <div id="search-results-list" class="results-list"></div>
+  </div>
+</BaseLayout>
+
+<script is:inline define:vars={{ searchIndexData }}>
+  const input = document.getElementById('search-input');
+  const stats = document.getElementById('search-results-stats');
+  const list = document.getElementById('search-results-list');
+
+  // 获取 URL 中的 q 参数
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialQuery = urlParams.get('q') || '';
+
+  if (input && initialQuery) {
+    input.value = initialQuery;
+  }
+
+  function renderResults(query) {
+    if (!query || query.trim() === '') {
+      stats.innerHTML = '';
+      list.innerHTML = '<p class="search-hint">在上方输入框输入关键词开始搜索...</p>';
+      return;
+    }
+
+    const term = query.trim().toLowerCase();
+    const matches = searchIndexData.filter((item) => {
+      const matchTitle = item.title.toLowerCase().includes(term);
+      const matchDesc = item.description.toLowerCase().includes(term);
+      const matchTags = item.tags.some((t) => t.toLowerCase().includes(term));
+      return matchTitle || matchDesc || matchTags;
+    });
+
+    stats.innerHTML = `找到 <strong>${matches.length}</strong> 条相关搜索结果`;
+
+    if (matches.length === 0) {
+      list.innerHTML = `
+        <div class="no-results">
+          <p>未找到包含 “<strong>${term}</strong>” 的文章。</p>
+          <p class="sub-hint">建议尝试更简短的关键词，例如“推荐”、“专线”、“月付”或查看<a href="/recommend/">机场推荐专题</a>。</p>
+        </div>
+      `;
+      return;
+    }
+
+    list.innerHTML = matches
+      .map(
+        (item) => `
+      <article class="search-result-card">
+        <h2 class="result-title">
+          <a href="${item.url}">${item.title}</a>
+        </h2>
+        <p class="result-excerpt">${item.description}</p>
+        <div class="result-meta">
+          <span class="badge badge-primary">${item.category}</span>
+          <a href="${item.url}" class="result-link">阅读全文 →</a>
+        </div>
+      </article>
+    `
+      )
+      .join('');
+  }
+
+  if (input) {
+    input.addEventListener('input', (e) => renderResults(e.target.value));
+    renderResults(input.value);
+  }
+</script>
+
+<style>
+  .search-page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 860px;
+  }
+
+  .search-header {
+    margin-bottom: 2rem;
+  }
+
+  .page-title {
+    font-size: 2.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+
+  .search-box-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--color-border);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  }
+
+  .search-stats {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .search-result-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: border-color 0.15s ease;
+  }
+
+  .search-result-card:hover {
+    border-color: var(--color-primary-light);
+  }
+
+  .result-title {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .result-title a {
+    color: var(--color-text-main);
+    text-decoration: none;
+  }
+
+  .result-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .result-excerpt {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.85rem;
+  }
+
+  .result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .result-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .search-hint, .no-results {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: var(--color-bg-surface);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-border);
+    color: var(--color-text-muted);
+  }
+
+  .sub-hint {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+</style>

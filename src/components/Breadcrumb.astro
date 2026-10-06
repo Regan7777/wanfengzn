@@ -1,0 +1,76 @@
+---
+import type { BreadcrumbItem } from '../lib/schema';
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumb-nav" aria-label="面包屑导航">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item" class="breadcrumb-link">
+        <span itemprop="name">首页</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+
+    {items.map((item, index) => (
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="separator">/</span>
+        {index === items.length - 1 ? (
+          <span class="current-page" itemprop="name">{item.name}</span>
+        ) : (
+          <a href={item.url} itemprop="item" class="breadcrumb-link">
+            <span itemprop="name">{item.name}</span>
+          </a>
+        )}
+        <meta itemprop="position" content={(index + 2).toString()} />
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-nav {
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumb-link {
+    color: var(--color-text-secondary);
+    transition: color 0.15s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: var(--color-primary);
+  }
+
+  .separator {
+    margin: 0 0.45rem;
+    color: var(--color-border-hover);
+    font-size: 0.8rem;
+  }
+
+  .current-page {
+    color: var(--color-text-main);
+    font-weight: 600;
+  }
+</style>

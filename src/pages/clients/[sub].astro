@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    'windows',
+    'macos',
+    'android',
+    'ios',
+    'clash-verge',
+    'v2rayn',
+    'shadowrocket',
+    'sing-box',
+    'stash'
+  ];
+
+  return subSlugs.map((sub) => ({
+    params: { sub },
+    props: { sub, topicKey: `clients/${sub}` }
+  }));
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `clients/${sub}`,
+  path: `/clients/${sub}/`,
+  title: `${sub} 客户端下载与使用导航`,
+  shortName: `${sub} 客户端`,
+  seoTitle: `${sub} 客户端下载与使用导航 - 网络服务指南`,
+  description: `${sub} 客户端官方下载渠道、一键订阅配置与规则设置使用教程。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'clients',
+  category: 'clients',
+  keywords: [`${sub} 客户端`],
+  searchIntent: 'Informational',
+  coreAnswer: `请务必通过 GitHub Release 或 App Store 等官方正规渠道下载 ${sub} 客户端。`
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'clients' || art.data.tags.includes('客户端'));
+---
+
+<PillarLayout
+  categorySlug="clients"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+/>

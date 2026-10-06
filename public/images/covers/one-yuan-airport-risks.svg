@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="url(#paint0_linear)"/>
+  <text x="400" y="210" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="34" font-weight="bold">一元机场为什么不可用？</text>
+  <text x="400" y="270" text-anchor="middle" fill="#F87171" font-family="sans-serif" font-size="22">底层原理 • 极致超卖 • 隐私泄露与跑路风险</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#451A03"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>

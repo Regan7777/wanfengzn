@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="url(#paint0_linear)"/>
+  <circle cx="650" cy="100" r="300" fill="white" fill-opacity="0.05"/>
+  <path d="M200 225C200 150 250 100 350 100H450C550 100 600 150 600 225C600 300 550 350 450 350H350C250 350 200 300 200 225Z" stroke="#818CF8" stroke-width="8" stroke-dasharray="12 12"/>
+  <text x="400" y="210" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="38" font-weight="bold">2026 机场推荐指南</text>
+  <text x="400" y="270" text-anchor="middle" fill="#94A3B8" font-family="sans-serif" font-size="22">稳定 • 价格 • 线路选择知识导航</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E1B4B"/>
+      <stop offset="0.5" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>

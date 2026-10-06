@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { SITE_CONFIG } from '../config';
+
+const breadcrumbs = [{ name: '关于本站', url: '/about/' }];
+---
+
+<BaseLayout
+  title="关于本站 - 网络服务选择指南"
+  description="了解网络服务选择指南博客的建立初衷、定位、编辑团队与客观评测原则。"
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <article class="prose about-prose">
+      <h1>关于本站 (About Us)</h1>
+      
+      <p class="lead">
+        <strong>{SITE_CONFIG.siteName}</strong> 是一个面向中文用户的知识型网络服务选择与使用博客。
+      </p>
+
+      <h2>本站建立初衷</h2>
+      <p>
+        在当今数字化时代，高效、稳定地接入全球网络资源对于学术研究、跨境办公、AI 大模型交互以及国际信息交流至关重要。
+        然而，由于信息不对称，很多用户在搜索“机场推荐”或挑选网络服务时，常常面临虚假广告过多、服务商跑路、价格陷阱以及不会设置客户端等痛点。
+      </p>
+
+      <h2>我们的核心原则</h2>
+      <ul>
+        <li><strong>真实客观：</strong> 所有服务商评测均基于实际测速表现、晚高峰丢包率与长时间稳定性监测。</li>
+        <li><strong>安全第一：</strong> 倡导“月付优先”与小额测试原则，帮助用户最大程度规避资金风险。</li>
+        <li><strong>技术普及：</strong> 用通俗易懂的语言解释 IEPL/IPLC 专线、BGP 中转、DNS 污染等网络原理。</li>
+        <li><strong>长期维护：</strong> 建立系统化的 Topic Cluster（主题集群），持续更新 2026 最新网络知识。</li>
+      </ul>
+
+      <h2>联系我们与反馈</h2>
+      <p>
+        如果您对本站文章有任何疑问、修正建议或希望获取最新动态与技术交流，欢迎关注我们的 Telegram 官方频道：
+      </p>
+      <p>
+        📢 Telegram 官方频道：<a href="https://t.me/wanfengjc" target="_blank" rel="noopener noreferrer"><code>t.me/wanfengjc</code></a>
+      </p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 820px;
+  }
+  .lead {
+    font-size: 1.2rem;
+    color: var(--color-text-main);
+  }
+</style>

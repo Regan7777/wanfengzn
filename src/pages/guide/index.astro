@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && (entry.data.category === 'guide' || entry.data.tags.includes('新手指南'));
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const subtopics = [
+  { title: '2026机场推荐选购指南', path: '/articles/2026-airport-recommendation-guide/', description: '新手选择第一款服务商的全流程指南' },
+  { title: '第一次选择注意事项', path: '/articles/first-time-airport-selection-tips/', description: '避开低价陷阱与安全防护原则' },
+  { title: '套餐计费模式对比', path: '/articles/airport-pricing-plan-comparison/', description: '月付、按量与年付套餐分析' }
+];
+---
+
+<PillarLayout
+  categorySlug="guide"
+  title="网络服务新手零基础入门百科"
+  description="适合完全不了解的新手用户。从节点、线路、客户端与订阅的基本概念入手，建立正确认知，避开低价陷阱。"
+  coreAnswer="零基础新手小白只需要记住：选月付、用正规客户端、备用双线路。跟着本专题文章阅读，3分钟完成入门。"
+  subtopics={subtopics}
+  articles={articles}
+/>

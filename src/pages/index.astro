@@ -1,0 +1,505 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import { SITE_CONFIG } from '../config';
+import { generateOrganizationSchema, generateWebSiteSchema, generateFAQSchema } from '../lib/schema';
+
+// 获取所有公开非草稿文章
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const sortedArticles = allArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// 样例导航/服务卡片数据 (与参考模板布局一致)
+const providerCards = [
+  {
+    tag: '数据库',
+    title: '机场参数数据库',
+    desc: '2026 最新网络服务参数汇总',
+    link: '/recommend/',
+    isSpecial: true
+  },
+  {
+    tag: 'BGP优质中转 / VLESS',
+    title: '神行加速',
+    desc: 'BGP优质中转 + 原生家宽IP',
+    link: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8'
+  },
+  {
+    tag: 'BGP多线中转 / Anycast',
+    title: '大佬云',
+    desc: 'BGP多线中转 + 稳定老牌体验',
+    link: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL'
+  },
+  {
+    tag: '公网直连 / SS',
+    title: '闪电鼠',
+    desc: '公网直连架构 + 超低28ms延迟',
+    link: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK'
+  },
+  {
+    tag: 'BGP中转 / Trojan',
+    title: '榴莲云',
+    desc: 'BGP中转 + 超高性价比流量包',
+    link: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN'
+  },
+  {
+    tag: 'BGP双线中转 / VLESS',
+    title: '环球梯',
+    desc: 'BGP双线中转 + 全球60+节点',
+    link: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG'
+  },
+  {
+    tag: 'Hysteria2直连',
+    title: '云界限',
+    desc: 'Hysteria2协议 + 弱网高吞吐',
+    link: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW'
+  },
+  {
+    tag: '提交入口',
+    title: '机场提交',
+    desc: '提交您的服务商数据与评测',
+    link: '/about/',
+    isAddCard: true
+  }
+];
+
+const homeFaqs = [
+  {
+    question: "本站的“机场推荐”与评测标准是什么？",
+    answer: "我们基于实际晚高峰测速、丢包率、线路类型（IEPL/IPLC/BGP）、售后响应与网络环境兼容性进行综合评测，拒绝接受没有实际测试支撑的虚假广告。"
+  },
+  {
+    question: "完全不了解的新手，第一次应该如何选择？",
+    answer: "建议零基础新手先阅读《新手指南》与《第一次选择应该注意什么》，优先选择支持按月付款的服务商，先购买一个月测试自己常使用的节点和时间段。"
+  },
+  {
+    question: "使用专线线路（IEPL/IPLC）有什么优势？",
+    answer: "专线线路采用点对点物理内网传输，流量不经过公网防火墙，具有极高的稳定性、极低的延迟与丢包率，即使在网络高峰期也能保持通畅。"
+  }
+];
+
+const orgSchema = generateOrganizationSchema();
+const siteSchema = generateWebSiteSchema();
+const faqSchema = generateFAQSchema(homeFaqs);
+const schemas = [orgSchema, siteSchema, faqSchema].filter(Boolean);
+---
+
+<BaseLayout
+  title={SITE_CONFIG.siteTitle}
+  description={SITE_CONFIG.description}
+  canonicalUrl={SITE_CONFIG.siteUrl}
+  schemaData={schemas}
+>
+  <!-- Minimalist Hero Banner (Matching Evening Breeze Theme) -->
+  <section class="template-hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="container text-center">
+      <div class="brand-top-sub">{SITE_CONFIG.siteName}</div>
+      <h1 class="main-hero-title">机场导航</h1>
+
+      <p class="hero-subtext-main">
+        {SITE_CONFIG.siteName}，专注收录与维护机场服务参数，帮你快速找到合适的节点与套餐。
+      </p>
+
+      <p class="hero-paragraph">
+        持续追踪机场的核心信息：覆盖地区、响应时间、节点规模、线路协议、带宽与设备限制、客户端支持、流媒体与 AI 解锁能力、价格及售后政策等，并保持及时更新。
+      </p>
+    </div>
+  </section>
+
+  <!-- Provider Cards Grid Section (Matching Template Layout) -->
+  <div class="container portal-body">
+    <div class="provider-cards-grid">
+      {providerCards.map((card) => (
+        <a href={card.link} class:list={['provider-card', { 'add-card': card.isAddCard }, { 'special-card': card.isSpecial }]}>
+          {card.isAddCard ? (
+            <div class="add-card-content">
+              <div class="add-icon">+</div>
+              <div class="card-title">{card.title}</div>
+              <div class="card-desc">{card.desc}</div>
+            </div>
+          ) : (
+            <div class="card-inner">
+              <div class="card-tag">{card.tag}</div>
+              <div class="card-title">{card.title}</div>
+              <div class="card-desc">{card.desc}</div>
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- Latest Articles Grid -->
+    <section class="latest-articles-section">
+      <div class="section-header-flex">
+        <div>
+          <h2 class="section-title">最新深度文章与分析</h2>
+          <p class="section-subtitle">持续更新的网络技术解析、评测与使用教程</p>
+        </div>
+        <a href="/articles/" class="view-all-link">查看全部文章 ({sortedArticles.length}) →</a>
+      </div>
+
+      <div class="card-grid">
+        {sortedArticles.slice(0, 6).map((article) => (
+          <ArticleCard article={article} headingLevel="h3" />
+        ))}
+      </div>
+    </section>
+
+    <!-- Disclaimer Block flanked by dividers (Matching Template) -->
+    <div class="template-disclaimer-wrapper">
+      <hr class="template-divider" />
+      <p class="template-disclaimer-text">
+        {SITE_CONFIG.siteName} 是完全独立的第三方参数收集导航站，不运营任何代理或网络服务商。所有参数均基于官方公开资料核实整理，请务必遵守所在地区法律法规，相关内容仅供技术交流与学术参考。
+      </p>
+      <hr class="template-divider" />
+    </div>
+
+    <!-- FAQ Accordion -->
+    <FAQAccordion faqs={homeFaqs} title="常见问题解答 (FAQ)" description="关于网络服务选择与本站评测方法的常见疑难解答" />
+  </div>
+</BaseLayout>
+
+<style>
+  /* Minimalist Template Styles strictly aligned with the user screenshot */
+  .template-hero {
+    position: relative;
+    width: 100%;
+    padding: 4.5rem 0 4rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 40%, #1e1b4b 75%, #311b92 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* 晚风流光背景装饰 (Evening Breeze Ambient Glow Orbs) */
+  .template-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 15%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.18) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  .template-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    right: 12%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 70%);
+    filter: blur(90px);
+    pointer-events: none;
+    border-radius: 50%;
+  }
+
+  /* 极简风感网格微纹 */
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .template-hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .brand-top-sub {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+    display: inline-block;
+    padding: 0.3rem 0.95rem;
+    background: rgba(165, 180, 252, 0.08);
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .main-hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.15rem;
+    letter-spacing: -0.03em;
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .hero-subtext-main {
+    font-size: 1.05rem;
+    color: #cbd5e1;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .hero-paragraph {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.75;
+  }
+
+  .hero-search-container {
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .template-search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 1rem;
+    transition: all 0.15s ease;
+  }
+
+  .template-search-form:focus-within {
+    border-color: #0f172a;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
+  }
+
+  .template-search-form input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+    color: #0f172a;
+  }
+
+  .template-search-form input::placeholder {
+    color: #94a3b8;
+  }
+
+  .template-search-form button {
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .template-search-form button:hover {
+    color: #0f172a;
+  }
+
+  /* Filter Tabs */
+  .filter-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .filter-tabs {
+    display: inline-flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab-item {
+    font-size: 0.825rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    color: #475569;
+    background-color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s ease;
+  }
+
+  .tab-item:hover {
+    border-color: #0f172a;
+    color: #0f172a;
+  }
+
+  .tab-item.active {
+    background-color: #ffffff;
+    border-color: #0f172a;
+    color: #0f172a;
+    font-weight: 700;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .portal-body {
+    padding-top: 2.5rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Provider Cards Grid */
+  .provider-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .provider-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 1.15rem 1rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 105px;
+  }
+
+  .provider-card:hover {
+    border-color: #0f172a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .card-tag {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-bottom: 0.35rem;
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 0.975rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-desc {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.4;
+  }
+
+  /* Special Add Card */
+  .provider-card.add-card {
+    border-style: dashed;
+    border-color: #cbd5e1;
+    background-color: #fafafa;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .provider-card.add-card:hover {
+    border-color: #0f172a;
+    background-color: #ffffff;
+  }
+
+  .add-icon {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-bottom: 0.2rem;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .section-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin: 0 0 0.35rem;
+    border-bottom: none;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .latest-articles-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .view-all-link {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    text-decoration: none;
+  }
+
+  .view-all-link:hover {
+    color: var(--color-accent);
+  }
+
+  /* Template Disclaimer Section flanked by dividers */
+  .template-disclaimer-wrapper {
+    margin: 3.5rem 0;
+    text-align: center;
+  }
+
+  .template-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 1.5rem 0;
+  }
+
+  .template-disclaimer-text {
+    font-size: 0.825rem;
+    color: #64748b;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Responsive Cards Grid */
+  @media (max-width: 1024px) {
+    .provider-cards-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .provider-cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .main-hero-title {
+      font-size: 2.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .provider-cards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

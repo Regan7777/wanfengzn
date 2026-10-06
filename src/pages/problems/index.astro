@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && entry.data.category === 'problems';
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+
+<PillarLayout
+  categorySlug="problems"
+  title="常见网络故障与错误连接排查指南"
+  description="解决节点超时、订阅更新失败、DNS 污染、网页加载缓慢与部分 App 无法打开的自检诊断手册。"
+  coreAnswer="遇到打不开节点时，请优先检查：1. 系统时间是否对准；2. 订阅链接是否过期；3. 尝试更新订阅与更换节点。"
+  articles={articles}
+/>

@@ -1,0 +1,134 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+import ComparisonTable, { type ComparisonRow } from '../../components/ComparisonTable.astro';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    'stable',
+    'value',
+    'budget',
+    'beginner',
+    'premium',
+    'long-term',
+    'monthly',
+    'yearly',
+    'payg',
+    'ai',
+    'streaming',
+    'work',
+    'gaming',
+    'multi-device'
+  ];
+
+  return subSlugs.map((sub) => {
+    const topicKey = `recommend/${sub}`;
+    return {
+      params: { sub },
+      props: { sub, topicKey }
+    };
+  });
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `recommend/${sub}`,
+  path: `/recommend/${sub}/`,
+  title: `${sub} 机场推荐`,
+  shortName: `${sub} 推荐`,
+  seoTitle: `${sub} 机场推荐｜2026专业指南 - 网络服务指南`,
+  description: `关于 ${sub} 机场推荐的专题选购说明与优缺点分析。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'recommend',
+  category: 'recommend',
+  keywords: [`${sub} 机场推荐`],
+  searchIntent: 'Commercial',
+  coreAnswer: `针对 ${sub} 需求，建议重点关注晚高峰稳定度与线路质量。`
+};
+
+// 获取包含此关键词或所属分类的文章
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => {
+  const matchCategory = art.data.category === 'recommend';
+  const matchTag = art.data.tags?.some((t) => topicNode.keywords.some((k) => k.includes(t) || t.includes(k)));
+  return matchCategory || matchTag;
+});
+filteredArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+// 对比数据
+const comparisonData: ComparisonRow[] = [
+  {
+    name: '神行加速',
+    type: 'IEPL专线 / VLESS',
+    rating: '9.8',
+    entryPrice: '¥16/月起',
+    features: ['7折优惠码: sx0077', '全IEPL专线', '原生家宽IP', '解封ChatGPT/Netflix'],
+    suitability: `适合 ${topicNode.shortName} 核心需求`,
+    affLink: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8',
+    linkText: '直达官网'
+  },
+  {
+    name: '大佬云',
+    type: 'BGP中转 / Anycast',
+    rating: '9.75',
+    entryPrice: '¥10/月起',
+    features: ['稳定老牌', '超值体验', '多线路冗余', '工单极速响应'],
+    suitability: `适合 ${topicNode.shortName} 入门体验`,
+    affLink: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL',
+    linkText: '直达官网'
+  },
+  {
+    name: '闪电鼠',
+    type: 'IEPL专线 / Shadowsocks',
+    rating: '9.7',
+    entryPrice: '¥15/月起',
+    features: ['全专线架构', '超低延迟', '全平台支持', '原生IP解锁'],
+    suitability: `适合 ${topicNode.shortName} 极速需求`,
+    affLink: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
+    linkText: '直达官网'
+  },
+  {
+    name: '榴莲云',
+    type: 'BGP中转 / Trojan',
+    rating: '9.6',
+    entryPrice: '¥12/月起',
+    features: ['性价比首选', 'BGP中转', '大流量包', 'AI/流媒体解锁'],
+    suitability: `适合 ${topicNode.shortName} 性价比需求`,
+    affLink: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN',
+    linkText: '直达官网'
+  },
+  {
+    name: '环球梯',
+    type: 'IEPL专线 / VLESS',
+    rating: '9.5',
+    entryPrice: '¥18/月起',
+    features: ['全球多节点', '晚高峰保障', '高速稳定', '全设备并发'],
+    suitability: `适合 ${topicNode.shortName} 稳定需求`,
+    affLink: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG',
+    linkText: '直达官网'
+  },
+  {
+    name: '云界限',
+    type: 'IPLC专线 / Hysteria2',
+    rating: '9.4',
+    entryPrice: '¥20/月起',
+    features: ['新一代协议', '抗封锁极佳', '住宅原生IP', '无缝切换'],
+    suitability: `适合 ${topicNode.shortName} 抗封锁需求`,
+    affLink: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
+    linkText: '直达官网'
+  }
+];
+---
+
+<PillarLayout
+  categorySlug="recommend"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+>
+  <ComparisonTable data={comparisonData} title={`${topicNode.shortName} 核心方案对比`} />
+</PillarLayout>

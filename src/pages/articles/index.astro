@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { getCanonicalUrl } from '../../lib/utils';
+import { generateBreadcrumbSchema } from '../../lib/schema';
+
+const PAGE_SIZE = 12;
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+allArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const totalPages = Math.ceil(allArticles.length / PAGE_SIZE);
+const currentArticles = allArticles.slice(0, PAGE_SIZE);
+
+const currentUrl = getCanonicalUrl('/articles/');
+const breadcrumbs = [{ name: '文章总览', url: '/articles/' }];
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+---
+
+<BaseLayout
+  title="全部文章与指南总览 - 晚风机场服务指南"
+  description="浏览网络服务选择指南的完整文章归档。包含机场推荐、IEPL专线分析、服务商评测、客户端教程与问题解决。"
+  canonicalUrl={currentUrl}
+  schemaData={breadcrumbSchema}
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <header class="page-header">
+      <h1 class="page-title">全部文章总览</h1>
+      <p class="page-subtitle">共收录 {allArticles.length} 篇网络服务选择与使用专业指南</p>
+    </header>
+
+    <div class="card-grid">
+      {currentArticles.map((article) => (
+        <ArticleCard article={article} headingLevel="h2" />
+      ))}
+    </div>
+
+    <Pagination currentPage={1} totalPages={totalPages} baseUrl="/articles/" />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+  }
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+</style>

@@ -1,0 +1,121 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const popularArticles = (await getCollection('articles', ({ data }) => !data.draft)).slice(0, 3);
+---
+
+<BaseLayout title="404 - 页面未找到 - 晚风机场服务指南" noindex={true}>
+  <div class="container error-container">
+    <div class="error-box text-center">
+      <span class="error-code">404</span>
+      <h1 class="error-title">抱歉，您访问的页面不存在或已被移走</h1>
+      <p class="error-desc">
+        可能是输入的网址有误，或者该文章已更新迁移。别担心，您可以尝试以下操作：
+      </p>
+
+      <div class="action-buttons">
+        <a href="/" class="btn btn-primary">返回网站首页</a>
+        <a href="/search/" class="btn btn-secondary">使用全站搜索</a>
+        <a href="/recommend/" class="btn btn-secondary">查看 2026 机场推荐</a>
+      </div>
+    </div>
+
+    {popularArticles.length > 0 && (
+      <div class="recommended-section">
+        <h2 class="section-title text-center">热门推荐阅读</h2>
+        <div class="card-grid">
+          {popularArticles.map((art) => (
+            <ArticleCard article={art} headingLevel="h3" />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .error-container {
+    padding-top: 4rem;
+    padding-bottom: 5rem;
+    max-width: 900px;
+  }
+
+  .error-box {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    margin-bottom: 3.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .error-code {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .error-title {
+    font-size: 1.75rem;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+  }
+
+  .error-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 1.4rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn-secondary {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-border);
+  }
+
+  .recommended-section {
+    margin-top: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+  }
+</style>

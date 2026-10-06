@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import ComparisonTable, { type ComparisonRow } from '../../components/ComparisonTable.astro';
+
+// 获取分类为 recommend 的文章
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && (entry.data.category === 'recommend' || entry.data.tags.includes('机场推荐'));
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const recommendFaqs = [
+  {
+    question: "2026年稳定‘机场推荐’应该看哪些指标？",
+    answer: "重点看三点：1. 晚高峰20:00-23:00丢包率是否低于1%；2. 线路是否采用BGP多线中转或直连协议优化；3. 是否支持月付与折扣优惠以规避风险。"
+  },
+  {
+    question: "机场推荐和普通代理 VPN 有什么区别？",
+    answer: "通常所说的‘机场’是指支持 Clash、Sing-box 等多平台客户端订阅服务的网络集群，节点丰富且可以智能分流国内与海外流量，比传统全局VPN速度更快、更省电。"
+  },
+  {
+    question: "为什么有些推荐榜单里的服务跑路了？",
+    answer: "许多垃圾宣传站点为了佣金推荐劣质超卖服务。本站所有推荐服务均建立在长期测速、SLA可用性监测与月付安全原则基础之上。"
+  }
+];
+
+const tableData: ComparisonRow[] = [
+  {
+    name: '神行加速',
+    type: 'BGP优质中转 / VLESS',
+    rating: '9.8',
+    entryPrice: '¥16.1/月',
+    features: ['BGP优质中转', 'VLESS协议', '原生家宽IP', '不限在线设备', '800Mbps带宽'],
+    suitability: '注重晚高峰稳定 / AI工具 / 流媒体重度用户',
+    reviewLink: '/articles/shenxing-airport-review-2026/',
+    affLink: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8',
+    linkText: '直达官网'
+  },
+  {
+    name: '大佬云',
+    type: 'BGP多线中转 / Anycast',
+    rating: '9.75',
+    entryPrice: '¥14/月',
+    features: ['稳定老牌', 'Anycast分流', '200GB超大流量', '工单极速响应'],
+    suitability: '预算敏感型 / 学生党 / 基础上网需求',
+    reviewLink: '/articles/dalaoyun-airport-review-2026/',
+    affLink: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL',
+    linkText: '直达官网'
+  },
+  {
+    name: '闪电鼠',
+    type: '公网直连 / SS',
+    rating: '9.7',
+    entryPrice: '¥15.4/月',
+    features: ['公网直连架构', '超低延迟 28ms', '全平台支持', '原生IP解锁'],
+    suitability: '极速游戏 / 跨国办公 / 高频稳定连接',
+    reviewLink: '/articles/shandianshu-airport-review-2026/',
+    affLink: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
+    linkText: '直达官网'
+  },
+  {
+    name: '榴莲云',
+    type: 'BGP中转 / Trojan',
+    rating: '9.6',
+    entryPrice: '¥16.8/月',
+    features: ['性价比首选', 'BGP中转', '大流量包', 'AI/流媒体解锁'],
+    suitability: '高清追剧 / 日常刷视频 / 大流量需求',
+    reviewLink: '/articles/liulianyun-airport-review-2026/',
+    affLink: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN',
+    linkText: '直达官网'
+  },
+  {
+    name: '环球梯',
+    type: 'BGP双线中转 / VLESS',
+    rating: '9.5',
+    entryPrice: '¥15.4/月',
+    features: ['全球60+节点', '晚高峰保障', '高速稳定', '全设备并发'],
+    suitability: '商务出差 / 多设备连接 / 跨境电商',
+    reviewLink: '/articles/huanqiuti-airport-review-2026/',
+    affLink: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG',
+    linkText: '直达官网'
+  },
+  {
+    name: '云界限',
+    type: 'Hysteria2直连',
+    rating: '9.4',
+    entryPrice: '¥15.4/月',
+    features: ['Hysteria2协议', '抗封锁极佳', '住宅原生IP', '无缝切换'],
+    suitability: '复杂网络环境 / 高抗封锁 / 极客用户',
+    reviewLink: '/articles/yunjiexian-airport-review-2026/',
+    affLink: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
+    linkText: '直达官网'
+  }
+];
+---
+
+<PillarLayout
+  categorySlug="recommend"
+  title="机场推荐｜2026稳定机场选择与对比"
+  seoTitle="机场推荐2026｜稳定、价格与线路选择指南 - 晚风机场服务指南"
+  description="面向中文用户的2026机场推荐核心专题入口。为您汇总6大热门稳定机场排行、真实月付套餐方案、BGP中转与直连线路推荐、AI平台解锁与官网直达。"
+  coreAnswer="挑选2026年稳定网络服务商的核心公式：优先选择‘BGP优质中转或直连优化’ + 认准‘实时优惠月价’ + 坚持‘月付订阅’。切忌盲目购买超低价年付套餐。"
+  articles={articles}
+  faqs={recommendFaqs}
+>
+  <ComparisonTable data={tableData} title="2026年核心推荐服务商对比概览" />
+</PillarLayout>

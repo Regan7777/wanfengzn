@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+
+const articles = await getCollection('articles', (entry) => {
+  return !entry.data.draft && (entry.data.category === 'price' || entry.data.tags.includes('性价比') || entry.data.tags.includes('价格选择'));
+});
+articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const priceFaqs = [
+  {
+    question: "为什么说月付套餐最划算、最安全？",
+    answer: "月付把资金主动权握在自己手里。即使服务商临时线路波动或调整策略，损失也仅限于当月几十元，方便随时切换。"
+  },
+  {
+    question: "按量计费套餐适合什么样的人？",
+    answer: "适合出差备用、轻度查询学术资料或多线路备份的用户。一次购买 100GB 流量可以零成本放置使用半年以上。"
+  }
+];
+---
+
+<PillarLayout
+  categorySlug="price"
+  title="网络服务套餐与价格指南｜月付、年付与按量计费选择"
+  description="教你如何根据预算选择最划算的网络服务套餐，深入剖析月付包月、年付折扣与按量不限时套餐的区别，避免价格陷阱。"
+  coreAnswer="高性价比不等于低价。15-20元/月的稳定中转套餐是综合性价比最高选择；追求极致稳定性可选择30-50元/月的专线套餐。"
+  articles={articles}
+  faqs={priceFaqs}
+/>

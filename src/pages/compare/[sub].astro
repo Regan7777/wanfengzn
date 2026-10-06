@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    'iepl-vs-iplc',
+    'monthly-vs-yearly',
+    'payg-vs-subscription',
+    'cheap-vs-premium'
+  ];
+
+  return subSlugs.map((sub) => ({
+    params: { sub },
+    props: { sub, topicKey: `compare/${sub}` }
+  }));
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `compare/${sub}`,
+  path: `/compare/${sub}/`,
+  title: `${sub.toUpperCase()} 深度对比`,
+  shortName: `${sub} 对比`,
+  seoTitle: `${sub} 深度对比分析｜哪个好怎么选 - 网络服务指南`,
+  description: `针对 ${sub} 进行全方位区别、价格、稳定性与适用场景对比分析。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'compare',
+  category: 'compare',
+  keywords: [`${sub} 对比`],
+  searchIntent: 'Commercial',
+  coreAnswer: `通过核心指标与场景匹配度帮助您快速作出正确选择。`
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'compare' || art.data.category === 'recommend');
+---
+
+<PillarLayout
+  categorySlug="compare"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+/>

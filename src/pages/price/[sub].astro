@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import { TOPICS_REGISTRY } from '../../data/topics';
+
+export async function getStaticPaths() {
+  const subSlugs = [
+    '10-yuan',
+    '15-yuan',
+    '20-yuan',
+    '30-yuan',
+    '50-yuan',
+    'monthly',
+    'quarterly',
+    'yearly',
+    'payg',
+    'unlimited-time'
+  ];
+
+  return subSlugs.map((sub) => ({
+    params: { sub },
+    props: { sub, topicKey: `price/${sub}` }
+  }));
+}
+
+const { sub, topicKey } = Astro.props;
+const topicNode = TOPICS_REGISTRY[topicKey] || {
+  slug: `price/${sub}`,
+  path: `/price/${sub}/`,
+  title: `${sub} 价格方案推荐`,
+  shortName: `${sub} 价格`,
+  seoTitle: `${sub} 价格与套餐方案指南 - 网络服务指南`,
+  description: `针对 ${sub} 预算或计费模式精选的最佳网络服务方案与防踩坑建议。`,
+  type: 'Pillar',
+  priority: 'P1',
+  parentSlug: 'price',
+  category: 'price',
+  keywords: [`${sub} 价格`],
+  searchIntent: 'Commercial',
+  coreAnswer: `根据您的预算区间，优先选择提供完整试用或支持按月订阅的服务商。`
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'price' || art.data.category === 'recommend');
+---
+
+<PillarLayout
+  categorySlug="price"
+  title={topicNode.title}
+  seoTitle={topicNode.seoTitle}
+  description={topicNode.description}
+  coreAnswer={topicNode.coreAnswer}
+  articles={filteredArticles}
+/>

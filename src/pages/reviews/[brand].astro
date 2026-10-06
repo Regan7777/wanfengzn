@@ -1,0 +1,130 @@
+---
+import { getCollection } from 'astro:content';
+import PillarLayout from '../../layouts/PillarLayout.astro';
+import ComparisonTable, { type ComparisonRow } from '../../components/ComparisonTable.astro';
+
+export async function getStaticPaths() {
+  const brandSlugs = ['shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 'yunjiexian'];
+
+  return brandSlugs.map((brand) => ({
+    params: { brand },
+    props: { brand }
+  }));
+}
+
+const { brand } = Astro.props;
+
+interface BrandDetail {
+  name: string;
+  type: string;
+  price: string;
+  rating: string;
+  desc: string;
+  reviewArticleSlug: string;
+  officialUrl: string;
+}
+
+const brandMap: Record<string, BrandDetail> = {
+  shenxing: { 
+    name: '神行加速', 
+    type: 'BGP优质中转 / VLESS', 
+    price: '¥16.1/月', 
+    rating: '9.8', 
+    desc: '全BGP优化中转接入 + 原生家宽IP，起步月付折后价 ¥16.1/月，4K/8K极清流畅播放。',
+    reviewArticleSlug: 'shenxing-airport-review-2026',
+    officialUrl: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8'
+  },
+  dalaoyun: { 
+    name: '大佬云', 
+    type: 'BGP多线中转 / Anycast', 
+    price: '¥14/月', 
+    rating: '9.5', 
+    desc: '老牌高稳定BGP中转服务商，起步月付折后价 ¥14/月，200GB超大流量满足日常全高清追剧与学习。',
+    reviewArticleSlug: 'dalaoyun-airport-review-2026',
+    officialUrl: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL'
+  },
+  shandianshu: { 
+    name: '闪电鼠', 
+    type: '公网直连 / SS', 
+    price: '¥15.4/月', 
+    rating: '9.6', 
+    desc: '直连优化架构 + 超低延迟体验，起步月付折后价 ¥15.4/月，港台节点低至28ms，外服游戏与实时沟通首选。',
+    reviewArticleSlug: 'shandianshu-airport-review-2026',
+    officialUrl: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK'
+  },
+  liulianyun: { 
+    name: '榴莲云', 
+    type: 'BGP中转 / Trojan', 
+    price: '¥16.8/月', 
+    rating: '9.3', 
+    desc: 'BGP中转优化 + 超高性价比大流量套餐，起步月付折后价 ¥16.8/月，全平台Trojan协议一键导入。',
+    reviewArticleSlug: 'liulianyun-airport-review-2026',
+    officialUrl: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN'
+  },
+  huanqiuti: { 
+    name: '环球梯', 
+    type: 'BGP双线中转 / VLESS', 
+    price: '¥15.4/月', 
+    rating: '9.7', 
+    desc: '全球60+多地区节点覆盖，起步月付折后价 ¥15.4/月，BGP双线入口，晚高峰保障高连通性。',
+    reviewArticleSlug: 'huanqiuti-airport-review-2026',
+    officialUrl: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG'
+  },
+  yunjiexian: { 
+    name: '云界限', 
+    type: 'Hysteria2直连', 
+    price: '¥15.4/月', 
+    rating: '9.4', 
+    desc: '新一代 Hysteria2 协议 + 直连优化，起步月付折后价 ¥15.4/月，极端封锁环境下展现强悍抗封锁与高吞吐能力。',
+    reviewArticleSlug: 'yunjiexian-airport-review-2026',
+    officialUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW'
+  }
+};
+
+const brandMeta = brandMap[brand] || { 
+  name: `服务商 ${brand}`, 
+  type: 'BGP中转', 
+  price: '¥15/月', 
+  rating: '9.0', 
+  desc: `网络服务商 ${brand} 的全面使用体验、测速报告与优缺点评估。`,
+  reviewArticleSlug: '2026-airport-recommendation-guide',
+  officialUrl: 'https://example.com'
+};
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const filteredArticles = allArticles.filter((art) => art.data.category === 'reviews' || art.data.category === 'recommend');
+
+const tableData: ComparisonRow[] = [
+  {
+    name: brandMeta.name,
+    type: brandMeta.type,
+    rating: brandMeta.rating,
+    entryPrice: brandMeta.price,
+    features: ['详细测评', '测速图表', '原生解锁'],
+    suitability: '详见评测报告正文',
+    reviewLink: `/articles/${brandMeta.reviewArticleSlug}/`,
+    affLink: brandMeta.officialUrl,
+    linkText: '官网直达'
+  }
+];
+---
+
+<PillarLayout
+  categorySlug="reviews"
+  title={`${brandMeta.name} 深度评测报告 (2026最新)`}
+  seoTitle={`${brandMeta.name} 评测｜真实月付套餐价格与线路分析 - 晚风机场服务指南`}
+  description={brandMeta.desc}
+  coreAnswer={`综合评估：${brandMeta.name} 在 ${brandMeta.type} 架构下表现优秀，起步套餐月付 ${brandMeta.price}。点击下方按钮可直接跳转官方网站注册与查看最新套餐。`}
+  articles={filteredArticles}
+>
+  <div style="margin-bottom: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 1rem;">
+    <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0;">{brandMeta.name} 深度评测正文与直达入口</h2>
+    <p style="margin: 0; color: #475569;">{brandMeta.desc}</p>
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+      <a href={`/articles/${brandMeta.reviewArticleSlug}/`} class="btn-review" style="padding: 0.6rem 1.25rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 6px; font-weight: 600;">阅读 {brandMeta.name} 深度评测文章 →</a>
+      <a href={brandMeta.officialUrl} target="_blank" rel="noopener noreferrer" style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 官网查看最新月付与注册 →</a>
+    </div>
+  </div>
+
+  <ComparisonTable data={tableData} title={`${brandMeta.name} 核心参数速查`} />
+</PillarLayout>

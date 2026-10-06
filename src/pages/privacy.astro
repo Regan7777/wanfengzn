@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+const breadcrumbs = [{ name: '隐私政策', url: '/privacy/' }];
+---
+
+<BaseLayout
+  title="隐私政策 - 网络服务选择指南"
+  description="了解本站如何尊重并保护访客的个人隐私与访问数据安全。"
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <article class="prose">
+      <h1>隐私政策 (Privacy Policy)</h1>
+      <p>更新日期：2026年10月5日</p>
+
+      <p>
+        网络服务选择指南（以下简称“本站”）非常重视您的个人隐私保护。本隐私政策旨在向您说明本站在您访问和使用本网站时如何收集、使用和保护您的个人信息。
+      </p>
+
+      <h2>1. 信息收集</h2>
+      <p>
+        本站为一个纯静态生成的知识博客。在您浏览本站时，我们不会要求您注册账号或提供姓名、身份证件等敏感个人身份信息。
+      </p>
+
+      <h2>2. Cookie 与 Analytics</h2>
+      <p>
+        为了改进网站阅读体验与衡量文章受欢迎程度，本站可能会使用匿名统计服务。这些数据仅包含匿名页面浏览量（PV）、访问来源与设备类型，不包含个人可标识信息。
+      </p>
+
+      <h2>3. 外部链接</h2>
+      <p>
+        本站文章中可能包含指向第三方网站或服务商的链接。本站对这些第三方网站的隐私政策与内容安全不承担直接责任，建议您在访问外部链接时查阅其相应的隐私条款。
+      </p>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    max-width: 820px;
+  }
+</style>

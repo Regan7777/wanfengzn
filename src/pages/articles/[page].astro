@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPathsOptions } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { getCanonicalUrl } from '../../lib/utils';
+import { generateBreadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+  articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+  return paginate(articles, { pageSize: 12 });
+}
+
+const { page } = Astro.props;
+const currentUrl = getCanonicalUrl(`/articles/${page.currentPage}/`);
+const breadcrumbs = [
+  { name: '文章总览', url: '/articles/' },
+  { name: `第 ${page.currentPage} 页`, url: `/articles/${page.currentPage}/` }
+];
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+---
+
+<BaseLayout
+  title={`全部文章 - 第 ${page.currentPage} 页 - 晚风机场服务指南`}
+  description={`网络服务选择指南第 ${page.currentPage} 页文章列表。收录稳定机场推荐、线路知识与故障排查相关教程。`}
+  canonicalUrl={currentUrl}
+  schemaData={breadcrumbSchema}
+>
+  <div class="container page-container">
+    <Breadcrumb items={breadcrumbs} />
+
+    <header class="page-header">
+      <h1 class="page-title">全部文章 - 第 {page.currentPage} 页</h1>
+      <p class="page-subtitle">共 {page.total} 篇网络服务选择与使用指南</p>
+    </header>
+
+    <div class="card-grid">
+      {page.data.map((article) => (
+        <ArticleCard article={article} headingLevel="h2" />
+      ))}
+    </div>
+
+    <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl="/articles/" />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-container {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+  .page-header {
+    margin-bottom: 2rem;
+  }
+  .page-title {
+    font-size: 2.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+  }
+  .page-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+</style>

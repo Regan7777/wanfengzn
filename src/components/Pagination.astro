@@ -1,0 +1,84 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string; // e.g. "/articles/"
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+if (totalPages <= 1) return null;
+
+function getPageUrl(page: number): string {
+  if (page === 1) return baseUrl;
+  const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  return `${cleanBase}/${page}/`;
+}
+---
+
+<nav class="pagination-nav" aria-label="分页导航">
+  <div class="pagination-inner">
+    {currentPage > 1 ? (
+      <a href={getPageUrl(currentPage - 1)} class="page-link prev-link">
+        ← 上一页
+      </a>
+    ) : (
+      <span class="page-link disabled">← 上一页</span>
+    )}
+
+    <span class="page-info">
+      第 <strong>{currentPage}</strong> / <strong>{totalPages}</strong> 页
+    </span>
+
+    {currentPage < totalPages ? (
+      <a href={getPageUrl(currentPage + 1)} class="page-link next-link">
+        下一页 →
+      </a>
+    ) : (
+      <span class="page-link disabled">下一页 →</span>
+    )}
+  </div>
+</nav>
+
+<style>
+  .pagination-nav {
+    margin: 2.5rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pagination-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .page-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s ease;
+  }
+
+  .page-link:not(.disabled):hover {
+    background-color: var(--color-primary-light);
+  }
+
+  .page-link.disabled {
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
+
+  .page-info {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>

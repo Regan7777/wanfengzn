@@ -1,0 +1,174 @@
+---
+export interface ComparisonRow {
+  name: string;
+  type: string; // e.g. IEPL专线 / 直连
+  rating: string; // e.g. 9.8
+  entryPrice: string; // e.g. ¥15/月
+  features: string[]; // e.g. ['解锁ChatGPT', '4K流媒体', '低延迟']
+  suitability: string; // e.g. 稳定办公 / AI重度用户
+  linkText?: string;
+  reviewLink?: string;
+  affLink?: string;
+}
+
+interface Props {
+  data: ComparisonRow[];
+  title?: string;
+}
+
+const { data, title = '2026优质网络服务商横向对比' } = Astro.props;
+---
+
+<section class="comparison-section">
+  {title && <h2 class="comparison-title">{title}</h2>}
+  
+  <div class="table-wrapper">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>服务商</th>
+          <th>线路类型</th>
+          <th>综合评分</th>
+          <th>起步套餐</th>
+          <th>核心亮点</th>
+          <th>适合人群</th>
+          <th>评测入口</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row) => (
+          <tr>
+            <td class="td-name">
+              <strong>{row.name}</strong>
+            </td>
+            <td>
+              <span class="badge badge-primary">{row.type}</span>
+            </td>
+            <td class="td-rating">
+              <span class="rating-num">★ {row.rating}</span>
+            </td>
+            <td class="td-price">{row.entryPrice}</td>
+            <td class="td-features">
+              <div class="features-list">
+                {row.features.map((f) => (
+                  <span class="feature-tag">{f}</span>
+                ))}
+              </div>
+            </td>
+            <td class="td-suit">{row.suitability}</td>
+            <td class="td-action">
+              <div class="action-buttons">
+                {row.reviewLink && (
+                  <a href={row.reviewLink} class="btn-review">阅读评测</a>
+                )}
+                {row.affLink && (
+                  <a href={row.affLink} target="_blank" rel="noopener noreferrer" class="btn-aff">
+                    {row.linkText || '直达官网'}
+                  </a>
+                )}
+                {!row.reviewLink && !row.affLink && (
+                  <span class="text-muted">详见专题</span>
+                )}
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .comparison-section {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .comparison-title {
+    font-size: 1.4rem;
+    color: var(--color-text-main);
+    margin-bottom: 1rem;
+    border-bottom: none;
+  }
+
+  .comparison-table {
+    min-width: 720px;
+  }
+
+  .td-name {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .td-rating {
+    color: #d97706;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .td-price {
+    font-weight: 700;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .features-list {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .feature-tag {
+    font-size: 0.78rem;
+    background-color: var(--color-bg-subtle);
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+  }
+
+  .btn-review {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .btn-review:hover {
+    background-color: #e0e7ff;
+  }
+
+  .btn-aff {
+    display: inline-block;
+    padding: 0.38rem 0.85rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff !important;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+    transition: all 0.18s ease;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-aff:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+  }
+</style>

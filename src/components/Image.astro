@@ -1,0 +1,58 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width?: number | string;
+  height?: number | string;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
+  caption?: string;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height = 450,
+  loading = 'lazy',
+  decoding = 'async',
+  caption,
+  class: className = ''
+} = Astro.props;
+---
+
+<figure class:list={['custom-image-wrapper', className]}>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding={decoding}
+    class="custom-image"
+  />
+  {caption && <figcaption class="image-caption">{caption}</figcaption>}
+</figure>
+
+<style>
+  .custom-image-wrapper {
+    margin: 1.75rem 0;
+    text-align: center;
+  }
+
+  .custom-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    margin: 0 auto;
+  }
+
+  .image-caption {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+  }
+</style>
