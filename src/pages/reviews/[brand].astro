@@ -4,7 +4,7 @@ import PillarLayout from '../../layouts/PillarLayout.astro';
 import ComparisonTable, { type ComparisonRow } from '../../components/ComparisonTable.astro';
 
 export async function getStaticPaths() {
-  const brandSlugs = ['shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 'yunjiexian'];
+  const brandSlugs = ['shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 'yunjiexian', 'yiyuan', 'peiqian', 'naixi'];
 
   return brandSlugs.map((brand) => ({
     params: { brand },
@@ -78,6 +78,33 @@ const brandMap: Record<string, BrandDetail> = {
     desc: '新一代 Hysteria2 协议 + 直连优化，起步月付折后价 ¥15.4/月，极端封锁环境下展现强悍抗封锁与高吞吐能力。',
     reviewArticleSlug: 'yunjiexian-airport-review-2026',
     officialUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW'
+  },
+  yiyuan: {
+    name: '一元机场',
+    type: '公网直连 / 廉价备用',
+    price: '¥1/月',
+    rating: '8.2',
+    desc: '极致平价体验，起步月付仅 ¥1/月，适合极低预算入门、应急备用与基础网页查阅。',
+    reviewArticleSlug: 'yiyuan-cloud-airport-review-2026',
+    officialUrl: '/articles/yiyuan-cloud-airport-review-2026/'
+  },
+  peiqian: {
+    name: '赔钱机场',
+    type: 'BGP中转 / 高性价比',
+    price: '¥12/月',
+    rating: '9.4',
+    desc: '主打超大流量配额与高性价比，起步月付 ¥12/月 起，BGP中转线路保障晚高峰流畅 4K 追剧。',
+    reviewArticleSlug: 'peiqian-airport-review-2026',
+    officialUrl: '/articles/peiqian-airport-review-2026/'
+  },
+  naixi: {
+    name: '奶昔机场 (Nexitally)',
+    type: '顶级 IEPL 专线 / 原生IP',
+    price: '¥70/月',
+    rating: '9.9',
+    desc: '机场天花板级服务商，端到端 IEPL 专线 + 纯净原生 IP，晚高峰零丢包，全场景极致解锁体验。',
+    reviewArticleSlug: 'naixi-airport-review-2026',
+    officialUrl: '/articles/naixi-airport-review-2026/'
   }
 };
 

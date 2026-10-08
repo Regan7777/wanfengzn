@@ -36,11 +36,12 @@ const breadcrumbs = [{ name: '关于本站', url: '/about/' }];
 
       <h2>联系我们与反馈</h2>
       <p>
-        如果您对本站文章有任何疑问、修正建议或希望获取最新动态与技术交流，欢迎关注我们的 Telegram 官方频道：
+        如果您对本站文章有任何疑问、修正建议或希望获取最新动态与技术交流，欢迎随时联系我们：
       </p>
-      <p>
-        📢 Telegram 官方频道：<a href="https://t.me/wanfengjc" target="_blank" rel="noopener noreferrer"><code>t.me/wanfengjc</code></a>
-      </p>
+      <ul>
+        <li>💬 <strong>个人 Telegram：</strong><a href={SITE_CONFIG.tgUser} target="_blank" rel="noopener noreferrer"><code>@wanfengzn</code></a></li>
+        <li>📢 <strong>Telegram 交流群组/频道：</strong><a href={SITE_CONFIG.tgChannel} target="_blank" rel="noopener noreferrer"><code>t.me/wanfengjc</code></a></li>
+      </ul>
     </article>
   </div>
 </BaseLayout>

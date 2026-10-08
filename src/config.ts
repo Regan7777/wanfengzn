@@ -20,6 +20,7 @@ export const SITE_CONFIG = {
   description: '面向中文用户的网络服务选择与使用知识博客。提供2026机场推荐、服务商深度评测、排行榜单、IEPL/IPLC线路知识、客户端使用教程与常见网络排查指南。',
   author: '晚风机场服务指南编辑团队',
   tgChannel: 'https://t.me/wanfengjc',
+  tgUser: 'https://t.me/wanfengzn',
   defaultOgImage: '/images/og-default.png',
   locale: 'zh-CN',
   
