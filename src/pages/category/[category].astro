@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCategoryMeta, getCanonicalUrl } from '../../lib/utils';
 import { generateBreadcrumbSchema } from '../../lib/schema';
+import CollapsibleTagWidget from '../../components/CollapsibleTagWidget.astro';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles', ({ data }) => !data.draft);
@@ -51,6 +52,8 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
       ))}
     </div>
   </div>
+
+  <CollapsibleTagWidget />
 </BaseLayout>
 
 <style>

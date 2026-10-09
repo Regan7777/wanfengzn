@@ -1,0 +1,349 @@
+---
+interface TagGroup {
+  category: string;
+  icon: string;
+  tags: { name: string; slug: string }[];
+}
+
+const tagGroups: TagGroup[] = [
+  {
+    category: '热门品牌',
+    icon: '🔥',
+    tags: [
+      { name: '一元机场', slug: '一元机场' },
+      { name: '神行加速', slug: '神行加速' },
+      { name: '大佬云', slug: '大佬云' },
+      { name: '闪电鼠', slug: '闪电鼠' },
+      { name: '榴莲云', slug: '榴莲云' },
+      { name: '环球梯', slug: '环球梯' },
+      { name: '云界限', slug: '云界限' },
+      { name: '奶昔机场', slug: '奶昔机场' },
+      { name: '赔钱机场', slug: '赔钱机场' },
+      { name: '飞鸟云', slug: '飞鸟云' }
+    ]
+  },
+  {
+    category: '线路架构',
+    icon: '⚡',
+    tags: [
+      { name: 'BGP中转', slug: 'BGP中转' },
+      { name: 'IEPL专线', slug: 'IEPL专线' },
+      { name: 'IPLC专线', slug: 'IPLC专线' },
+      { name: '公网直连', slug: '公网直连' },
+      { name: '原生家宽IP', slug: '原生家宽IP' }
+    ]
+  },
+  {
+    category: '协议解锁',
+    icon: '🛡️',
+    tags: [
+      { name: 'Hysteria2', slug: 'Hysteria2' },
+      { name: 'Trojan协议', slug: 'Trojan协议' },
+      { name: '流媒体解锁', slug: '流媒体解锁' },
+      { name: 'Netflix解锁', slug: 'Netflix解锁' },
+      { name: 'ChatGPT解锁', slug: 'ChatGPT解锁' }
+    ]
+  },
+  {
+    category: '选购特色',
+    icon: '💰',
+    tags: [
+      { name: '机场评测', slug: '机场评测' },
+      { name: '性价比机场', slug: '性价比机场' },
+      { name: '廉价机场', slug: '廉价机场' },
+      { name: '平价机场', slug: '平价机场' },
+      { name: '高端机场', slug: '高端机场' },
+      { name: '月付价格', slug: '月付价格' },
+      { name: '备用节点', slug: '备用节点' },
+      { name: '大流量套餐', slug: '大流量套餐' },
+      { name: '低延迟', slug: '低延迟' },
+      { name: '机场推荐', slug: '机场推荐' }
+    ]
+  }
+];
+
+const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
+---
+
+<aside class="tag-floating-widget" id="tag-widget" aria-label="主题热门标签">
+  <!-- Collapsed Tab Handle -->
+  <button class="tag-widget-handle" id="tag-widget-expand-btn" title="展开主题标签" aria-label="展开主题标签">
+    <span class="handle-icon">🏷️</span>
+    <span class="handle-text">热门标签</span>
+    <span class="handle-badge">{totalTagsCount}</span>
+    <span class="handle-arrow">‹</span>
+  </button>
+
+  <!-- Main Floating Content Card -->
+  <div class="tag-widget-card" id="tag-widget-card">
+    <div class="tag-widget-header">
+      <div class="header-left">
+        <span class="header-icon">🏷️</span>
+        <h3 class="header-title">机场评测主题标签</h3>
+        <span class="header-count">{totalTagsCount}</span>
+      </div>
+      <button class="tag-widget-close-btn" id="tag-widget-collapse-btn" title="收起标签悬窗" aria-label="收起标签悬窗">
+        <span class="close-icon">›</span>
+      </button>
+    </div>
+
+    <div class="tag-widget-body">
+      {tagGroups.map((group) => (
+        <div class="tag-group">
+          <div class="group-title">
+            <span class="group-icon">{group.icon}</span>
+            <span>{group.category}</span>
+          </div>
+          <div class="tag-list">
+            {group.tags.map((tag) => (
+              <a href={`/tag/${encodeURIComponent(tag.slug)}/`} class="tag-pill">
+                #{tag.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</aside>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const widget = document.getElementById('tag-widget');
+    const expandBtn = document.getElementById('tag-widget-expand-btn');
+    const collapseBtn = document.getElementById('tag-widget-collapse-btn');
+
+    const STORAGE_KEY = 'airport_tags_widget_collapsed';
+
+    // Read saved state or default to expanded
+    const isCollapsed = localStorage.getItem(STORAGE_KEY) === 'true';
+    if (isCollapsed && widget) {
+      widget.classList.add('is-collapsed');
+    }
+
+    expandBtn?.addEventListener('click', () => {
+      widget?.classList.remove('is-collapsed');
+      localStorage.setItem(STORAGE_KEY, 'false');
+    });
+
+    collapseBtn?.addEventListener('click', () => {
+      widget?.classList.add('is-collapsed');
+      localStorage.setItem(STORAGE_KEY, 'true');
+    });
+  });
+</script>
+
+<style>
+  .tag-floating-widget {
+    position: fixed;
+    right: 20px;
+    top: 140px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Collapsed handle style */
+  .tag-widget-handle {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 24px 0 0 24px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.25);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-right: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .tag-widget-handle:hover {
+    background: #1e293b;
+    transform: translateX(-4px);
+  }
+
+  .handle-badge {
+    background: #2563eb;
+    color: #fff;
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 800;
+  }
+
+  .handle-arrow {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  /* Expanded Card Window */
+  .tag-widget-card {
+    width: 310px;
+    max-height: calc(100vh - 180px);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    border: 1px solid #cbd5e1;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.14), 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  }
+
+  .tag-widget-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .header-icon {
+    font-size: 1.1rem;
+  }
+
+  .header-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+  }
+
+  .header-count {
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 0.75rem;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-weight: 700;
+  }
+
+  .tag-widget-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s ease;
+    border: none;
+  }
+
+  .tag-widget-close-btn:hover {
+    background: #0f172a;
+    color: #ffffff;
+  }
+
+  .tag-widget-body {
+    padding: 14px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .tag-widget-body::-webkit-scrollbar {
+    width: 5px;
+  }
+  .tag-widget-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  .tag-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .group-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .group-icon {
+    font-size: 0.9rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag-pill {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #334155;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    padding: 4px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.18s ease;
+  }
+
+  .tag-pill:hover {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+  }
+
+  /* Collapsed state */
+  .tag-floating-widget.is-collapsed .tag-widget-card {
+    opacity: 0;
+    transform: translateX(30px) scale(0.95);
+    visibility: hidden;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .tag-floating-widget.is-collapsed .tag-widget-handle {
+    display: flex;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 1024px) {
+    .tag-floating-widget {
+      top: auto;
+      bottom: 24px;
+      right: 16px;
+    }
+
+    .tag-widget-card {
+      width: 290px;
+      max-height: 440px;
+    }
+  }
+</style>

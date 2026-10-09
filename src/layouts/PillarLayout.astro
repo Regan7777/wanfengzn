@@ -4,6 +4,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import FAQAccordion, { type FAQItem } from '../components/FAQAccordion.astro';
+import CollapsibleTagWidget from '../components/CollapsibleTagWidget.astro';
 import { getCanonicalUrl } from '../lib/utils';
 import { generateBreadcrumbSchema, generateItemListSchema, generateFAQSchema } from '../lib/schema';
 
@@ -124,6 +125,9 @@ const schemas = [breadcrumbSchema, itemListSchema, faqSchema].filter(Boolean);
     <!-- FAQ Section -->
     {faqs.length > 0 && <FAQAccordion faqs={faqs} title={`${title} 常见问题解答`} />}
   </div>
+
+  <!-- Collapsible Floating Tag Widget for Airport Reviews -->
+  <CollapsibleTagWidget />
 </BaseLayout>
 
 <style>
