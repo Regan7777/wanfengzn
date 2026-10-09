@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="url(#paint0_linear)"/>
+  <circle cx="120" cy="80" r="140" fill="#3B82F6" fill-opacity="0.1"/>
+  <circle cx="720" cy="380" r="180" fill="#6366F1" fill-opacity="0.12"/>
+  <text x="400" y="200" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="bold">Clash 与 小火箭 配置教程</text>
+  <text x="400" y="265" text-anchor="middle" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">多平台客户端 • 一键订阅导入 • 智能规则分流</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E1B4B"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+</svg>
