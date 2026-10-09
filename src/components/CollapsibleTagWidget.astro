@@ -7,7 +7,7 @@ interface TagGroup {
 
 const tagGroups: TagGroup[] = [
   {
-    category: '热门品牌',
+    category: '🔥 热门品牌',
     icon: '🔥',
     tags: [
       { name: '一元机场', slug: '一元机场' },
@@ -23,7 +23,23 @@ const tagGroups: TagGroup[] = [
     ]
   },
   {
-    category: '线路架构',
+    category: '🚀 科学上网 & 梯子 (SEO核心)',
+    icon: '🚀',
+    tags: [
+      { name: '科学上网', slug: '科学上网' },
+      { name: '翻墙软件', slug: '翻墙软件' },
+      { name: '免费梯子', slug: '免费梯子' },
+      { name: 'VPN推荐', slug: 'VPN推荐' },
+      { name: '机场梯子', slug: '机场梯子' },
+      { name: '翻墙机场', slug: '翻墙机场' },
+      { name: '回国VPN', slug: '回国VPN' },
+      { name: '科学上网梯子', slug: '科学上网梯子' },
+      { name: '网络翻墙', slug: '网络翻墙' },
+      { name: '稳定梯子', slug: '稳定梯子' }
+    ]
+  },
+  {
+    category: '⚡ 线路架构',
     icon: '⚡',
     tags: [
       { name: 'BGP中转', slug: 'BGP中转' },
@@ -34,7 +50,7 @@ const tagGroups: TagGroup[] = [
     ]
   },
   {
-    category: '协议解锁',
+    category: '🛡️ 协议解锁',
     icon: '🛡️',
     tags: [
       { name: 'Hysteria2', slug: 'Hysteria2' },
@@ -45,7 +61,7 @@ const tagGroups: TagGroup[] = [
     ]
   },
   {
-    category: '选购特色',
+    category: '💰 选购特色',
     icon: '💰',
     tags: [
       { name: '机场评测', slug: '机场评测' },
@@ -65,9 +81,9 @@ const tagGroups: TagGroup[] = [
 const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
 ---
 
-<aside class="tag-floating-widget" id="tag-widget" aria-label="主题热门标签">
+<aside class="tag-floating-widget is-collapsed" id="tag-widget" aria-label="主题热门标签">
   <!-- Collapsed Tab Handle -->
-  <button class="tag-widget-handle" id="tag-widget-expand-btn" title="展开主题标签" aria-label="展开主题标签">
+  <button class="tag-widget-handle" id="tag-widget-expand-btn" title="点击展开热门标签" aria-label="点击展开热门标签">
     <span class="handle-icon">🏷️</span>
     <span class="handle-text">热门标签</span>
     <span class="handle-badge">{totalTagsCount}</span>
@@ -79,7 +95,7 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
     <div class="tag-widget-header">
       <div class="header-left">
         <span class="header-icon">🏷️</span>
-        <h3 class="header-title">机场评测主题标签</h3>
+        <h3 class="header-title">机场与VPN热门主题标签</h3>
         <span class="header-count">{totalTagsCount}</span>
       </div>
       <button class="tag-widget-close-btn" id="tag-widget-collapse-btn" title="收起标签悬窗" aria-label="收起标签悬窗">
@@ -115,10 +131,12 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
 
     const STORAGE_KEY = 'airport_tags_widget_collapsed';
 
-    // Read saved state or default to expanded
-    const isCollapsed = localStorage.getItem(STORAGE_KEY) === 'true';
-    if (isCollapsed && widget) {
-      widget.classList.add('is-collapsed');
+    // Default to COLLAPSED (closed) unless explicitly opened by user
+    const savedState = localStorage.getItem(STORAGE_KEY);
+    if (savedState === 'false') {
+      widget?.classList.remove('is-collapsed');
+    } else {
+      widget?.classList.add('is-collapsed');
     }
 
     expandBtn?.addEventListener('click', () => {
@@ -184,7 +202,7 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
 
   /* Expanded Card Window */
   .tag-widget-card {
-    width: 310px;
+    width: 320px;
     max-height: calc(100vh - 180px);
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(16px);
@@ -218,7 +236,7 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
 
   .header-title {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 800;
     color: #0f172a;
     letter-spacing: -0.01em;
@@ -342,7 +360,7 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
     }
 
     .tag-widget-card {
-      width: 290px;
+      width: 295px;
       max-height: 440px;
     }
   }
