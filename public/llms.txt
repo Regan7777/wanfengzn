@@ -4,23 +4,24 @@
 
 ## 网站主要知识专题与核心入口
 
-- 首页门户: https://example.com/
-- 2026 机场推荐 (Pillar Page): https://example.com/recommend/
-- 机场排行榜单: https://example.com/ranking/
-- 品牌服务商评测: https://example.com/reviews/
-- 方案横向对比: https://example.com/compare/
-- 价格与套餐选择: https://example.com/price/
-- IEPL / IPLC 线路知识: https://example.com/network/
-- AI与流媒体场景选择: https://example.com/use-case/
-- 客户端下载与配置: https://example.com/clients/
-- 图文使用教程: https://example.com/tutorials/
-- 常见问题与故障排查: https://example.com/problems/
-- 新手零基础指南: https://example.com/guide/
+- 首页门户: https://wanfengzn.com/
+- 2026 机场推荐 (Pillar Page): https://wanfengzn.com/recommend/
+- 机场排行榜单: https://wanfengzn.com/ranking/
+- 品牌服务商评测: https://wanfengzn.com/reviews/
+- 方案横向对比: https://wanfengzn.com/compare/
+- 价格与套餐选择: https://wanfengzn.com/price/
+- IEPL / IPLC 线路知识: https://wanfengzn.com/network/
+- AI与流媒体场景选择: https://wanfengzn.com/use-case/
+- 客户端下载与配置: https://wanfengzn.com/clients/
+- 图文使用教程: https://wanfengzn.com/tutorials/
+- 常见问题与故障排查: https://wanfengzn.com/problems/
+- 新手零基础指南: https://wanfengzn.com/guide/
 
 ## 核心文章索引
 
-- [2026机场推荐：新手应该怎么选择？稳定、价格与线路全方位指南](https://example.com/articles/2026-airport-recommendation-guide/)
-- [机场推荐看哪些指标？稳定性、价格与线路怎么判断](https://example.com/articles/airport-selection-metrics-guide/)
-- [机场线路有什么区别？IEPL、IPLC与直连线路新手入门指南](https://example.com/articles/network-line-types-iepl-iplc-guide/)
-- [第一次选择机场应该注意什么？新手避坑与安全指南](https://example.com/articles/first-time-airport-selection-tips/)
-- [机场套餐怎么选？月付、年付与按量套餐区别与分析](https://example.com/articles/airport-pricing-plan-comparison/)
+- [2026机场推荐：新手应该怎么选择？稳定、价格与线路全方位指南](https://wanfengzn.com/articles/2026-airport-recommendation-guide/)
+- [机场推荐看哪些指标？稳定性、价格与线路怎么判断](https://wanfengzn.com/articles/airport-selection-metrics-guide/)
+- [机场线路有什么区别？IEPL、IPLC与直连线路新手入门指南](https://wanfengzn.com/articles/network-line-types-iepl-iplc-guide/)
+- [第一次选择机场应该注意什么？新手避坑与安全指南](https://wanfengzn.com/articles/first-time-airport-selection-tips/)
+- [机场套餐怎么选？月付、年付与按量套餐区别与分析](https://wanfengzn.com/articles/airport-pricing-plan-comparison/)
+

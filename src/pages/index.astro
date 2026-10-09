@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import { SITE_CONFIG } from '../config';
+import { getCanonicalUrl } from '../lib/utils';
 import { generateOrganizationSchema, generateWebSiteSchema, generateFAQSchema } from '../lib/schema';
 
 // 获取所有公开非草稿文章
@@ -88,7 +89,7 @@ const schemas = [orgSchema, siteSchema, faqSchema].filter(Boolean);
 <BaseLayout
   title={SITE_CONFIG.siteTitle}
   description={SITE_CONFIG.description}
-  canonicalUrl={SITE_CONFIG.siteUrl}
+  canonicalUrl={getCanonicalUrl('/')}
   schemaData={schemas}
 >
   <!-- Minimalist Hero Banner (Matching Evening Breeze Theme) -->
