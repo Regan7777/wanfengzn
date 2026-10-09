@@ -5,6 +5,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 import TOC from '../components/TOC.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import RelatedArticles from '../components/RelatedArticles.astro';
+import CollapsibleTagWidget from '../components/CollapsibleTagWidget.astro';
 import { formatDate, estimateReadingTime, getCategoryMeta, getCanonicalUrl } from '../lib/utils';
 import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '../lib/schema';
 
@@ -148,6 +149,8 @@ const schemas = [articleSchema, breadcrumbSchema, faqSchema].filter(Boolean);
       <RelatedArticles articles={relatedArticles} />
     </div>
   </article>
+
+  <CollapsibleTagWidget />
 </BaseLayout>
 
 <style>

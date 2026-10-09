@@ -150,6 +150,38 @@ const totalTagsCount = tagGroups.reduce((acc, g) => acc + g.tags.length, 0);
       widget?.classList.add('is-collapsed');
       localStorage.setItem(STORAGE_KEY, 'true');
     });
+
+    // Auto-calibrate position based on hero/header divider line of current page
+    function calibrateWidgetPosition() {
+      if (!widget) return;
+
+      // On mobile devices (<= 1024px), rely on CSS bottom positioning
+      if (window.innerWidth <= 1024) {
+        widget.style.top = '';
+        return;
+      }
+
+      // Priority list of target hero elements to align with
+      const heroTarget = document.querySelector('.pillar-hero') ||
+                         document.querySelector('.core-answer-card') ||
+                         document.querySelector('.page-header') ||
+                         document.querySelector('.article-header') ||
+                         document.querySelector('main header');
+
+      if (heroTarget) {
+        const rect = heroTarget.getBoundingClientRect();
+        // Calculate document Y position of hero bottom divider line
+        const heroBottomDocY = rect.bottom + window.scrollY;
+        // Center the 40px tall handle on that divider line
+        const calculatedTop = Math.max(120, Math.min(window.innerHeight - 200, Math.round(heroBottomDocY - 20)));
+        widget.style.top = `${calculatedTop}px`;
+      }
+    }
+
+    // Run calibration initially and on window resize / load
+    calibrateWidgetPosition();
+    window.addEventListener('resize', calibrateWidgetPosition);
+    window.addEventListener('load', calibrateWidgetPosition);
   });
 </script>
 
