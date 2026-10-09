@@ -6,7 +6,11 @@ import ComparisonTable, { type ComparisonRow } from '../../components/Comparison
 const articles = await getCollection('articles', (entry) => {
   return !entry.data.draft && (entry.data.category === 'reviews' || entry.data.category === 'recommend');
 });
-articles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+articles.sort((a, b) => {
+  if (a.slug === 'shenxing-airport-review-2026') return -1;
+  if (b.slug === 'shenxing-airport-review-2026') return 1;
+  return b.data.publishedAt.getTime() - a.data.publishedAt.getTime();
+});
 
 // 首页 6 个站点的真实参数、打7折算后价格、无任何后缀
 const homepage6Brands: ComparisonRow[] = [

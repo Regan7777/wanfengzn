@@ -1,8 +1,8 @@
 ---
 title: "2026 神行加速机场深度评测：BGP优质中转与 16.1 元月付套餐实测"
 description: "2026 神行加速机场全方位深度评测报告。客观分析神行加速 BGP 优质中转架构、VLESS 协议支持、起步 16.1 元月付套餐、ChatGPT 与 4K/8K 流媒体解锁能力。"
-publishedAt: 2026-10-06
-updatedAt: 2026-10-06
+publishedAt: 2026-10-10
+updatedAt: 2026-10-10
 category: "reviews"
 tags: ["机场评测", "神行加速", "BGP中转", "原生家宽IP", "月付价格", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
