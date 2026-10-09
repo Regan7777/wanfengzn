@@ -6,7 +6,7 @@ updatedAt: 2026-10-06
 category: "reviews"
 tags: ["机场评测", "榴莲云", "BGP中转", "性价比", "Trojan协议", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/liulianyun-airport-review-2026.svg"
 coverAlt: "榴莲云机场深度评测"
 featured: false
 draft: false

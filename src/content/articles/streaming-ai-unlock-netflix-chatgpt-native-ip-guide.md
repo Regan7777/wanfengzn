@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "use-case"
 tags: ["AI解锁", "流媒体解锁", "ChatGPT节点", "Netflix解锁", "原生IP", "住宅IP", "双ISP", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/streaming-ai-unlock-netflix-chatgpt-native-ip-guide.svg"
 coverAlt: "流媒体与 AI 解锁节点挑选指南示意图"
 featured: true
 draft: false

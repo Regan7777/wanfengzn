@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "recommend"
 tags: ["机场推荐", "服务评测", "线路指标", "稳定性", "价格分析", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/airport-selection-metrics-guide.svg"
 coverAlt: "网络服务核心指标对比示意图"
 featured: false
 draft: false

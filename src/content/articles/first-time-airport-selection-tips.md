@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "guide"
 tags: ["新手指南", "避坑指南", "安全须知", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/beginner-tips.svg"
+cover: "/images/covers/first-time-airport-selection-tips.svg"
 coverAlt: "新手选择网络服务注意事项"
 featured: false
 draft: false

@@ -6,7 +6,7 @@ updatedAt: 2026-10-09
 category: "clients"
 tags: ["Clash教程", "Clash Verge", "Shadowrocket", "小火箭教程", "Clash下载", "小火箭订阅导入", "客户端推荐", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/client-selection.svg"
+cover: "/images/covers/clash-and-shadowrocket-all-platform-tutorial-2026.svg"
 coverAlt: "Clash 与 Shadowrocket 小火箭配置教程示意图"
 featured: true
 draft: false

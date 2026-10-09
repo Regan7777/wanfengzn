@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "节点超时", "DNS污染", "订阅失效", "断网排查", "客户端报错", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/node-connected-no-internet-troubleshooting.svg"
 coverAlt: "网络故障排错流程示意图"
 featured: true
 draft: false

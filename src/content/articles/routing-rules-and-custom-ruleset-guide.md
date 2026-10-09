@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["新手教程", "规则模式", "分流规则", "使用教程", "Rule-Set", "广告拦截", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/routing-rules-and-custom-ruleset-guide.svg"
 coverAlt: "网络客户端规则分流与自定义 Rule-Set 配置示意图"
 featured: false
 draft: false

@@ -6,7 +6,7 @@ updatedAt: 2026-10-08
 category: "reviews"
 tags: ["机场评测", "奶昔机场", "Nexitally", "IEPL专线", "高端机场", "原生IP解锁", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/naixi-airport-review-2026.svg"
 coverAlt: "奶昔机场 Nexitally 深度评测"
 featured: true
 draft: false

@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "路由器", "OpenWrt", "OpenClash", "PassWall", "透明代理", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/network-lines.svg"
+cover: "/images/covers/router-openwrt-openclash-passwall-setup-guide.svg"
 coverAlt: "OpenWrt 路由器端 OpenClash 与 PassWall 配置实操示意图"
 featured: false
 draft: false

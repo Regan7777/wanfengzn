@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "Android客户端", "Flclash", "Surfboard", "安卓客户端", "订阅导入", "保活设置", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/android-flclash-surfboard-setup-tutorial.svg"
 coverAlt: "Android 安卓端 Flclash 与 Surfboard 客户端配置示意图"
 featured: false
 draft: false

@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "network"
 tags: ["线路知识", "IEPL专线", "IPLC专线", "BGP中转", "网络原理", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/network-lines.svg"
+cover: "/images/covers/network-line-types-iepl-iplc-guide.svg"
 coverAlt: "IEPL专线与直连线路架构对比图"
 featured: true
 draft: false

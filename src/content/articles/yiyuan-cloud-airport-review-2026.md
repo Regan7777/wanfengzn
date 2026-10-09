@@ -6,7 +6,7 @@ updatedAt: 2026-10-08
 category: "reviews"
 tags: ["机场评测", "一元机场", "廉价机场", "平价机场", "月付价格", "备用节点", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/one-yuan-airport-risks.svg"
+cover: "/images/covers/yiyuan-cloud-airport-review-2026.svg"
 coverAlt: "一元机场深度评测"
 featured: false
 draft: false

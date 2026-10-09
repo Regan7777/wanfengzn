@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "ChatGPT报错", "AccessDenied", "AI被封锁", "Cloudflare验证", "IP污染", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/chatgpt-claude-access-denied-and-human-verify-troubleshooting.svg"
 coverAlt: "ChatGPT 与 Claude Access Denied 风控排查示意图"
 featured: false
 draft: false

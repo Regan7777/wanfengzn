@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "network"
 tags: ["线路知识", "原生IP", "住宅IP", "双ISP", "AI解锁", "流媒体解锁", "IP2Location", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/native-ip-vs-residential-ip-unlock-guide.svg"
 coverAlt: "原生 IP 与住宅双 ISP 风控与流媒体解锁原理解析示意图"
 featured: false
 draft: false

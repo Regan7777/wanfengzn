@@ -6,7 +6,7 @@ updatedAt: 2026-10-06
 category: "reviews"
 tags: ["机场评测", "神行加速", "BGP中转", "原生家宽IP", "月付价格", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/shenxing-airport-review-2026.svg"
 coverAlt: "神行加速机场深度评测"
 featured: true
 draft: false

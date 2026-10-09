@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "network"
 tags: ["线路知识", "BGP中转", "公网直连", "CN2 GIA", "CMIN2", "4837", "网络原理", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/network-lines.svg"
+cover: "/images/covers/bgp-transit-vs-direct-line-deep-dive.svg"
 coverAlt: "BGP 跨网中转与公网直连线路传输架构示意图"
 featured: true
 draft: false

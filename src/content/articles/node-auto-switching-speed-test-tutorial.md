@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["新手教程", "节点切换", "网络测速", "使用教程", "URL-Test", "故障排查", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/node-auto-switching-speed-test-tutorial.svg"
 coverAlt: "节点自动切换与延迟测速示意图"
 featured: false
 draft: false

@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "recommend"
 tags: ["机场推荐", "2026机场推荐", "稳定机场", "性价比", "科学上网", "翻墙软件", "免费梯子", "VPN推荐", "机场梯子", "翻墙机场", "回国VPN", "科学上网梯子", "网络翻墙", "稳定梯子", "翻墙推荐", "梯子节点"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/recommend-guide.svg"
+cover: "/images/covers/2026-airport-recommendation-guide.svg"
 coverAlt: "2026机场推荐选择指南示意图"
 featured: true
 draft: false

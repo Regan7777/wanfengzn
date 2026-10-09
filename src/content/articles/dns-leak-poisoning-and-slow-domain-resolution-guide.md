@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "DNS污染", "DNS泄露", "Fake-IP", "网页卡顿", "域名解析", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/network-lines.svg"
+cover: "/images/covers/dns-leak-poisoning-and-slow-domain-resolution-guide.svg"
 coverAlt: "DNS 污染与 DNS 泄露排查修复示意图"
 featured: false
 draft: false

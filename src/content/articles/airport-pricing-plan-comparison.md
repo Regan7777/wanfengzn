@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "price"
 tags: ["价格选择", "套餐对比", "按量计费", "月付套餐", "性价比", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
-cover: "/images/covers/pricing-plan.svg"
+cover: "/images/covers/airport-pricing-plan-comparison.svg"
 coverAlt: "网络服务套餐价格对比图"
 featured: true
 draft: false

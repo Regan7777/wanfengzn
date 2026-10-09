@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["使用教程", "网络测速", "丢包率", "测速指南", "带宽测试", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/metrics-guide.svg"
+cover: "/images/covers/node-speed-test-metrics-tutorial.svg"
 coverAlt: "网络节点测速与性能诊断实操示意图"
 featured: false
 draft: false

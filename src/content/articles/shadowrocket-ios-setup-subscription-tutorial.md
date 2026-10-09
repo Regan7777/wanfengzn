@@ -6,7 +6,7 @@ updatedAt: 2026-10-05
 category: "clients"
 tags: ["Shadowrocket", "小火箭教程", "iOS客户端", "订阅导入", "客户端配置", "美区AppleID", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
-cover: "/images/covers/beginner-tips.svg"
+cover: "/images/covers/shadowrocket-ios-setup-subscription-tutorial.svg"
 coverAlt: "Shadowrocket iOS 端下载与订阅导入教程示意图"
 featured: true
 draft: false
