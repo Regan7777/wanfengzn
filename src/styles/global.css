@@ -291,7 +291,7 @@ ul, ol {
   color: var(--color-text-main);
 }
 
-.prose code {
+.prose :not(pre) > code {
   font-family: var(--font-mono);
   font-size: 0.9em;
   background-color: var(--color-bg-subtle);
@@ -307,12 +307,20 @@ ul, ol {
   overflow-x: auto;
   margin: 1.5rem 0;
   font-size: 0.925rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border: 1px solid #334155;
 }
 
 .prose pre code {
-  background: none;
+  background: transparent !important;
   padding: 0;
+  color: #ffffff !important;
+}
+
+.prose pre code span:not([style]) {
+  color: #ffffff !important;
 }
 
 /* Tables */
