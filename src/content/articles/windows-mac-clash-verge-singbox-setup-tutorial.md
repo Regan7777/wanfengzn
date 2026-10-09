@@ -4,7 +4,7 @@ description: "专为 PC 与 Mac 用户打造的主流客户端全流程指南。
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
-tags: ["客户端", "Windows客户端", "macOS客户端", "Clash Verge", "Sing-box", "Surge", "订阅导入", "TUN模式"]
+tags: ["客户端", "Windows客户端", "macOS客户端", "Clash Verge", "Sing-box", "Surge", "订阅导入", "TUN模式", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "Windows 和 macOS 客户端下载与订阅导入实操示意图"

@@ -4,7 +4,7 @@ description: "2026 极客云机场深度体验报告。测试 IPLC 内网专线�
 publishedAt: 2026-10-06
 updatedAt: 2026-10-06
 category: "reviews"
-tags: ["机场评测", "极客云", "IPLC专线", "AI机场", "ChatGPT解锁"]
+tags: ["机场评测", "极客云", "IPLC专线", "AI机场", "ChatGPT解锁", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "极客云机场深度评测示意图"

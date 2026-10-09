@@ -4,7 +4,7 @@ description: "深入剖析‘一元机场’（1元/月廉价节点服务）的�
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
-tags: ["一元机场", "避坑指南", "网络安全", "节点超卖", "风险剖析"]
+tags: ["一元机场", "避坑指南", "网络安全", "节点超卖", "风险剖析", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
 cover: "/images/covers/one-yuan-airport-risks.svg"
 coverAlt: "一元机场风险与体验陷阱剖析"

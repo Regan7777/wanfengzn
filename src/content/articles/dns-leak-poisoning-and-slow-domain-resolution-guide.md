@@ -4,7 +4,7 @@ description: "深入剖析 DNS 污染导致国内网站变慢、海外网站无�
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
-tags: ["网络排错", "DNS污染", "DNS泄露", "Fake-IP", "网页卡顿", "域名解析"]
+tags: ["网络排错", "DNS污染", "DNS泄露", "Fake-IP", "网页卡顿", "域名解析", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/network-lines.svg"
 coverAlt: "DNS 污染与 DNS 泄露排查修复示意图"

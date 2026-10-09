@@ -4,7 +4,7 @@ description: "全面科普网络线路基础知识。详解IEPL国际以太网�
 publishedAt: 2026-10-03
 updatedAt: 2026-10-05
 category: "network"
-tags: ["线路知识", "IEPL专线", "IPLC专线", "BGP中转", "网络原理"]
+tags: ["线路知识", "IEPL专线", "IPLC专线", "BGP中转", "网络原理", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
 cover: "/images/covers/network-lines.svg"
 coverAlt: "IEPL专线与直连线路架构对比图"

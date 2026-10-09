@@ -4,7 +4,7 @@ description: "专为零基础用户打造的新手入门指南。详细解答初
 publishedAt: 2026-10-04
 updatedAt: 2026-10-05
 category: "guide"
-tags: ["新手指南", "避坑指南", "安全须知", "订阅导入"]
+tags: ["新手指南", "避坑指南", "安全须知", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
 cover: "/images/covers/beginner-tips.svg"
 coverAlt: "新手选择网络服务注意事项"

@@ -4,7 +4,7 @@ description: "深入解析海外流媒体与 AI 平台对网络节点 IP 的封�
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "use-case"
-tags: ["AI解锁", "流媒体解锁", "ChatGPT节点", "Netflix解锁", "原生IP", "住宅IP", "双ISP"]
+tags: ["AI解锁", "流媒体解锁", "ChatGPT节点", "Netflix解锁", "原生IP", "住宅IP", "双ISP", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "流媒体与 AI 解锁节点挑选指南示意图"

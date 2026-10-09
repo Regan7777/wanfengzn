@@ -4,7 +4,7 @@ description: "2026 闪电鼠机场深度体验报告。客观测试公网直连�
 publishedAt: 2026-10-06
 updatedAt: 2026-10-06
 category: "reviews"
-tags: ["机场评测", "闪电鼠", "公网直连", "低延迟", "游戏机场"]
+tags: ["机场评测", "闪电鼠", "公网直连", "低延迟", "游戏机场", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "网络服务指南编辑部"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "闪电鼠机场深度评测"

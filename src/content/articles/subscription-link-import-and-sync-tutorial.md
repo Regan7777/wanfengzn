@@ -4,7 +4,7 @@ description: "针对网络服务订阅链接的导入全流程图文教学。涵
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
-tags: ["新手教程", "订阅导入", "客户端配置", "使用教程", "Sub-Store", "规则模式"]
+tags: ["新手教程", "订阅导入", "客户端配置", "使用教程", "Sub-Store", "规则模式", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/pricing-plan.svg"
 coverAlt: "订阅链接导入全流程与安全防护示意图"

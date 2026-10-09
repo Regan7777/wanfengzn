@@ -4,7 +4,7 @@ description: "针对网络客户端订阅更新提示‘Update Failed’、‘40
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
-tags: ["网络排错", "订阅更新失败", "403报错", "订阅失效", "断网排查", "客户端报错"]
+tags: ["网络排错", "订阅更新失败", "403报错", "订阅失效", "断网排查", "客户端报错", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/metrics-guide.svg"
 coverAlt: "订阅更新失败与 403/404 报错排查手册示意图"

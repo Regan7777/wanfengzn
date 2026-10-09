@@ -4,7 +4,7 @@ description: "手把手教你掌握网络客户端的规则分流（Rule Mode）
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
-tags: ["新手教程", "规则模式", "分流规则", "使用教程", "Rule-Set", "广告拦截"]
+tags: ["新手教程", "规则模式", "分流规则", "使用教程", "Rule-Set", "广告拦截", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "网络客户端规则分流与自定义 Rule-Set 配置示意图"

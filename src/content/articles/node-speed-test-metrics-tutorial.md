@@ -4,7 +4,7 @@ description: "教你如何科学测量网络服务商节点的真实性能。涵
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
-tags: ["使用教程", "网络测速", "丢包率", "测速指南", "带宽测试"]
+tags: ["使用教程", "网络测速", "丢包率", "测速指南", "带宽测试", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/metrics-guide.svg"
 coverAlt: "网络节点测速与性能诊断实操示意图"

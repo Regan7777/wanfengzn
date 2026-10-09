@@ -4,7 +4,7 @@ description: "涵盖 Windows、macOS、Android、iOS 与路由器全平台主流
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
-tags: ["客户端", "客户端推荐", "客户端对比", "Windows客户端", "macOS客户端", "Android客户端", "iOS客户端", "路由器", "订阅导入"]
+tags: ["客户端", "客户端推荐", "客户端对比", "Windows客户端", "macOS客户端", "Android客户端", "iOS客户端", "路由器", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/recommend-guide.svg"
 coverAlt: "全平台主流客户端横向对比与一键订阅配置示意图"

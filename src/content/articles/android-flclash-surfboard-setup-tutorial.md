@@ -4,7 +4,7 @@ description: "涵盖 Android 手机与平板用户的连接客户端全流程指
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
-tags: ["客户端", "Android客户端", "Flclash", "Surfboard", "安卓客户端", "订阅导入", "保活设置"]
+tags: ["客户端", "Android客户端", "Flclash", "Surfboard", "安卓客户端", "订阅导入", "保活设置", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
 author: "晚风机场服务指南编辑团队"
 cover: "/images/covers/metrics-guide.svg"
 coverAlt: "Android 安卓端 Flclash 与 Surfboard 客户端配置示意图"
