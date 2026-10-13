@@ -4,7 +4,11 @@ import PillarLayout from '../../layouts/PillarLayout.astro';
 import ComparisonTable, { type ComparisonRow } from '../../components/ComparisonTable.astro';
 
 export async function getStaticPaths() {
-  const brandSlugs = ['shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 'yunjiexian', 'yiyuan', 'peiqian', 'naixi'];
+  const brandSlugs = [
+    'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
+    'yunjiexian', 'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
+    'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan'
+  ];
 
   return brandSlugs.map((brand) => ({
     params: { brand },
@@ -105,6 +109,78 @@ const brandMap: Record<string, BrandDetail> = {
     desc: '机场天花板级服务商，端到端 IEPL 专线 + 纯净原生 IP，晚高峰零丢包，全场景极致解锁体验。',
     reviewArticleSlug: 'naixi-airport-review-2026',
     officialUrl: '/articles/naixi-airport-review-2026/'
+  },
+  feinio: {
+    name: '飞鸟云',
+    type: 'BGP中转 / Shadowsocks',
+    price: '¥15/月',
+    rating: '9.4',
+    desc: '高性价比 BGP 中转与不限时按量流量包，起步月付 ¥15/月，晚高峰 4K 极速流畅。',
+    reviewArticleSlug: 'feinio-cloud-airport-review-2026',
+    officialUrl: '/articles/feinio-cloud-airport-review-2026/'
+  },
+  jike: {
+    name: '极客云',
+    type: 'CN2中转 / IPLC专线',
+    price: '¥19.99/月',
+    rating: '9.5',
+    desc: '老牌稳定运营数年，提供 CN2 中转与旗舰级 IPLC 专线，全节点原生解锁流媒体与 AI。',
+    reviewArticleSlug: 'jike-cloud-airport-review-2026',
+    officialUrl: '/articles/jike-cloud-airport-review-2026/'
+  },
+  flybit: {
+    name: 'FlyBit',
+    type: 'IEPL专线 / 不限设备',
+    price: '¥15/月',
+    rating: '9.6',
+    desc: '新兴高性价比专线黑马，全套餐不限制在线设备数，起步月付 ¥15/月，提供永久不过期按量包。',
+    reviewArticleSlug: 'flybit-airport-review-2026',
+    officialUrl: '/articles/flybit-airport-review-2026/'
+  },
+  wangji: {
+    name: '网际快车 (NetExpress)',
+    type: 'VLESS / Hy2 / 住宅IP',
+    price: '¥6.8起',
+    rating: '9.6',
+    desc: '现代化 VLESS 与 Hysteria 2 协议突防架构，不限设备，多国住宅IP，特殊地区（新疆）优化。',
+    reviewArticleSlug: 'wangji-kuaiche-airport-review-2026',
+    officialUrl: '/articles/wangji-kuaiche-airport-review-2026/'
+  },
+  wgetcloud: {
+    name: 'WgetCloud (GaCloud)',
+    type: '企业级 IEPL 专线 / AWS专网',
+    price: '¥200+/季',
+    rating: '9.9',
+    desc: '海外老牌企业级专线标杆，独家严控单组400人动态负载均衡，AWS专网全球加速，稳如磐石。',
+    reviewArticleSlug: 'wgetcloud-airport-review-2026',
+    officialUrl: '/articles/wgetcloud-airport-review-2026/'
+  },
+  flowercloud: {
+    name: '花云 (FlowerCloud)',
+    type: '顶级 IEPL / 0.2倍率节点',
+    price: '¥39/月',
+    rating: '9.8',
+    desc: '一线老牌高端 IEPL 专线，1000Mbps 千兆带宽，独家 0.2 倍率省流量神技，全区流媒体解锁。',
+    reviewArticleSlug: 'flowercloud-airport-review-2026',
+    officialUrl: '/articles/flowercloud-airport-review-2026/'
+  },
+  yizhi: {
+    name: '一枝红杏',
+    type: '老牌 Trojan / IPLC升级',
+    price: '¥99/年',
+    rating: '9.4',
+    desc: '运营多年口碑老牌服务商，全线 Trojan 协议深度伪装，极简 ¥99/年 低门槛长效稳定之选。',
+    reviewArticleSlug: 'yizhi-hongxing-airport-review-2026',
+    officialUrl: '/articles/yizhi-hongxing-airport-review-2026/'
+  },
+  yangfan: {
+    name: '扬帆云 (YangFanYun)',
+    type: '多级专线 / 千兆大带宽',
+    price: '¥15.99/月',
+    rating: '9.5',
+    desc: 'V2Ray 成熟稳定协议，公网隧道中转与 IEPL 国际专线阶梯分层，最高支持 2000Mbps 极速吞吐。',
+    reviewArticleSlug: 'yangfan-cloud-airport-review-2026',
+    officialUrl: '/articles/yangfan-cloud-airport-review-2026/'
   }
 };
 
