@@ -8,7 +8,8 @@ export async function getStaticPaths() {
     'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
     'yunjiexian', 'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
     'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan',
-    'xingdaomeng', 'wuyou', 'ermaoyun'
+    'xingdaomeng', 'wuyou', 'ermaoyun',
+    'jisucloud', 'liangxin', 'chuixue', 'kdj'
   ];
 
   return brandSlugs.map((brand) => ({
@@ -209,6 +210,42 @@ const brandMap: Record<string, BrandDetail> = {
     desc: '企业级 IPLC/IEPL 专线 + VLESS 协议，趣味猫系阶梯套餐，多端专属客户端生态，月付 ¥20/月 起。',
     reviewArticleSlug: 'ermaoyun-airport-review-2026',
     officialUrl: '/articles/ermaoyun-airport-review-2026/'
+  },
+  jisucloud: {
+    name: '极速Cloud (JisuCloud)',
+    type: '三网优化 / VLESS / Trojan',
+    price: '¥15/月起',
+    rating: '9.2',
+    desc: '三网优化线路，提供包括迪拜、南非等冷门国家原生IP节点，需注意部分节点高倍率。',
+    reviewArticleSlug: 'jisu-cloud-airport-review-2026',
+    officialUrl: '/articles/jisu-cloud-airport-review-2026/'
+  },
+  liangxin: {
+    name: '良心云 (Liangxin Cloud)',
+    type: '公有云直连 / Hysteria2',
+    price: '¥2/月起',
+    rating: '9.3',
+    desc: '极致性价比平民大流量服务商，月付 ¥6 享 1000GB，全节点 1.0x 无倍率，备用与下载首选。',
+    reviewArticleSlug: 'liangxin-cloud-airport-review-2026',
+    officialUrl: '/articles/liangxin-cloud-airport-review-2026/'
+  },
+  chuixue: {
+    name: '吹雪云 (ChuiXueCloud)',
+    type: '直连平价 / VLESS',
+    price: '¥2/月起',
+    rating: '9.1',
+    desc: '便宜大碗直连平价机场，雪山 1TB 仅需 ¥6/月，新用户支持免费试用，大流量下载好帮手。',
+    reviewArticleSlug: 'chuixue-cloud-airport-review-2026',
+    officialUrl: '/articles/chuixue-cloud-airport-review-2026/'
+  },
+  kdj: {
+    name: '肯の基 (肯の机 / KDJ)',
+    type: '三网顶级直连 / CN2 GIA / 9929 / CMIN2',
+    price: '¥40/月起',
+    rating: '9.5',
+    desc: '三网电信 CN2 GIA、联通 9929、移动 CMIN2 顶级骨干直连，2.0Gbps 峰值带宽，不限设备数。',
+    reviewArticleSlug: 'kdj-airport-review-2026',
+    officialUrl: '/articles/kdj-airport-review-2026/'
   }
 };
 
