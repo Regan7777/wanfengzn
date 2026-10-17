@@ -7,7 +7,8 @@ export async function getStaticPaths() {
   const brandSlugs = [
     'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
     'yunjiexian', 'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
-    'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan'
+    'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan',
+    'xingdaomeng', 'wuyou', 'ermaoyun'
   ];
 
   return brandSlugs.map((brand) => ({
@@ -181,6 +182,33 @@ const brandMap: Record<string, BrandDetail> = {
     desc: 'V2Ray 成熟稳定协议，公网隧道中转与 IEPL 国际专线阶梯分层，最高支持 2000Mbps 极速吞吐。',
     reviewArticleSlug: 'yangfan-cloud-airport-review-2026',
     officialUrl: '/articles/yangfan-cloud-airport-review-2026/'
+  },
+  xingdaomeng: {
+    name: '星岛梦 (StarDream)',
+    type: 'IPLC专线 / Shadowsocks',
+    price: '¥16/月',
+    rating: '9.3',
+    desc: '全线 IPLC/IEPL 纯内网专线 + Shadowsocks 极简协议，月付 ¥16/月 起，全套餐不限制在线设备数。',
+    reviewArticleSlug: 'xingdaomeng-airport-review-2026',
+    officialUrl: '/articles/xingdaomeng-airport-review-2026/'
+  },
+  wuyou: {
+    name: '无忧链接 (Wuyou Link)',
+    type: 'IPLC专线 / Hysteria2',
+    price: '¥19/月',
+    rating: '9.4',
+    desc: '资费公开透明，IPLC 专线融合 Hysteria 2 / VLESS 抗弱网协议，常规舒心档月付 ¥19/月 起。',
+    reviewArticleSlug: 'wuyou-link-airport-review-2026',
+    officialUrl: '/articles/wuyou-link-airport-review-2026/'
+  },
+  ermaoyun: {
+    name: '二猫云 (2mao)',
+    type: '企业级 IPLC / VLESS',
+    price: '¥20/月',
+    rating: '9.5',
+    desc: '企业级 IPLC/IEPL 专线 + VLESS 协议，趣味猫系阶梯套餐，多端专属客户端生态，月付 ¥20/月 起。',
+    reviewArticleSlug: 'ermaoyun-airport-review-2026',
+    officialUrl: '/articles/ermaoyun-airport-review-2026/'
   }
 };
 
