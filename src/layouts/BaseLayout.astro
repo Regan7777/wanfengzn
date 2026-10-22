@@ -9,6 +9,7 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string[];
   canonicalUrl?: string;
   ogImage?: string;
   schemaData?: object | object[] | null;
@@ -18,6 +19,7 @@ interface Props {
 const {
   title,
   description,
+  keywords,
   canonicalUrl,
   ogImage,
   schemaData = null,
@@ -31,6 +33,7 @@ const {
     <SEO
       title={title}
       description={description}
+      keywords={keywords}
       canonicalUrl={canonicalUrl}
       ogImage={ogImage}
       noindex={noindex}

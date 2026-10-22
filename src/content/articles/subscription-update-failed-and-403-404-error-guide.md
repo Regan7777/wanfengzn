@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "订阅更新失败", "403报错", "订阅失效", "断网排查", "客户端报错", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/subscription-update-failed-and-403-404-error-guide.svg"
 coverAlt: "订阅更新失败与 403/404 报错排查手册示意图"
 featured: true
@@ -29,7 +29,7 @@ faq:
 - **`SSL Handshake Error / Certificate Invalid`**
 - **`Connect Timeout / Connection Refused`**
 
-本诊断手册由「晚风机场服务指南」编辑团队撰写，手把手带你厘清底层原因并快速完成自检修复。
+本文手把手带你厘清底层原因并快速完成自检修复。
 
 ---
 

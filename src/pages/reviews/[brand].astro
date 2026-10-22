@@ -8,8 +8,7 @@ export async function getStaticPaths() {
     'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
     'yunjiexian', 'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
     'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan',
-    'xingdaomeng', 'wuyou', 'ermaoyun',
-    'jisucloud', 'liangxin', 'chuixue', 'kdj'
+    'ermaoyun', 'jisucloud', 'liangxin', 'chuixue', 'kdj'
   ];
 
   return brandSlugs.map((brand) => ({
@@ -24,8 +23,7 @@ interface BrandDetail {
   name: string;
   type: string;
   price: string;
-  rating: string;
-  desc: string;
+    desc: string;
   reviewArticleSlug: string;
   officialUrl: string;
 }
@@ -33,55 +31,49 @@ interface BrandDetail {
 const brandMap: Record<string, BrandDetail> = {
   shenxing: { 
     name: '神行加速', 
-    type: 'BGP优质中转 / VLESS', 
+    type: '透传中转 / VLESS', 
     price: '折后¥16.1/月', 
-    rating: '9.8', 
-    desc: '全BGP优化中转接入 + 原生家宽IP，起步月付折后价 ¥16.1/月（优惠码 sx0077），年付特惠版低至约 ¥8/月，4K/8K极清流畅播放。',
+    desc: '主推高性价比服务商，50+节点(港20/台10/日10/新10/美10)，三网优化与智能负载均衡，全AI与流媒体解锁，不限设备连接数。',
     reviewArticleSlug: 'shenxing-airport-review-2026',
     officialUrl: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8'
   },
   dalaoyun: { 
     name: '大佬云', 
     type: 'BGP多线中转 / Anycast', 
-    price: '¥14/月', 
-    rating: '9.5', 
-    desc: '老牌高稳定BGP中转服务商，起步月付折后价 ¥14/月，200GB超大流量满足日常全高清追剧与学习。',
+    price: '折后¥14.0/月', 
+    desc: '老牌高稳定BGP中转服务商，使用专属优惠码 dly88 起步月付折后仅 ¥14.0/月（初云福利版），畅享高速流量满足日常 4K 追剧与 AI 交互。',
     reviewArticleSlug: 'dalaoyun-airport-review-2026',
     officialUrl: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL'
   },
   shandianshu: { 
     name: '闪电鼠', 
-    type: '公网直连 / SS', 
-    price: '¥15.4/月', 
-    rating: '9.6', 
-    desc: '直连优化架构 + 超低延迟体验，起步月付折后价 ¥15.4/月，港台节点低至28ms，外服游戏与实时沟通首选。',
+    type: 'BGP隧道中转 / SS', 
+    price: '折后¥13.9/月', 
+    desc: 'BGP隧道优化 + SS极简低功耗架构，使用专属优惠码 sd88 起步月付折后仅 ¥13.9/月，移动端全天保活省电不发热。',
     reviewArticleSlug: 'shandianshu-airport-review-2026',
     officialUrl: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK'
   },
   liulianyun: { 
     name: '榴莲云', 
     type: 'BGP中转 / Trojan', 
-    price: '¥16.8/月', 
-    rating: '9.3', 
-    desc: 'BGP中转优化 + 超高性价比大流量套餐，起步月付折后价 ¥16.8/月，全平台Trojan协议一键导入。',
+    price: '折后¥16.8/月', 
+    desc: 'BGP中转优化 + 纯正 Trojan 深度伪装，使用专属优惠码 ll88 起步月付折后仅 ¥16.8/月（140GB），高敏感期抗封锁首选。',
     reviewArticleSlug: 'liulianyun-airport-review-2026',
     officialUrl: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN'
   },
   huanqiuti: { 
     name: '环球梯', 
     type: 'BGP双线中转 / VLESS', 
-    price: '¥15.4/月', 
-    rating: '9.7', 
-    desc: '全球60+多地区节点覆盖，起步月付折后价 ¥15.4/月，BGP双线入口，晚高峰保障高连通性。',
+    price: '折后¥14.7/月', 
+    desc: '全球60+多地区超级节点池覆盖，使用专属优惠码 HQ66 起步月付折后仅 ¥14.7/月，BGP双线入口，晚高峰跨国出海业务保障。',
     reviewArticleSlug: 'huanqiuti-airport-review-2026',
     officialUrl: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG'
   },
   yunjiexian: { 
     name: '云界限', 
-    type: 'Hysteria2直连', 
-    price: '¥15.4/月', 
-    rating: '9.4', 
-    desc: '新一代 Hysteria2 协议 + 直连优化，起步月付折后价 ¥15.4/月，极端封锁环境下展现强悍抗封锁与高吞吐能力。',
+    type: 'Hysteria 2 / 端口跳跃优化', 
+    price: '折后¥15.4/月', 
+    desc: '新一代 Hysteria 2 协议 + 端口跳跃优化，使用专属优惠码 yjx888 起步月付折后仅 ¥15.4/月，恶劣弱网与校园网暴力穿透。',
     reviewArticleSlug: 'yunjiexian-airport-review-2026',
     officialUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW'
   },
@@ -89,7 +81,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '一元机场',
     type: '公网直连 / 廉价备用',
     price: '¥1/月',
-    rating: '8.2',
     desc: '极致平价体验，起步月付仅 ¥1/月，适合极低预算入门、应急备用与基础网页查阅。',
     reviewArticleSlug: 'yiyuan-cloud-airport-review-2026',
     officialUrl: '/articles/yiyuan-cloud-airport-review-2026/'
@@ -98,7 +89,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '赔钱机场',
     type: 'BGP中转 / 高性价比',
     price: '¥12/月',
-    rating: '9.4',
     desc: '主打超大流量配额与高性价比，起步月付 ¥12/月 起，BGP中转线路保障晚高峰流畅 4K 追剧。',
     reviewArticleSlug: 'peiqian-airport-review-2026',
     officialUrl: '/articles/peiqian-airport-review-2026/'
@@ -107,8 +97,7 @@ const brandMap: Record<string, BrandDetail> = {
     name: '奶昔机场 (Nexitally)',
     type: '顶级 IEPL 专线 / 原生IP',
     price: '¥70/月',
-    rating: '9.9',
-    desc: '机场天花板级服务商，端到端 IEPL 专线 + 纯净原生 IP，晚高峰零丢包，全场景极致解锁体验。',
+    desc: '高规格旗舰级专线服务商，端到端 IEPL 专线 + 纯净原生 IP，晚高峰零丢包，全场景极致解锁体验。',
     reviewArticleSlug: 'naixi-airport-review-2026',
     officialUrl: '/articles/naixi-airport-review-2026/'
   },
@@ -116,7 +105,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '飞鸟云',
     type: 'BGP中转 / Shadowsocks',
     price: '¥15/月',
-    rating: '9.4',
     desc: '高性价比 BGP 中转与不限时按量流量包，起步月付 ¥15/月，晚高峰 4K 极速流畅。',
     reviewArticleSlug: 'feinio-cloud-airport-review-2026',
     officialUrl: '/articles/feinio-cloud-airport-review-2026/'
@@ -125,7 +113,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '极客云',
     type: 'CN2中转 / IPLC专线',
     price: '¥19.99/月',
-    rating: '9.5',
     desc: '老牌稳定运营数年，提供 CN2 中转与旗舰级 IPLC 专线，全节点原生解锁流媒体与 AI。',
     reviewArticleSlug: 'jike-cloud-airport-review-2026',
     officialUrl: '/articles/jike-cloud-airport-review-2026/'
@@ -134,7 +121,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: 'FlyBit',
     type: 'IEPL专线 / 不限设备',
     price: '¥15/月',
-    rating: '9.6',
     desc: '新兴高性价比专线黑马，全套餐不限制在线设备数，起步月付 ¥15/月，提供永久不过期按量包。',
     reviewArticleSlug: 'flybit-airport-review-2026',
     officialUrl: '/articles/flybit-airport-review-2026/'
@@ -143,7 +129,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '网际快车 (NetExpress)',
     type: 'VLESS / Hy2 / 住宅IP',
     price: '¥6.8起',
-    rating: '9.6',
     desc: '现代化 VLESS 与 Hysteria 2 协议突防架构，不限设备，多国住宅IP，特殊地区（新疆）优化。',
     reviewArticleSlug: 'wangji-kuaiche-airport-review-2026',
     officialUrl: '/articles/wangji-kuaiche-airport-review-2026/'
@@ -152,7 +137,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: 'WgetCloud (GaCloud)',
     type: '企业级 IEPL 专线 / AWS专网',
     price: '¥200+/季',
-    rating: '9.9',
     desc: '海外老牌企业级专线标杆，独家严控单组400人动态负载均衡，AWS专网全球加速，稳如磐石。',
     reviewArticleSlug: 'wgetcloud-airport-review-2026',
     officialUrl: '/articles/wgetcloud-airport-review-2026/'
@@ -161,7 +145,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '花云 (FlowerCloud)',
     type: '顶级 IEPL / 0.2倍率节点',
     price: '¥39/月',
-    rating: '9.8',
     desc: '一线老牌高端 IEPL 专线，1000Mbps 千兆带宽，独家 0.2 倍率省流量神技，全区流媒体解锁。',
     reviewArticleSlug: 'flowercloud-airport-review-2026',
     officialUrl: '/articles/flowercloud-airport-review-2026/'
@@ -170,7 +153,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '一枝红杏',
     type: '老牌 Trojan / IPLC升级',
     price: '¥99/年',
-    rating: '9.4',
     desc: '运营多年口碑老牌服务商，全线 Trojan 协议深度伪装，极简 ¥99/年 低门槛长效稳定之选。',
     reviewArticleSlug: 'yizhi-hongxing-airport-review-2026',
     officialUrl: '/articles/yizhi-hongxing-airport-review-2026/'
@@ -179,34 +161,14 @@ const brandMap: Record<string, BrandDetail> = {
     name: '扬帆云 (YangFanYun)',
     type: '多级专线 / 千兆大带宽',
     price: '¥15.99/月',
-    rating: '9.5',
     desc: 'V2Ray 成熟稳定协议，公网隧道中转与 IEPL 国际专线阶梯分层，最高支持 2000Mbps 极速吞吐。',
     reviewArticleSlug: 'yangfan-cloud-airport-review-2026',
     officialUrl: '/articles/yangfan-cloud-airport-review-2026/'
-  },
-  xingdaomeng: {
-    name: '星岛梦 (StarDream)',
-    type: 'IPLC专线 / Shadowsocks',
-    price: '¥16/月',
-    rating: '9.3',
-    desc: '全线 IPLC/IEPL 纯内网专线 + Shadowsocks 极简协议，月付 ¥16/月 起，全套餐不限制在线设备数。',
-    reviewArticleSlug: 'xingdaomeng-airport-review-2026',
-    officialUrl: '/articles/xingdaomeng-airport-review-2026/'
-  },
-  wuyou: {
-    name: '无忧链接 (Wuyou Link)',
-    type: 'IPLC专线 / Hysteria2',
-    price: '¥19/月',
-    rating: '9.4',
-    desc: '资费公开透明，IPLC 专线融合 Hysteria 2 / VLESS 抗弱网协议，常规舒心档月付 ¥19/月 起。',
-    reviewArticleSlug: 'wuyou-link-airport-review-2026',
-    officialUrl: '/articles/wuyou-link-airport-review-2026/'
   },
   ermaoyun: {
     name: '二猫云 (2mao)',
     type: '企业级 IPLC / VLESS',
     price: '¥20/月',
-    rating: '9.5',
     desc: '企业级 IPLC/IEPL 专线 + VLESS 协议，趣味猫系阶梯套餐，多端专属客户端生态，月付 ¥20/月 起。',
     reviewArticleSlug: 'ermaoyun-airport-review-2026',
     officialUrl: '/articles/ermaoyun-airport-review-2026/'
@@ -215,7 +177,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '极速Cloud (JisuCloud)',
     type: '三网优化 / VLESS / Trojan',
     price: '¥15/月起',
-    rating: '9.2',
     desc: '三网优化线路，提供包括迪拜、南非等冷门国家原生IP节点，需注意部分节点高倍率。',
     reviewArticleSlug: 'jisu-cloud-airport-review-2026',
     officialUrl: '/articles/jisu-cloud-airport-review-2026/'
@@ -224,7 +185,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '良心云 (Liangxin Cloud)',
     type: '公有云直连 / Hysteria2',
     price: '¥2/月起',
-    rating: '9.3',
     desc: '极致性价比平民大流量服务商，月付 ¥6 享 1000GB，全节点 1.0x 无倍率，备用与下载首选。',
     reviewArticleSlug: 'liangxin-cloud-airport-review-2026',
     officialUrl: '/articles/liangxin-cloud-airport-review-2026/'
@@ -233,7 +193,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '吹雪云 (ChuiXueCloud)',
     type: '直连平价 / VLESS',
     price: '¥2/月起',
-    rating: '9.1',
     desc: '便宜大碗直连平价机场，雪山 1TB 仅需 ¥6/月，新用户支持免费试用，大流量下载好帮手。',
     reviewArticleSlug: 'chuixue-cloud-airport-review-2026',
     officialUrl: '/articles/chuixue-cloud-airport-review-2026/'
@@ -242,7 +201,6 @@ const brandMap: Record<string, BrandDetail> = {
     name: '肯の基 (肯の机 / KDJ)',
     type: '三网顶级直连 / CN2 GIA / 9929 / CMIN2',
     price: '¥40/月起',
-    rating: '9.5',
     desc: '三网电信 CN2 GIA、联通 9929、移动 CMIN2 顶级骨干直连，2.0Gbps 峰值带宽，不限设备数。',
     reviewArticleSlug: 'kdj-airport-review-2026',
     officialUrl: '/articles/kdj-airport-review-2026/'
@@ -253,7 +211,6 @@ const brandMeta = brandMap[brand] || {
   name: `服务商 ${brand}`, 
   type: 'BGP中转', 
   price: '¥15/月', 
-  rating: '9.0', 
   desc: `网络服务商 ${brand} 的全面使用体验、测速报告与优缺点评估。`,
   reviewArticleSlug: '2026-airport-recommendation-guide',
   officialUrl: 'https://example.com'
@@ -266,7 +223,6 @@ const tableData: ComparisonRow[] = [
   {
     name: brandMeta.name,
     type: brandMeta.type,
-    rating: brandMeta.rating,
     entryPrice: brandMeta.price,
     features: ['详细测评', '测速图表', '原生解锁'],
     suitability: '详见评测报告正文',

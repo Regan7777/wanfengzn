@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "客户端推荐", "客户端对比", "Windows客户端", "macOS客户端", "Android客户端", "iOS客户端", "路由器", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/all-platforms-client-selection-and-config-guide.svg"
 coverAlt: "全平台主流客户端横向对比与一键订阅配置示意图"
 featured: true
@@ -18,14 +18,14 @@ faq:
   - question: "什么是‘规则模式’与‘全局模式’的区别？"
     answer: "规则模式（Rule/Config）会自动判断：访问国内网站直连以保障速度，访问海外受限制网站才走代理；全局模式（Global）则让所有流量全部通过代理节点，易导致国内应用加载变慢。"
   - question: "什么是 TUN 虚拟网卡模式？什么时候需要开启？"
-    answer: "普通系统代理仅对支持 HTTP/SOCKS5 的浏览器生效。TUN 模式通过在系统层创建虚拟网卡，接管所有流量（如终端命令行、游戏客户端、UWP 应用），实现全局无缝接管。"
+    answer: "普通系统代理仅对支持 HTTP/SOCKS5 的浏览器生效。TUN 模式通过在系统层创建虚拟网卡，接管所有流量（如终端命令行、特定专用客户端、UWP 应用与全协议流量），实现全局无缝接管。"
 ---
 
 在选择网络服务商（机场）之后，如何根据自己的设备平台（Windows, macOS, Android, iOS, 路由器）挑选最稳定、最流畅的连接客户端，并快速完成订阅配置，是决定日常上网体验的关键第一步。
 
 当前各大系统平台下的客户端工具百花齐放，既有经典的 **Clash 生态**（如 Clash Verge Rev、Flclash、OpenClash），也有代表下一代传输协议趋势的 **Sing-box 生态**，以及 iOS 平台独占的 **Shadowrocket** 与高端定制工具 **Surge**。
 
-本指南由「晚风机场服务指南」编辑团队精心编写，汇总了全平台主流客户端的功能对比、选型推荐及通用的一键订阅配置流程。
+本文汇总了全平台主流客户端的功能对比、选型推荐及通用的一键订阅配置流程。
 
 ---
 
@@ -35,11 +35,11 @@ faq:
 
 | 操作系统 | 推荐客户端（首选） | 备选客户端 | 核心特色与优势 |
 | :--- | :--- | :--- | :--- |
-| **Windows** | **Clash Verge Rev** | Sing-box, NekoBox | 开源免费、中文界面友好、支持 TUN 模式、内置 Sub-Store |
-| **macOS** | **Clash Verge Rev** | Surge, Sing-box, Stash | 兼容 M 系列芯片、系统开销小、内存占用优化极佳 |
-| **Android** | **Flclash** | Surfboard, Clash Meta, v2rayNG | 材质设计UI、操作简单、支持应用分流与后台保活 |
-| **iOS / iPadOS** | **Shadowrocket** | Stash, Quantumult X, Loon | 经典的“小火箭”，买断制性价比极高，一键订阅导入最顺手 |
-| **OpenWrt 路由器**| **OpenClash** | PassWall, ShellClash | 局域网全家桶设备透明代理、支持 SmartDNS 防污染 |
+| **Windows** | [**Clash Verge Rev**](https://github.com/clash-verge-rev/clash-verge-rev/releases) | [Sing-box](https://github.com/SagerNet/sing-box/releases), [v2rayN](https://github.com/2dust/v2rayN/releases) | 开源免费、中文界面友好、支持 TUN 模式、内置 Sub-Store |
+| **macOS** | [**Clash Verge Rev**](https://github.com/clash-verge-rev/clash-verge-rev/releases) | [Surge](https://nssurge.com/), [Sing-box](https://github.com/SagerNet/sing-box/releases), [Stash](https://stash.ws/) | 兼容 M 系列芯片、系统开销小、内存占用优化极佳 |
+| **Android** | [**Flclash**](https://github.com/chen08209/FlClash/releases) | [Surfboard](https://play.google.com/store/apps/details?id=com.getsurfboard), [v2rayNG](https://github.com/2dust/v2rayNG/releases) | 材质设计UI、操作简单、支持应用分流与后台保活 |
+| **iOS / iPadOS** | [**Shadowrocket**](https://apps.apple.com/app/shadowrocket/id932747118) | [Stash](https://apps.apple.com/app/stash/id1596063717), [Quantumult X](https://apps.apple.com/app/quantumult-x/id1453926364) | 经典的“小火箭”，买断制性价比极高，一键订阅导入最顺手 |
+| **OpenWrt 路由器**| [**OpenClash**](https://github.com/vernesong/OpenClash/releases) | [PassWall](https://github.com/xiaorouji/openwrt-passwall), [OpenWrt 官方固件](https://openwrt.org/) | 局域网全家桶设备透明代理、支持 SmartDNS 防污染 |
 
 ---
 
@@ -49,11 +49,11 @@ faq:
 
 ```
 客户端选型维度分析：
-├─ Clash Verge Rev  : [推荐 🌟🌟🌟🌟🌟] 跨平台 UI 标杆，支持 Clash.Meta / Sing-box 双内核
-├─ Sing-box         : [下一代趋势 🚀] 原生支持 Hysteria 2 / TUIC 协议，资源占用极低
-├─ Shadowrocket     : [iOS 必备 📱] 规则丰富、脚本扩展强、一键添加极简
-├─ Surge            : [Mac/iOS 顶配 💎] 极佳的网络调试工具，价格较高，适合极客
-└─ PassWall         : [软路由神器 🌐] 节点切换迅速，节点分流与备用自动故障转移表现出众
+├─ Clash Verge Rev  : [综合首选] 跨平台 UI 标杆，支持 Clash.Meta / Sing-box 双内核
+├─ Sing-box         : [新协议适配] 原生支持 Hysteria 2 / TUIC 协议，资源占用低
+├─ Shadowrocket     : [iOS 常用工具] 规则配置灵活、脚本扩展强、导入便捷
+├─ Surge            : [Mac/iOS 调试] 网络调试能力强，价格偏高，适合进阶用户
+└─ PassWall         : [软路由方案] 节点切换迅速，分流与自动故障转移表现成熟
 ```
 
 ### 协议支持对比

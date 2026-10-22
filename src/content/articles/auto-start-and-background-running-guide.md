@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["使用教程", "开机自启", "后台运行", "系统代理", "保活设置", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/auto-start-and-background-running-guide.svg"
 coverAlt: "开机自启与静默后台运行设置示意图"
 featured: false
@@ -23,7 +23,7 @@ faq:
 
 通过将网络客户端配置为 **“开机自动启动 + 自动挂载系统代理 + 托盘静默运行”**，可以彻底消除使用感知，实现开机即享流畅网络的“无感上网”体验。
 
-本教程由「晚风机场服务指南」编辑团队撰写，涵盖 Windows, macOS, Android 及 iOS 全平台设置步骤。
+本指南涵盖 Windows, macOS, Android 及 iOS 全平台的具体设置步骤。
 
 ---
 

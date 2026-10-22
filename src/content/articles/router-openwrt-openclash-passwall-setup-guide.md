@@ -5,23 +5,23 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "路由器", "OpenWrt", "OpenClash", "PassWall", "透明代理", "订阅导入", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/router-openwrt-openclash-passwall-setup-guide.svg"
 coverAlt: "OpenWrt 路由器端 OpenClash 与 PassWall 配置实操示意图"
 featured: false
 draft: false
 keywords: ["OpenWrt路由器客户端", "OpenClash配置教程", "PassWall订阅导入", "路由器透明代理", "软路由机场客户端", "SmartDNS防污染"]
-tldr: "路由器透明代理让全家设备（Apple TV, PS5, Switch, 智能电视）免安装客户端直接走网络节点。推荐方案：1. 性能强的软路由使用 OpenClash（功能最全、规则强）；2. 嵌入式硬路由使用 PassWall（轻量极速、断线重连快）。一键导入订阅配置后，结合 Fake-IP 或 Redir-Host 实现无感上网。"
+tldr: "路由器透明代理让全家设备（Apple TV、智能电视、投影仪、IoT 智能硬件）免安装客户端直接走网络节点。推荐方案：1. 性能强的软路由使用 OpenClash（功能最全、规则强）；2. 嵌入式硬路由使用 PassWall（轻量极速、断线重连快）。一键导入订阅配置后，结合 Fake-IP 或 Redir-Host 实现无感上网。"
 faq:
-  - question: "路由器配置代理后，电视盒子/游戏主机能直接连通吗？"
-    answer: "是的！透明代理会在网关层面接管所有局域网设备的网络流量。无论设备是否支持安装客户端（如 PS5、Xbox、Apple TV、扫地机器人），连接路由器 Wi-Fi 后即可自动享受代理服务。"
+  - question: "路由器配置代理后，电视盒子与智能硬件能直接连通吗？"
+    answer: "是的！透明代理会在网关层面接管所有局域网设备的网络流量。无论设备是否支持安装客户端（如 Apple TV、智能电视、平板、物联网设备），连接路由器 Wi-Fi 后即可自动享受代理服务。"
   - question: "OpenClash 的 Fake-IP 模式与 Redir-Host 模式有何区别？"
     answer: "Fake-IP 模式由路由器直接向客户端返回假 IP 地址，避免客户端在本地请求公网 DNS 造成污染，延迟最低；Redir-Host 模式则保留传统 IP 查询逻辑，兼容性更好但可能有微小延迟。"
   - question: "路由器配置代理会导致国内网络变慢吗？"
     answer: "只要正确设置了规则分流（GeoIP 与 China-IP 规则库），国内网站和 App 会自动直连路由器出口，完全不占用节点流量，也不会产生额外延迟。"
 ---
 
-在家庭或办公网络中，当需要联网的终端设备数量众多（如 iPhone、Mac、Windows 电脑、Apple TV、游戏主机、智能家居）时，为每一台设备单独安装并维护代理客户端不仅繁琐，而且许多智能设备（如电视机、游戏机）根本无法安装第三方客户端。
+在家庭或办公网络中，当联网终端较多（涵盖手机、电脑、Apple TV、大屏显示终端与智能家居）时，为每台设备逐一安装客户端维护成本较高，且部分电视盒子原生不支持安装第三方代理工具。
 
 在 **OpenWrt 软路由/硬路由** 上配置网络客户端（**OpenClash** 或 **PassWall**），打造全家共享的**透明代理 (Transparent Proxy)** 网络，是极客与高品质网络用户的终极解决方案。
 
@@ -31,16 +31,14 @@ faq:
 
 ## 1. 路由器客户端对比：OpenClash vs PassWall
 
-```
-OpenWrt 客户端选择指南：
-┌─────────────────┬──────────────────────────────────────────┐
-│ OpenClash       │ 🌟 强力推荐：功能极其丰富，图形控制台强大， │
-│                 │ 适合 X86 软路由及 N1 等高算力硬件        │
-├─────────────────┼──────────────────────────────────────────┤
-│ PassWall        │ ⚡ 轻量极速：占用 CPU/内存极低，断线重连快，│
-│                 │ 适合嵌入式硬路由及小内存路由器            │
-└─────────────────┴──────────────────────────────────────────┘
-```
+| 评估维度 | OpenClash | PassWall |
+| :--- | :--- | :--- |
+| **项目性质** | 基于 Clash/Meta 内核的图形插件 | 轻量级多协议分流插件 |
+| **硬件需求** | 推荐 X86 软路由、RK3399/N1 等中高算力设备 | 适合嵌入式硬路由、MT7621 及 256MB/512MB 内存设备 |
+| **分流灵活性**| 极高（支持 Rule-Set、域名/IP 规则及可视仪表盘） | 高（经典 ChinaDNS-NG 模式、直观分流节点配置） |
+| **官方仓库** | [OpenClash GitHub](https://github.com/vernesong/OpenClash) / [官方 Releases](https://github.com/vernesong/OpenClash/releases) | [PassWall GitHub](https://github.com/xiaorouji/openwrt-passwall) |
+| **官方使用指南**| [OpenClash 官方 Wiki 文档](https://github.com/vernesong/OpenClash/wiki) | [PassWall 项目主页](https://github.com/xiaorouji/openwrt-passwall) |
+| **系统底层** | [OpenWrt 官方固件中心](https://openwrt.org/) | [OpenWrt 官方固件中心](https://openwrt.org/) |
 
 ---
 
@@ -78,7 +76,7 @@ OpenWrt 客户端选择指南：
 2. 添加订阅 URL 并保存，点击 **手动导入并更新节点列表**。
 3. 进入 **开关与主节点设置**：
    - **TCP 节点**：选择一个低延迟的高速专线节点。
-   - **UDP 节点**：可选择“与 TCP 相同”，确保外服游戏 UDP 顺利转发。
+   - **UDP 节点**：可选择“与 TCP 相同”，确保跨国实时语音与 UDP 流量顺利转发。
    - **域名解析模式**：选择 `ChinaDNS-NG` 或 `Dnsmasq 转发`。
 4. 勾选 **主开关** 并保存应用。
 

@@ -2,7 +2,7 @@
 export interface ComparisonRow {
   name: string;
   type: string; // e.g. IEPL专线 / 直连
-  rating: string; // e.g. 9.8
+  rating?: string; // (deprecated)
   entryPrice: string; // e.g. ¥15/月
   features: string[]; // e.g. ['解锁ChatGPT', '4K流媒体', '低延迟']
   suitability: string; // e.g. 稳定办公 / AI重度用户
@@ -28,7 +28,6 @@ const { data, title = '2026优质网络服务商横向对比' } = Astro.props;
         <tr>
           <th>服务商</th>
           <th>线路类型</th>
-          <th>综合评分</th>
           <th>起步套餐</th>
           <th>核心亮点</th>
           <th>适合人群</th>
@@ -43,9 +42,6 @@ const { data, title = '2026优质网络服务商横向对比' } = Astro.props;
             </td>
             <td>
               <span class="badge badge-primary">{row.type}</span>
-            </td>
-            <td class="td-rating">
-              <span class="rating-num">★ {row.rating}</span>
             </td>
             <td class="td-price">{row.entryPrice}</td>
             <td class="td-features">
@@ -98,12 +94,6 @@ const { data, title = '2026优质网络服务商横向对比' } = Astro.props;
   .td-name {
     color: var(--color-text-main);
     font-size: 1rem;
-    white-space: nowrap;
-  }
-
-  .td-rating {
-    color: #d97706;
-    font-weight: 700;
     white-space: nowrap;
   }
 

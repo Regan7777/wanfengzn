@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["新手教程", "订阅导入", "客户端配置", "使用教程", "Sub-Store", "规则模式", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/subscription-link-import-and-sync-tutorial.svg"
 coverAlt: "订阅链接导入全流程与安全防护示意图"
 featured: true
@@ -14,18 +14,18 @@ keywords: ["订阅链接导入", "一键导入Clash", "Shadowrocket订阅", "Sub
 tldr: "订阅导入核心 4 步：1. 后台复制专属 Subscribe URL；2. 客户端进入订阅/Profiles 菜单粘贴添加；3. 设置 24 小时自动更新；4. 定期检查流量用量与到期时间。切勿将订阅 URL 公开上传到 Github 等公开平台。"
 faq:
   - question: "复制的订阅链接打不开或者提示 404/403 错误？"
-    answer: "服务商可能触发了防刷机制或更换了主域名。请先登录服务商最新官网重新复制链接；若网页提示 API 限流，请关闭当前其他正在频繁刷新的客户端。"
+    answer: "服务商可能触发了防刷机制或更换了主域名。详细解决方案请参考<a href=\"/articles/subscription-update-failed-and-403-404-error-guide/\">《订阅更新失败与 403/404 错误自救指南》</a>；若排查后链接正常但节点依然超时，可参考<a href=\"/articles/node-connected-no-internet-troubleshooting/\">《节点假连接排查教程》</a>。"
   - question: "如果不小心把订阅链接发到公开群聊或论坛怎么办？"
-    answer: "订阅链接就是你个人账户的密钥！一旦泄露可能导致他人盗用你的流量。请立刻登录服务商后台，点击‘重置订阅/重置 Token’按钮，原链接将立刻作废并生成全新链接。"
+    answer: "订阅链接就是你个人账户的密钥！一旦泄露可能导致他人盗用你的流量。请立刻登录服务商后台点击‘重置订阅/重置 Token’作废旧链接。安全防护须知请查阅<a href=\"/articles/first-time-airport-selection-tips/\">《新手第一次选购避坑指南》</a>。"
   - question: "如何在不同客户端之间转换订阅格式（如 SSR 转 Clash）？"
-    answer: "大部分服务商后台已提供一键转换按钮；如果后台未提供，推荐使用自建的 Sub-Store 部署服务或安全转换 API，切忌使用未知的第三方免费在线订阅转换网站，防止节点被中途劫持。"
+    answer: "大部分服务商后台已提供一键转换按钮；如需高级自定义分流，推荐使用自建的 <a href=\"https://github.com/sub-store-org/Sub-Store\">Sub-Store</a> 部署服务，并结合<a href=\"/articles/routing-rules-and-custom-ruleset-guide/\">《规则分流与自定义 Rule-Set 指南》</a>管理多节点。"
 ---
 
 在网络代理工具的使用过程中，**“订阅链接 (Subscription URL)”** 是连接服务商后台与你本地客户端（如 Clash Verge, Shadowrocket, Sing-box, Flclash）最重要的桥梁。
 
 通过订阅链接，客户端可以自动拉取最新的节点 IP、加密协议、通信端口以及配套的分流规则，无需用户逐个手动添加单个节点。
 
-本教程由「晚风机场服务指南」编辑团队撰写，手把手教你完成订阅链接的导入、自动同步设置、格式转换以及防泄露安全防护。
+本教程手把手教你完成订阅链接的导入、自动同步设置、格式转换以及防泄露安全防护。
 
 ---
 
@@ -85,9 +85,9 @@ faq:
 └─ 手动刷新        [不推荐] 长时间不更新易导致节点批量变红超时
 ```
 
-- **Clash Verge Rev**：在 `订阅 (Profiles)` 页面右键配置卡片，选择 `编辑 (Edit)` -> 将 `自动更新间隔` 修改为 `1440 分钟` (24小时)。
-- **Shadowrocket**：进入 `设置 -> 订阅` -> 开启 `打开时更新` 与 `自动更新` 开关。
-- **Flclash**：在配置管理中开启 `自动刷新` 开关。
+- **[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)**：在 `订阅 (Profiles)` 页面右键配置卡片，选择 `编辑 (Edit)` -> 将 `自动更新间隔` 修改为 `1440 分钟` (24小时)。
+- **[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)**：进入 `设置 -> 订阅` -> 开启 `打开时更新` 与 `自动更新` 开关。
+- **[Flclash](https://github.com/chen08209/FlClash/releases)**：在配置管理中开启 `自动刷新` 开关。
 
 ---
 
@@ -99,7 +99,7 @@ faq:
 
 1. **严禁公开分享**：切勿将包含你个人 Token 的订阅链接截图发布到社交网络，或上传至 GitHub 公开仓库。
 2. **紧急重置秘钥**：若怀疑链接泄露，请立即在服务商后台点击 **“重置订阅链接”**。重置后旧链接会失效，需在客户端内重新导入新链接。
-3. **避免未知转换**：如需转换订阅格式，优先使用服务商原生转换。勿在不可信的免费在线“订阅转换网站”粘贴链接，防止节点信息被记录篡改。
+3. **避免未知在线转换平台**：如需跨客户端转换订阅格式（如 SS 转 Clash），优先使用服务商后台自带的原生转换；进阶用户推荐使用开源可自建的 [**Sub-Store 官方项目**](https://github.com/sub-store-org/Sub-Store) 本地解析，切勿在来历不明的第三方公共“在线订阅转换”网站粘贴链接，防止节点被嗅探劫持。
 
 ---
 

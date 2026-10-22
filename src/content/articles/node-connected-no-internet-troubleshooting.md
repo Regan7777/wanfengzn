@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "节点超时", "DNS污染", "订阅失效", "断网排查", "客户端报错", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/node-connected-no-internet-troubleshooting.svg"
 coverAlt: "网络故障排错流程示意图"
 featured: true
@@ -21,7 +21,7 @@ faq:
 
 在使用网络连接服务与各类客户端（Clash Verge、Sing-box、Shadowrocket、v2rayN）的过程中，最令人头疼的问题莫过于：**客户端界面显示节点延迟 50ms、主开关已开启，但打开浏览器却网页打不开、提示连接超时或无法联网**。
 
-作为「晚风机场服务指南」的故障排查专题，本文将拆解导致“假连接”的 **5 大底层原因**，并提供一套高效率的排除诊断流程。
+本文将拆解导致“假连接”的 **5 大底层原因**，并提供一套高效率的排除诊断流程。
 
 ---
 

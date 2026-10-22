@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
 tags: ["Shadowrocket", "小火箭教程", "iOS客户端", "订阅导入", "客户端配置", "美区AppleID", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/shadowrocket-ios-setup-subscription-tutorial.svg"
 coverAlt: "Shadowrocket iOS 端下载与订阅导入教程示意图"
 featured: true
@@ -23,7 +23,7 @@ faq:
 
 在苹果 iOS 生态中，**Shadowrocket**（俗称“小火箭”）因其出色的规则分流能力、极低的系统资源占用以及极为简便的订阅导入体验，成为了绝大多数 iPhone 和 iPad 用户首选的网络连接代理工具。
 
-本教程由「晚风机场服务指南」编辑团队撰写，将手把手带你完成从**海外 Apple ID 准备、正版 App 安装、订阅导入到高级分流规则配置**的全过程。
+本教程将手把手带你完成从**海外 Apple ID 准备、正版 App 安装、订阅导入到高级分流规则配置**的全过程。
 
 ---
 
@@ -32,12 +32,15 @@ faq:
 由于政策约束，Shadowrocket 未在中国大陆区 App Store 上架。下载前需要切换海外 Apple ID：
 
 ```
-正版官方图标标识：
+正版官方图标标识与认证信息：
 【红色底色 + 白色几何线条小火箭图形】
 软件原名：Shadowrocket
 开发者：Shadow Launch Technology Limited
 价格：$2.99 USD (买断制)
+官方正版商店页面：https://apps.apple.com/app/shadowrocket/id932747118
 ```
+
+- **官方 App Store 正版直达**：可直接在海外 ID 状态下访问 [Shadowrocket on App Store](https://apps.apple.com/app/shadowrocket/id932747118) 核对开发者信息与评分。
 
 > [!WARNING]
 > **安全防护重中之重：**

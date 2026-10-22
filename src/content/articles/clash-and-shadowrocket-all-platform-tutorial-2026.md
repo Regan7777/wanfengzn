@@ -5,7 +5,7 @@ publishedAt: 2026-10-09
 updatedAt: 2026-10-09
 category: "clients"
 tags: ["Clash教程", "Clash Verge", "Shadowrocket", "小火箭教程", "Clash下载", "小火箭订阅导入", "客户端推荐", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/clash-and-shadowrocket-all-platform-tutorial-2026.svg"
 coverAlt: "Clash 与 Shadowrocket 小火箭配置教程示意图"
 featured: true
@@ -14,16 +14,16 @@ keywords: ["Clash教程", "Clash Verge教程", "Shadowrocket教程", "小火箭�
 tldr: "Clash 与 Shadowrocket（小火箭）全平台使用 3 步走：1. 根据系统选择官方客户端（Windows/macOS 推荐 Clash Verge Rev，iOS 推荐 Shadowrocket 小火箭，Android 推荐 Flclash）；2. 在机场后台复制通用订阅链接，粘贴至 Clash 或小火箭中刷新；3. 路由选择‘Rule / 规则模式’并勾选低延迟节点连接。"
 faq:
   - question: "Clash 与 Shadowrocket（小火箭）有什么区别？"
-    answer: "Clash 是基于 Go 语言的跨平台规则代理内核（支持 Windows, macOS, Linux, Android），界面丰富支持 TUN 模式；Shadowrocket（小火箭）则是专为 iOS 设计的极速代理软件，两者的核心功能都是导入机场订阅并实现智能分流。"
+    answer: "Clash 是跨平台规则代理内核（支持 Windows, macOS, Linux, Android），界面丰富支持 TUN 模式；Shadowrocket（小火箭）则是专为 iOS 设计的代理软件。选型指南与全平台适配请查阅<a href=\"/articles/all-platforms-client-selection-and-config-guide/\">《全平台客户端选型与配置指南》</a>与<a href=\"/articles/windows-mac-clash-verge-singbox-setup-tutorial/\">《Windows/Mac Clash Verge 实操教程》</a>。"
   - question: "Clash 提示‘Subscription Update Failed’或 404/403 报错怎么办？"
-    answer: "请检查：1. 机场订阅链接是否被系统防火墙阻断；2. 复制的链接是否完整；3. 尝试关闭当前已有系统代理后再进行订阅更新。"
+    answer: "订阅拉取失败通常与 Token 失效或本地网络阻断有关。请参考<a href=\"/articles/subscription-update-failed-and-403-404-error-guide/\">《订阅更新失败与 403/404 错误自救指南》</a>以及<a href=\"/articles/node-connected-no-internet-troubleshooting/\">《连上节点却无网络排障》</a>逐项排查。"
   - question: "小火箭（Shadowrocket）怎么更新订阅与切换分流规则？"
-    answer: "在 Shadowrocket 首页选中订阅列表名称向左滑动点击‘更新’；底部导航栏切换至‘配置’，选择‘规则 (Config)’即可实现国内流量直连、国外流量走机场节点。"
+    answer: "在 Shadowrocket 首页选中订阅向左滑动点击‘更新’；路由选择‘配置’即可实现国内直连、海外代理。详细设置请参考<a href=\"/articles/shadowrocket-ios-setup-subscription-tutorial/\">《Shadowrocket iOS 正版下载与订阅导入实操》</a>与<a href=\"/articles/routing-rules-and-custom-ruleset-guide/\">《规则分流与自定义 Rule-Set 指南》</a>。"
 ---
 
-在当今网络服务选择中，**Clash** 与 **Shadowrocket（小火箭）** 堪称全球最受欢迎的现代化智能规则代理工具。无论是追求极速稳定体验的 PC 桌面端，还是便携的移动端，掌握 **Clash 客户端** 与 **小火箭（Shadowrocket）** 的下载安装与订阅配置，是开启高效科学上网与游戏加速的关键步骤。
+在当今网络服务选择中，**Clash** 与 **Shadowrocket（小火箭）** 堪称全球最受欢迎的现代化智能规则代理工具。无论是追求极速稳定体验的 PC 桌面端，还是便携的移动端，掌握 **Clash 客户端** 与 **小火箭（Shadowrocket）** 的下载安装与订阅配置，是开启高效跨国办公与网络连接的关键步骤。
 
-本教程由「晚风机场服务指南」编辑团队精心整理，将全面涵盖 **Clash Verge Rev、Clash Meta、Shadowrocket（小火箭）** 的正版下载渠道、一键订阅导入实操、规则分流配置以及常见疑难解答。
+本文全面涵盖 **Clash Verge Rev、Clash Meta、Shadowrocket（小火箭）** 的正版下载渠道、一键订阅导入实操、规则分流配置以及常见疑难解答。
 
 ---
 
@@ -48,9 +48,9 @@ faq:
 对于桌面端 Windows 和 Mac 用户，推荐使用现代化开源客户端 **Clash Verge Rev**（原 Clash 项目的优秀继承者）。
 
 ### 步骤 1：获取正版 Clash Verge 安装包
-请始终通过官方 GitHub Release 正规渠道下载：
-* **Windows**：下载 `.msi` 或 `.exe` 安装程序。
-* **macOS**：苹果芯片（M1/M2/M3）选择 `aarch64.dmg`，Intel 芯片选择 `x64.dmg`。
+请始终通过 [Clash Verge Rev 官方 GitHub Releases](https://github.com/clash-verge-rev/clash-verge-rev/releases) 正规开源渠道下载，或查阅 [官方文档](https://clash-verge-rev.github.io/)：
+* **Windows**：下载 `.msi` 或 `.exe` 安装程序（通常为 `x64-setup.exe`）。
+* **macOS**：苹果芯片（M1/M2/M3/M4）选择 `aarch64.dmg`，Intel 芯片选择 `x64.dmg`。
 
 ### 步骤 2：导入机场订阅链接
 1. 登录您的机场服务商控制台，找到“一键导入”或“复制通用 Clash 订阅链接”。
@@ -73,7 +73,7 @@ faq:
 由于地区政策，Shadowrocket 未在国区 App Store 上架。
 1. 在 iPhone 上打开 **App Store**，点击右上角头像退出当前国区账号。
 2. 登录已准备好的海外美区 Apple ID（*切记只在 App Store 内登录，严禁在系统设置 iCloud 登录！*）。
-3. 搜索 **Shadowrocket**（认准图标为红色背景、白色小火箭形状的正版软件），完成购买与下载。
+3. 访问 [Shadowrocket 官方 App Store 正版页面](https://apps.apple.com/app/shadowrocket/id932747118)（认准图标为红色背景、白色小火箭形状的正版软件，开发者为 Shadow Launch Technology Limited），完成购买与下载。
 
 ### 步骤 2：小火箭（Shadowrocket）一键导入订阅
 1. 使用 Safari 浏览器打开机场官网后台，点击“一键导入 Shadowrocket”。
@@ -87,15 +87,15 @@ faq:
 
 ---
 
-## 4. Clash 与小火箭进阶使用：开启 TUN 模式与游戏加速
+## 4. Clash 与小火箭进阶使用：开启 TUN 模式与全局接管
 
-如果你有全局软件接管、外服游戏加速或游戏 Steam/Discord 语音需求，建议开启 **TUN 模式**。
+如果你有全局软件接管、跨国远程办公、海外服务器开发或实时音视频通讯需求，建议开启 **TUN 模式**。
 
 ### Clash Verge 的 TUN 模式：
-在 Clash Verge 设置中找到 **TUN 模式 (Tun Mode)** 并开启。TUN 模式会创建一个虚拟网卡，强制接管不遵循系统代理设置的命令行工具、Uplay/Origin 客户端与终端程序。
+在 Clash Verge 设置中找到 **TUN 模式 (Tun Mode)** 并开启。TUN 模式会创建一个虚拟网卡，强制接管不遵循系统代理设置的特定专用客户端、Docker 与终端命令行工具。
 
 ### 小火箭（Shadowrocket）UDP 转发：
-在 Shadowrocket 页面点击 `设置` -> `UDP` -> 开启 **转发 UDP**。对于外服手游、主机连线与实时语音沟通，开启 UDP 能有效防止游戏断连与掉线。
+在 Shadowrocket 页面点击 `设置` -> `UDP` -> 开启 **转发 UDP**。对于各类跨国远程桌面、视频会议与实时语音沟通，开启 UDP 能有效保证数据包低延迟送达、防止通话卡顿中断。
 
 ---
 

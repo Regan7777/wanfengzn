@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     'ai',
     'streaming',
     'work',
-    'gaming',
+    'coding',
     'multi-device'
   ];
 
@@ -61,19 +61,17 @@ filteredArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedA
 const comparisonData: ComparisonRow[] = [
   {
     name: '神行加速',
-    type: 'BGP优质中转 / VLESS',
-    rating: '9.8',
+    type: '透传中转 / VLESS',
     entryPrice: '折后¥16.1/月',
-    features: ['7折优惠码: sx0077', 'BGP优质中转', '原生家宽IP', '解封ChatGPT/Netflix'],
-    suitability: `适合 ${topicNode.shortName} 核心需求`,
+    features: ['50+节点(港20/台10/日10/新10/美10)', 'VLESS协议', '三网优化/智能负载', '不限设备数', '全AI/流媒体全解锁'],
+    suitability: `适合 ${topicNode.shortName} 核心需求（主推服务商）`,
     affLink: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8',
     linkText: '直达官网'
   },
   {
     name: '大佬云',
     type: 'BGP中转 / Anycast',
-    rating: '9.75',
-    entryPrice: '¥10/月起',
+    entryPrice: '折后¥14.0/月',
     features: ['稳定老牌', '超值体验', '多线路冗余', '工单极速响应'],
     suitability: `适合 ${topicNode.shortName} 入门体验`,
     affLink: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL',
@@ -82,8 +80,7 @@ const comparisonData: ComparisonRow[] = [
   {
     name: '闪电鼠',
     type: 'IEPL专线 / Shadowsocks',
-    rating: '9.7',
-    entryPrice: '¥15/月起',
+    entryPrice: '折后¥13.9/月',
     features: ['全专线架构', '超低延迟', '全平台支持', '原生IP解锁'],
     suitability: `适合 ${topicNode.shortName} 极速需求`,
     affLink: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
@@ -92,8 +89,7 @@ const comparisonData: ComparisonRow[] = [
   {
     name: '榴莲云',
     type: 'BGP中转 / Trojan',
-    rating: '9.6',
-    entryPrice: '¥12/月起',
+    entryPrice: '折后¥16.8/月',
     features: ['性价比首选', 'BGP中转', '大流量包', 'AI/流媒体解锁'],
     suitability: `适合 ${topicNode.shortName} 性价比需求`,
     affLink: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN',
@@ -102,8 +98,7 @@ const comparisonData: ComparisonRow[] = [
   {
     name: '环球梯',
     type: 'IEPL专线 / VLESS',
-    rating: '9.5',
-    entryPrice: '¥18/月起',
+    entryPrice: '折后¥14.7/月',
     features: ['全球多节点', '晚高峰保障', '高速稳定', '全设备并发'],
     suitability: `适合 ${topicNode.shortName} 稳定需求`,
     affLink: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG',
@@ -112,8 +107,7 @@ const comparisonData: ComparisonRow[] = [
   {
     name: '云界限',
     type: 'IPLC专线 / Hysteria2',
-    rating: '9.4',
-    entryPrice: '¥20/月起',
+    entryPrice: '折后¥15.4/月',
     features: ['新一代协议', '抗封锁极佳', '住宅原生IP', '无缝切换'],
     suitability: `适合 ${topicNode.shortName} 抗封锁需求`,
     affLink: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',

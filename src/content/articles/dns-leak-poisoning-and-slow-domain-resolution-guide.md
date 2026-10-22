@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "problems"
 tags: ["网络排错", "DNS污染", "DNS泄露", "Fake-IP", "网页卡顿", "域名解析", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/dns-leak-poisoning-and-slow-domain-resolution-guide.svg"
 coverAlt: "DNS 污染与 DNS 泄露排查修复示意图"
 featured: false
@@ -26,7 +26,7 @@ faq:
 
 这些问题的罪魁祸首，都是由 **DNS 污染 (DNS Poisoning)** 或 **DNS 泄露 (DNS Leak)** 引起的。
 
-本指南由「晚风机场服务指南编辑团队」撰写，手把手教你使用命令行诊断 DNS 故障，并通过配置客户端的 **Fake-IP / SmartDNS** 消除解析瓶颈。
+本文手把手教你使用命令行诊断 DNS 故障，并通过配置客户端的 **Fake-IP / SmartDNS** 消除解析瓶颈。
 
 ---
 
@@ -55,6 +55,11 @@ nslookup twitter.com
 # 正常正确的海外解析结果应当指向海外 IP 段；
 # 如果返回的是 127.0.0.1、或某些奇怪的国内 IP 地址，说明本地 DNS 遭遇了严重污染！
 ```
+
+### 权威在线 DNS 泄露检测工具：
+- [**BrowserLeaks IP & DNS 检测中心**](https://browserleaks.com/ip)：全方位检测 WebRTC、DNS 服务器泄露与出口 IP 真实位置。
+- [**DNSLeakTest.com 官方检测站**](https://dnsleaktest.com/)：点击 `Standard Test`，若出现的 DNS 服务器地址全部位于海外目标地区且**无任何中国大陆运营商 DNS**，则说明 DNS 防泄露生效。
+- [**Cloudflare 1.1.1.1 官方连通性诊断**](https://one.one.one.one/help/)：检测当前 DoH/DoT 加密 DNS 是否已正常启用。
 
 ---
 
@@ -104,8 +109,8 @@ dns:
 
 ## 5. 常见排错 FAQ
 
-### Q1: 开启 Fake-IP 后，个别软件（如部分网游或公司内网 VPN）无法正常连通？
-**答**：某些老旧软件或特定游戏安全反作弊组件不支持 `198.18.x.x` 假 IP 映射。可以在客户端设置的 `fake-ip-filter` (Fake-IP 过滤名单) 中添加该软件的域名，强制其走传统 `Redir-Host` 解析。
+### Q1: 开启 Fake-IP 后，个别专用软件（如特定远程办公客户端或公司内网 VPN）无法正常连通？
+**答**：某些特殊底层协议封装的软件或安全证书组件不支持 `198.18.x.x` 假 IP 映射。可以在客户端设置的 `fake-ip-filter` (Fake-IP 过滤名单) 中添加该软件对应的域名，强制其走传统 `Redir-Host` 原生解析。
 
 ### Q2: 为什么使用 `dnsleaktest.com` 测试显示有国内 IP？
 **答**：如果你访问的是国内网站（如百度、淘宝），走国内 DNS 解析出现本地运营商 IP 是完全正常且推荐的（这样才能拿到最近的 CDN 节点速度最快）。只要在测试海外域名时**不出现**本地运营商 DNS，即代表防护有效。

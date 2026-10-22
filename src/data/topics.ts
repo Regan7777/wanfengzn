@@ -32,7 +32,7 @@ export const TOPICS_REGISTRY: Record<string, TopicNode> = {
     keywords: ['机场推荐', '2026机场推荐', '机场推荐2026', '机场推荐哪个好', '机场推荐怎么选'],
     searchIntent: 'Commercial',
     coreAnswer: '挑选2026年稳定网络服务商的核心公式：优先选择“IEPL专线架构” + 坚持“月付订阅” + 认准“原生IP解锁”。切忌盲目购买超低价年付套餐。',
-    subtopicSlugs: ['recommend/stable', 'recommend/value', 'recommend/budget', 'recommend/beginner', 'recommend/premium', 'recommend/monthly', 'recommend/yearly', 'recommend/payg', 'recommend/ai', 'recommend/streaming', 'recommend/work', 'recommend/gaming'],
+    subtopicSlugs: ['recommend/stable', 'recommend/value', 'recommend/budget', 'recommend/beginner', 'recommend/premium', 'recommend/monthly', 'recommend/yearly', 'recommend/payg', 'recommend/ai', 'recommend/streaming', 'recommend/work', 'recommend/coding'],
     relatedTopicSlugs: ['ranking', 'price', 'network', 'compare']
   },
 
@@ -129,18 +129,18 @@ export const TOPICS_REGISTRY: Record<string, TopicNode> = {
   'use-case': {
     slug: 'use-case',
     path: '/use-case/',
-    title: '场景化服务选择｜AI平台、流媒体、游戏与协同办公',
+    title: '场景化服务选择｜AI平台、流媒体、远程开发与协同办公',
     shortName: '用途选择',
-    seoTitle: '场景化服务选择｜AI平台、流媒体、游戏与协同办公 - 晚风机场服务指南',
-    description: '针对 ChatGPT / Claude / Gemini AI 开发交流环境、4K 8K 跨国流媒体解锁与外服游戏高品质体验提供针对性硬件方案。',
+    seoTitle: '场景化服务选择｜AI平台、流媒体、远程开发与协同办公 - 晚风机场服务指南',
+    description: '针对 ChatGPT / Claude / Gemini AI 开发交流环境、4K 跨国流媒体解锁与远程服务器运维提供高可靠性网络解决方案。',
     type: 'Pillar',
     priority: 'P1',
     parentSlug: null,
     category: 'use-case',
-    keywords: ['AI机场推荐', 'ChatGPT机场推荐', 'Claude机场推荐', '流媒体机场推荐', '游戏机场推荐', '办公机场推荐'],
+    keywords: ['AI机场推荐', 'ChatGPT机场推荐', 'Claude机场推荐', '流媒体机场推荐', '开发机场推荐', '办公机场推荐'],
     searchIntent: 'Commercial',
-    coreAnswer: 'AI平台要求纯净住宅原生IP；4K流媒体要求高带宽保障；游戏要求极致低延迟与0丢包率。',
-    subtopicSlugs: ['use-case/chatgpt', 'use-case/claude', 'use-case/gemini', 'use-case/video', 'use-case/office', 'use-case/gaming'],
+    coreAnswer: 'AI平台要求纯净住宅原生IP；4K流媒体要求高带宽保障；远程开发与跨国办公要求晚高峰极致稳定与0丢包率。',
+    subtopicSlugs: ['use-case/chatgpt', 'use-case/claude', 'use-case/gemini', 'use-case/video', 'use-case/office', 'use-case/coding'],
     relatedTopicSlugs: ['recommend', 'network']
   },
 

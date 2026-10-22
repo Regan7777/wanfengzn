@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "Android客户端", "Flclash", "Surfboard", "安卓客户端", "订阅导入", "保活设置", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/android-flclash-surfboard-setup-tutorial.svg"
 coverAlt: "Android 安卓端 Flclash 与 Surfboard 客户端配置示意图"
 featured: false
@@ -29,16 +29,12 @@ faq:
 
 ## 1. 安卓主流客户端推荐对比
 
-```
-Android 客户端对比表：
-┌───────────────┬──────────────────────┬──────────────────────┬──────────────────────┐
-│ 评估项目      │ Flclash              │ Surfboard (冲浪板)   │ v2rayNG              │
-├───────────────┼──────────────────────┼──────────────────────┼──────────────────────┤
-│ UI 界面       │ Material You 极简美学 │ Surge 风格简洁卡片   │ 传统列表风格         │
-│ 协议兼容      │ 全协议 (包含 Hy2)    │ 标准协议与 Surge 规则│ 经典 VMess/VLESS 协议 │
-│ 推荐指数      | 🌟🌟🌟🌟🌟           │ 🌟🌟🌟🌟🌟           │ 🌟🌟🌟               │
-└───────────────┴──────────────────────┴──────────────────────┴──────────────────────┘
-```
+| 评估项目 | Flclash | Surfboard (冲浪板) | v2rayNG |
+| :--- | :--- | :--- | :--- |
+| **UI 界面** | Material You 极简美学 | Surge 风格简洁卡片 | 传统列表风格 |
+| **协议兼容** | 全协议 (包含 Hy2 / Meta) | 标准协议与 Surge 规则 | 经典 VMess/VLESS 协议 |
+| **适合场景** | 多协议与新手主力 | 偏好规则策略与卡片流 | 极简纯净备用 |
+| **官方入口** | [GitHub Releases](https://github.com/chen08209/FlClash/releases) | [Google Play 商店](https://play.google.com/store/apps/details?id=com.getsurfboard) | [GitHub Releases](https://github.com/2dust/v2rayNG/releases) |
 
 ---
 
@@ -47,8 +43,8 @@ Android 客户端对比表：
 **Flclash** 是一款支持多平台的极简连接工具，其在 Android 端凭借优异的交互体验和完善的规则支持广受好评。
 
 ### 步骤一：获取正版 APK
-1. 访问 Flclash 官方 GitHub Releases 页面，下载最新的 Android APK 文件（通常文件名带有 `android-arm64-v8a.apk`）。
-2. 在手机文件管理器中点击安装包完成安装。
+1. 访问 [Flclash 官方 GitHub Releases 页面](https://github.com/chen08209/FlClash/releases)，下载最新的 Android APK 文件（普通安卓设备通常选择文件名带有 `android-arm64-v8a.apk` 的安装包）。
+2. 在手机文件管理器中点击安装包完成安装（若提示未知来源应用安装，请在系统设置中临时放行）。
 
 ### 步骤二：订阅导入
 1. 打开浏览器登录你的服务商后台。
@@ -68,7 +64,7 @@ Android 客户端对比表：
 
 **Surfboard** 拥有极其平滑的过渡动画与低功耗控制，非常适合注重续航的手机用户。
 
-1. **下载方式**：可通过 Google Play 商店直连下载，或通过 GitHub 获取独立 APK。
+1. **下载方式**：可通过 [Surfboard Google Play 官方商店页面](https://play.google.com/store/apps/details?id=com.getsurfboard) 直连安装，或通过第三方安全 APKPure 镜像获取正版 APK。
 2. **导入配置**：
    - 打开 Surfboard，点击底部的 **配置 (Config)** 标签页。
    - 点击右下角的 **`+`** 加号，选择 **从 URL 导入 (Import from URL)**。

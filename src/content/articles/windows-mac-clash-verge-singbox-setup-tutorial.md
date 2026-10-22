@@ -5,23 +5,23 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
 tags: ["客户端", "Windows客户端", "macOS客户端", "Clash Verge", "Sing-box", "Surge", "订阅导入", "TUN模式", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/windows-mac-clash-verge-singbox-setup-tutorial.svg"
 coverAlt: "Windows 和 macOS 客户端下载与订阅导入实操示意图"
 featured: false
 draft: false
 keywords: ["Windows机场客户端", "Mac机场客户端", "Clash Verge Rev教程", "Sing-box Mac配置", "TUN模式设置", "电脑端订阅导入"]
-tldr: "PC/Mac 用户首选 Clash Verge Rev（支持中文与多内核）：1. 从 GitHub 正版 Release 下载安装；2. 复制服务商订阅 URL 到 Profiles 粘贴导入；3. 开启 System Proxy 系统代理与 Rule 规则分流；4. 游戏或命令行代理建议开启 TUN Mode。"
+tldr: "PC/Mac 用户首选 Clash Verge Rev（支持中文与多内核）：1. 从 GitHub 正版 Release 下载安装；2. 复制服务商订阅 URL 到 Profiles 粘贴导入；3. 开启 System Proxy 系统代理与 Rule 规则分流；4. 终端命令行、跨国开发或全局协议代理建议开启 TUN Mode。"
 faq:
   - question: "Clash Verge Rev 与已停更的旧版 Clash for Windows 有何区别？"
     answer: "旧版 Clash for Windows 源码已停止维护。Clash Verge Rev 是由开源社区接管的现代化重构版，不仅更新安全漏洞，还内置了 Clash.Meta (Mihomo) 内核，支持 Hysteria 2、TUIC 等新协议及全新的可视化 UI。"
   - question: "macOS 提示‘应用已损坏，无法打开’怎么办？"
     answer: "这是 Mac 的 Gatekeeper 安全机制提示。只需打开终端 (Terminal) 执行命令：sudo xattr -r -d com.apple.quarantine /Applications/Clash\\ Verge.app 即可解除锁定。"
-  - question: "开启代理后，游戏客户端或 CMD 终端无法连通？"
+  - question: "开启代理后，专用桌面客户端或 CMD 终端无法连通？"
     answer: "传统系统代理仅接管浏览器 HTTP 流量。请在客户端设置中勾选开启‘TUN 模式 (Service Mode)’并允许安装服务，即可创建虚拟网卡接管全局 UDP/TCP 流量。"
 ---
 
-在桌面端（Windows PC 与 macOS 苹果电脑）上，网络连接客户端的性能与功能丰富度直接决定了办公、游戏与流媒体观看的体验。随着旧版客户端的逐步淘汰，以 **Clash Verge Rev** 和 **Sing-box** 为代表的新一代开源客户端已成为 2026 年的主流首选。
+在桌面端（Windows PC 与 macOS 苹果电脑）上，网络连接客户端的性能与功能丰富度直接决定了远程办公、代码开发与 4K 流媒体观看的体验。随着旧版客户端的逐步淘汰，以 **Clash Verge Rev** 和 **Sing-box** 为代表的新一代开源客户端已成为 2026 年的主流首选。
 
 本教程将手把手带你完成 Windows 与 macOS 系统下主流客户端的正版安装、中文设置、订阅导入与高级 TUN 模式配置。
 
@@ -36,6 +36,7 @@ faq:
 | **内核架构** | Clash.Meta (Mihomo) | Sing-box 原生内核 | Surge 自研协议栈 |
 | **适用人群** | **绝大多数普通及进阶用户 🌟** | 追求下一代协议特性的极客 | 苹果生态高端开发者/调试者 |
 | **价格** | 开源免费 | 开源免费 | 较高买断费用 |
+| **官方入口** | [GitHub Releases](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [官方文档](https://clash-verge-rev.github.io/) | [GitHub Releases](https://github.com/SagerNet/sing-box/releases) / [官方文档](https://sing-box.sagernet.org/) | [Surge 官网](https://nssurge.com/) |
 
 ---
 
@@ -43,14 +44,15 @@ faq:
 
 ### 第一步：正版下载与安装
 请务必认准官方开源仓库，避免下载被植入后门篡改的“修改版”：
-- **官方 GitHub Releases 页面** 下载对应系统包：
-  - Windows 用户：下载 `.exe` 或 `x64-setup.exe` 安装包。
-  - macOS 芯片区分：
-    - Apple Silicon (M1/M2/M3/M4)：下载 `aarch64.dmg`。
-    - Intel 芯片老款 Mac：下载 `x64.dmg`。
+- **官方正版入口**：前往 [Clash Verge Rev GitHub Releases](https://github.com/clash-verge-rev/clash-verge-rev/releases) 下载最新发行版系统包：
+  - **Windows 用户**：推荐下载 `Clash.Verge_x.x.x_x64-setup.exe` 安装包（便携版可选择 `.zip`）。
+  - **macOS 用户（按芯片架构区分）**：
+    - Apple Silicon 芯片 (M1/M2/M3/M4 系列)：下载带有 `aarch64.dmg` 标识的安装包。
+    - Intel 芯片老款 Mac：下载带有 `x64.dmg` 标识的安装包。
+  - **备选官方文档库**：查阅 [Clash Verge Rev 官方在线文档](https://clash-verge-rev.github.io/) 获取完整快捷键与脚本配置说明。
 
 > [!TIP]
-> **Mac 用户避坑提示：** 安装后打开若提示“损坏”，请在 Mac 终端运行：
+> **Mac 用户避坑提示：** 安装后打开若提示“已损坏，无法打开”，请在 Mac 终端 (Terminal) 中运行以下权限签名解除命令：
 > `sudo xattr -r -d com.apple.quarantine /Applications/Clash\ Verge.app`
 
 ### 第二步：软件语言切换为中文
@@ -78,7 +80,7 @@ faq:
 
 ## 3. 进阶配置：开启 TUN 模式接管全局流量
 
-普通的系统代理（System Proxy）无法影响终端 CMD、PowerShell、部分 Steam 游戏或 Node.js 环境。通过开启 **TUN (Tunnel) 虚拟网卡模式**，可以实现系统全局透明代理。
+普通的系统代理（System Proxy）无法影响终端 CMD、PowerShell、Git、Docker 或 Node.js 环境。通过开启 **TUN (Tunnel) 虚拟网卡模式**，可以实现系统全局透明代理。
 
 ```
 普通系统代理 vs TUN 虚拟网卡模式：
@@ -93,15 +95,15 @@ faq:
 1. 打开 Clash Verge Rev 设置菜单。
 2. 找到 **Service Mode (服务模式)**，点击右侧的 **Install (安装)** 按钮（需管理员权限）。
 3. 安装成功后，将 **TUN Mode (TUN 模式)** 开关切换为 **开启 (On)**。
-4. 开启 TUN 模式后，游戏客户端及命令行无需额外配置代理即可直接连通。
+4. 开启 TUN 模式后，各类桌面客户端及终端命令行无需额外配置环境变量即可直接连通。
 
 ---
 
 ## 4. macOS 独占客户端：Surge & Stash 快速上手
 
 对于苹果 Mac 深度用户：
-- **Stash for Mac**：被称为“Mac 上的 Shadowrocket”，适配 Clash 规则，界面极其小巧轻量。
-- **Surge for Mac**：拥有全网最强大的抓包调试与网路链路监控能力，在“增强模式 (Enhanced Mode)”下接管接发流量体验极佳。
+- **[Stash for Mac](https://stash.ws/)**：被称为“Mac 上的小火箭”，原生适配 Clash 规则与规则集，支持通过 [Mac App Store](https://apps.apple.com/app/stash/id1596063717) 购买下载，占用极低内存。
+- **[Surge for Mac](https://nssurge.com/)**：官方由 [Surge 团队](https://nssurge.com/) 维护，拥有全网顶级的抓包网络调试、链路追踪与 Enhanced Mode（增强网卡接管）能力，适合高端工程师与高级开发者。
 
 ---
 

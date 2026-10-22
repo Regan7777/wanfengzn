@@ -16,20 +16,18 @@ articles.sort((a, b) => {
 const homepage6Brands: ComparisonRow[] = [
   {
     name: '神行加速',
-    type: 'BGP优质中转',
-    rating: '9.8',
+    type: '透传中转 / VLESS',
     entryPrice: '折后¥16.1/月',
-    features: ['BGP中转', '原生家宽IP', '7折券 sx0077', 'VLESS协议'],
-    suitability: '远程办公、极速稳定、高端体验',
+    features: ['50+节点(港20/台10/日10/新10/美10)', 'VLESS协议', '三网优化/智能负载', 'Netflix/X/Disney/YT全解锁', 'ChatGPT/Gemini/Claude', '不限设备数'],
+    suitability: '节点丰富 / VLESS / 三网优化 / 智能负载均衡 / 全流媒体与AI交互',
     reviewLink: '/articles/shenxing-airport-review-2026/',
     affLink: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8',
     linkText: '官网直达'
   },
   {
     name: '大佬云',
-    type: 'BGP多线中转',
-    rating: '9.5',
-    entryPrice: '¥14/月',
+    type: 'BGP多线中转 / Anycast',
+    entryPrice: '折后¥14.0/月',
     features: ['老牌稳定', 'Anycast路由', '200GB超大流量'],
     suitability: '学生党、日常影音追剧、超值首选',
     reviewLink: '/articles/dalaoyun-airport-review-2026/',
@@ -38,31 +36,28 @@ const homepage6Brands: ComparisonRow[] = [
   },
   {
     name: '闪电鼠',
-    type: '公网直连',
-    rating: '9.6',
-    entryPrice: '¥15.4/月',
-    features: ['直连架构', '超低延迟 28ms', 'SS协议'],
-    suitability: '外服游戏加速、语音沟通、低延迟',
+    type: 'BGP隧道中转 / SS',
+    entryPrice: '折后¥13.9/月',
+    features: ['BGP隧道架构', '超低延迟', 'SS极简省电协议'],
+    suitability: '移动端长效保活、语音沟通、极速低延迟',
     reviewLink: '/articles/shandianshu-airport-review-2026/',
     affLink: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
     linkText: '官网直达'
   },
   {
     name: '榴莲云',
-    type: 'BGP中转',
-    rating: '9.3',
-    entryPrice: '¥16.8/月',
-    features: ['BGP中转', 'Trojan协议', '高性价比大流量'],
-    suitability: '高频下载、日常冲浪、平价用户',
+    type: 'BGP中转 / Trojan',
+    entryPrice: '折后¥16.8/月',
+    features: ['BGP中转', 'Trojan协议', '高敏感期抗封伪装'],
+    suitability: '注重隐蔽抗封、日常追剧冲浪、平价用户',
     reviewLink: '/articles/liulianyun-airport-review-2026/',
     affLink: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN',
     linkText: '官网直达'
   },
   {
     name: '环球梯',
-    type: 'BGP双线中转',
-    rating: '9.7',
-    entryPrice: '¥15.4/月',
+    type: 'BGP双线中转 / VLESS',
+    entryPrice: '折后¥14.7/月',
     features: ['全球60+节点', 'VLESS协议', '晚高峰优化'],
     suitability: '跨国业务、海外流媒体、稳定办公',
     reviewLink: '/articles/huanqiuti-airport-review-2026/',
@@ -71,10 +66,9 @@ const homepage6Brands: ComparisonRow[] = [
   },
   {
     name: '云界限',
-    type: 'Hysteria2直连',
-    rating: '9.4',
-    entryPrice: '¥15.4/月',
-    features: ['Hysteria2协议', '弱网高吞吐', '抗封锁优化'],
+    type: 'Hysteria 2 / 端口跳跃优化',
+    entryPrice: '折后¥15.4/月',
+    features: ['Hysteria 2协议', '弱网高吞吐', '抗封锁端口跳跃'],
     suitability: '弱网高吞吐、极端封锁环境抗卡顿',
     reviewLink: '/articles/yunjiexian-airport-review-2026/',
     affLink: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
@@ -85,11 +79,11 @@ const homepage6Brands: ComparisonRow[] = [
 
 <PillarLayout
   categorySlug="reviews"
-  title="首页6大热门机场深度评测｜真实月付套餐与官网直达"
-  seoTitle="首页6大机场评测2026｜神行加速、大佬云、闪电鼠、榴莲云、环球梯、云界限真实月付价格与官网入口 - 晚风机场服务指南"
-  description="针对首页收录的 6 大热门机场服务商（神行加速、大佬云、闪电鼠、榴莲云、环球梯、云界限）进行全方位深度测评。汇总真实月付套餐价格、BGP中转/公网直连线路架构与官网直达入口。"
-  coreAnswer="表格中提供了每个服务商的‘阅读评测’（深入报告）与‘官网直达’（前往官方网站查看最新套餐与注册）双重入口。"
+  title="机场评测"
+  seoTitle="机场评测2026｜主流网络服务商多维度实测与客观避坑报告 - 晚风机场服务指南"
+  description="汇总全站收录的主流网络服务商深度评测报告。围绕晚高峰稳定性、线路架构、流媒体与AI工具解锁、套餐价格及优缺点进行客观梳理，提供实事求是的选购参考。"
+  coreAnswer="评测坚持独立客观原则，重点考察晚高峰真实丢包率、线路类型与倍率透明度，明确列出优缺点与避坑建议，避免过度包装与夸大宣传。"
   articles={articles}
 >
-  <ComparisonTable data={homepage6Brands} title="首页 6 大站点评测速查、真实月付与官网直达" />
+  <ComparisonTable data={homepage6Brands} title="主流服务商核心参数与评测速查" />
 </PillarLayout>

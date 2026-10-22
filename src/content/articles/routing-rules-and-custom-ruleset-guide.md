@@ -5,7 +5,7 @@ publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"
 tags: ["新手教程", "规则模式", "分流规则", "使用教程", "Rule-Set", "广告拦截", "2026机场推荐", "VPN推荐", "翻墙推荐", "梯子节点", "科学上网"]
-author: "晚风机场服务指南编辑团队"
+author: "W"
 cover: "/images/covers/routing-rules-and-custom-ruleset-guide.svg"
 coverAlt: "网络客户端规则分流与自定义 Rule-Set 配置示意图"
 featured: false
@@ -87,7 +87,12 @@ rules:
 
 ## 3. 导入第三方开源 Rule-Set 规则集
 
-手动逐条添加规则极其繁琐。目前开源社区维护了极其庞大的规则集（如 **Loyalsoldier/clash-rules** 或 **ACL4SSR**），可一键引入自动更新。
+手动逐条添加规则极其繁琐。目前开源社区维护了极其庞大且每日自动同步的规则集，可一键引入客户端实现自动化托管更新：
+
+### 权威开源分流规则集推荐：
+- [**Loyalsoldier/clash-rules 官方 GitHub 仓库**](https://github.com/Loyalsoldier/clash-rules)：全网维护最广、更新最勤的纯净规则集，精准划分 GFW 列表、国内直连与常见拦截名单。
+- [**ACL4SSR 官方规则库**](https://github.com/ACL4SSR/ACL4SSR)：经典强大的全场景分流策略组配置源，包含流媒体、AI 与跨国办公全套策略。
+- [**Mihomo (Clash Meta) 官方 Rule-Providers 文档**](https://wiki.metacubex.one/config/rule-providers/)：查阅最新的 ruleset 远端配置文件结构与行为指令。
 
 ### 常用第三方 Rule-Set 分流库分类：
 - **Category-ads-all**：全网常见广告拦截规则集（REJECT）；
@@ -98,7 +103,7 @@ rules:
 ### 引入方法：
 以 **Clash Verge Rev** 为例：
 1. 打开 `订阅 (Profiles)` -> 右键当前配置 -> 点击 `Merge / Parsers (配置预处理/合并)`。
-2. 插入社区推荐的 Rule-Provider 链接。
+2. 插入社区推荐的 Rule-Provider 链接（参考 [Clash Verge Rev 官方预处理文档](https://clash-verge-rev.github.io/)）。
 3. 客户端会在后台自动按照 24 小时周期同步最新的规则库。
 
 ---

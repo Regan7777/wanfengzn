@@ -11,6 +11,17 @@ import { generateOrganizationSchema, generateWebSiteSchema, generateFAQSchema } 
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sortedArticles = allArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
+// 首页指定展示的核心入门与选型指南文章（刚好3篇）
+const homeFeaturedSlugs = [
+  'clash-and-shadowrocket-all-platform-tutorial-2026',
+  'subscription-link-import-and-sync-tutorial',
+  '2026-airport-recommendation-guide'
+];
+
+const featuredHomeArticles = allArticles
+  .filter((a) => homeFeaturedSlugs.includes(a.slug))
+  .sort((a, b) => homeFeaturedSlugs.indexOf(a.slug) - homeFeaturedSlugs.indexOf(b.slug));
+
 // 样例导航/服务卡片数据 (与参考模板布局一致)
 const providerCards = [
   {
@@ -21,9 +32,9 @@ const providerCards = [
     isSpecial: true
   },
   {
-    tag: 'BGP优质中转 / VLESS',
+    tag: '主推 / 50+透传中转 / VLESS',
     title: '神行加速',
-    desc: 'BGP优质中转 + 原生家宽IP',
+    desc: '三网优化 + 智能负载均衡 + AI/流媒体全解锁',
     link: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8'
   },
   {
@@ -33,9 +44,9 @@ const providerCards = [
     link: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL'
   },
   {
-    tag: '公网直连 / SS',
+    tag: 'BGP隧道中转 / SS',
     title: '闪电鼠',
-    desc: '公网直连架构 + 超低28ms延迟',
+    desc: 'BGP隧道中转 + 移动端省电低发热神器',
     link: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK'
   },
   {
@@ -51,9 +62,9 @@ const providerCards = [
     link: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG'
   },
   {
-    tag: 'Hysteria2直连',
+    tag: 'Hysteria2 / 端口跳跃',
     title: '云界限',
-    desc: 'Hysteria2协议 + 弱网高吞吐',
+    desc: 'Hysteria2协议 + 端口跳跃防QoS弱网穿透',
     link: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW'
   },
   {
@@ -68,15 +79,15 @@ const providerCards = [
 const homeFaqs = [
   {
     question: "本站的“机场推荐”与评测标准是什么？",
-    answer: "我们基于实际晚高峰测速、丢包率、线路类型（IEPL/IPLC/BGP）、售后响应与网络环境兼容性进行综合评测，拒绝接受没有实际测试支撑的虚假广告。"
+    answer: "我们基于实际<a href=\"/articles/node-speed-test-metrics-tutorial/\">晚高峰测速与丢包率诊断</a>、<a href=\"/articles/bgp-transit-vs-direct-line-deep-dive/\">线路架构（IEPL专线/BGP中转）</a>、售后响应与网络环境兼容性进行综合打分，严格遵循<a href=\"/articles/airport-selection-metrics-guide/\">机场量化评测体系</a>，拒绝接受没有实际测试支撑的虚假广告。"
   },
   {
     question: "完全不了解的新手，第一次应该如何选择？",
-    answer: "建议零基础新手先阅读《新手指南》与《第一次选择应该注意什么》，优先选择支持按月付款的服务商，先购买一个月测试自己常使用的节点和时间段。"
+    answer: "建议零基础新手先阅读<a href=\"/articles/2026-airport-recommendation-guide/\">《2026机场推荐精选指南》</a>与<a href=\"/articles/first-time-airport-selection-tips/\">《新手第一次选购避坑原则》</a>，优先选择支持按月付款的成熟服务商，配合<a href=\"/articles/clash-and-shadowrocket-all-platform-tutorial-2026/\">《全平台客户端上手教程》</a>先月付测试自己常使用的节点和时间段。"
   },
   {
     question: "使用专线线路（IEPL/IPLC）有什么优势？",
-    answer: "专线线路采用点对点物理内网传输，流量不经过公网防火墙，具有极高的稳定性、极低的延迟与丢包率，即使在网络高峰期也能保持通畅。"
+    answer: "<a href=\"/articles/network-line-types-iepl-iplc-guide/\">IEPL 与 IPLC 专线线路</a>采用点对点物理内网传输，流量不经过公网防火墙，具有极高的稳定性、极低的物理延迟与 0 丢包率，即使在晚高峰全网拥堵期也能保持秒开与超低网络抖动。"
   }
 ];
 
@@ -142,7 +153,7 @@ const schemas = [orgSchema, siteSchema, faqSchema].filter(Boolean);
       </div>
 
       <div class="card-grid">
-        {sortedArticles.slice(0, 6).map((article) => (
+        {featuredHomeArticles.map((article) => (
           <ArticleCard article={article} headingLevel="h3" />
         ))}
       </div>

@@ -28,7 +28,7 @@ if (!faqs || faqs.length === 0) return null;
           <span class="toggle-icon">▼</span>
         </summary>
         <div class="faq-answer">
-          <p>{item.answer}</p>
+          <p set:html={item.answer} />
         </div>
       </details>
     ))}
@@ -124,5 +124,17 @@ if (!faqs || faqs.length === 0) return null;
 
   .faq-answer p {
     margin: 0;
+  }
+
+  .faq-answer a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .faq-answer a:hover {
+    color: var(--color-primary-dark, #2563eb);
   }
 </style>

@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   canonicalUrl?: string;
   ogImage?: string;
+  keywords?: string[];
   article?: {
     publishedAt: Date;
     updatedAt?: Date;
@@ -20,6 +21,7 @@ interface Props {
 const {
   title = SITE_CONFIG.siteTitle,
   description = SITE_CONFIG.description,
+  keywords,
   canonicalUrl,
   ogImage = SITE_CONFIG.defaultOgImage,
   article,
@@ -45,7 +47,13 @@ const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_CONFIG.si
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+{keywords && keywords.length > 0 && (
+  <meta name="keywords" content={keywords.join(', ')} />
+)}
 <meta name="author" content={SITE_CONFIG.author} />
+{SITE_CONFIG.bingVerificationCode && (
+  <meta name="msvalidate.01" content={SITE_CONFIG.bingVerificationCode} />
+)}
 {noindex ? (
   <meta name="robots" content="noindex, nofollow" />
 ) : (

@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import ArticleCard from '../../components/ArticleCard.astro';
+import ArticleListItem from '../../components/ArticleListItem.astro';
 import Pagination from '../../components/Pagination.astro';
 import { getCanonicalUrl } from '../../lib/utils';
 import { generateBreadcrumbSchema } from '../../lib/schema';
@@ -34,9 +34,9 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
       <p class="page-subtitle">共收录 {allArticles.length} 篇网络服务选择与使用专业指南</p>
     </header>
 
-    <div class="card-grid">
+    <div class="article-list">
       {currentArticles.map((article) => (
-        <ArticleCard article={article} headingLevel="h2" />
+        <ArticleListItem article={article} headingLevel="h2" />
       ))}
     </div>
 
@@ -48,9 +48,12 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
   .page-container {
     padding-top: 2rem;
     padding-bottom: 4rem;
+    max-width: 900px;
   }
   .page-header {
     margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
   }
   .page-title {
     font-size: 2.1rem;
@@ -60,5 +63,8 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
   .page-subtitle {
     font-size: 1.05rem;
     color: var(--color-text-muted);
+  }
+  .article-list {
+    margin-bottom: 2.5rem;
   }
 </style>
