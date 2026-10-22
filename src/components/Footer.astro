@@ -6,6 +6,14 @@ const currentYear = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="container footer-inner">
+    <div class="footer-brand-section">
+      <a href="/" class="footer-logo-link">
+        <img src="/images/logo.png" alt={SITE_CONFIG.siteName} class="footer-logo-img" />
+        <span class="footer-brand-name">{SITE_CONFIG.siteName}</span>
+      </a>
+      <p class="footer-brand-tagline">专注网络技术解析、晚高峰客观实测与服务商透明评测</p>
+    </div>
+
     <div class="footer-bottom-bar">
       <div class="copyright-text">
         &copy; {currentYear} {SITE_CONFIG.siteName} .
@@ -42,8 +50,46 @@ const currentYear = new Date().getFullYear();
 
   .footer-inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-brand-section {
+    display: flex;
     align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--color-text-main);
+  }
+
+  .footer-logo-img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+  }
+
+  .footer-brand-name {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+
+  .footer-brand-tagline {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
   }
 
   .footer-bottom-bar {

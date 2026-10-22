@@ -1,162 +1,84 @@
-# 2026 网络服务选择与使用知识博客 (Astro 中文 SEO 知识门户)
+<div align="center">
 
-这是一个基于 **Astro 5 + TypeScript + Content Collections + 原生 CSS** 搭建的高性能、面向中文用户的“网络服务选择与使用知识博客”。全站围绕核心主题 **“机场推荐”** 建立了完整的 Topic Cluster（主题集群）搜索架构，兼顾中文 SEO、GEO（AI搜索优化）、静态生成性能与移动端极致阅读体验。
+<a href="https://wanfengzn.com">
+  <img src="https://wanfengzn.com/images/logo.png" alt="晚风博客 Logo" width="120" />
+</a>
 
----
+# 晚风博客 · WanFengZN.com
+**2026 独立网络技术与机场客观评测 · 节点配置与避坑指南**
 
-## 目录结构 (Project Structure)
+[![Website](https://img.shields.io/badge/官网入口-wanfengzn.com-blue?style=for-the-badge&logo=cloudflare&logoColor=white)](https://wanfengzn.com)
+[![GitHub Stars](https://img.shields.io/github/stars/Regan7777/wanfengzn?style=for-the-badge&logo=github)](https://github.com/Regan7777/wanfengzn)
+[![Framework](https://img.shields.io/badge/Astro-5.0_SSG-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build)
 
-```text
-├── src/
-│   ├── components/         # 核心可复用 UI 与 SEO 组件 (Header, Footer, SEO, Schema, TOC, FAQ, Card等)
-│   ├── content/
-│   │   ├── config.ts       # Astro Content Collections 强类型 z schema 定义
-│   │   └── articles/       # Markdown 文章库 (示例文章与真实知识库)
-│   ├── layouts/            # 页面布局模板 (BaseLayout, ArticleLayout, PillarLayout)
-│   ├── lib/                # 辅助函数库 (utils.ts, schema.ts)
-│   ├── pages/              # 全站路由与核心专题页 (/, /recommend/, /ranking/, /search/ 等)
-│   ├── styles/             # 设计系统与全局 CSS 样式 (global.css)
-│   └── config.ts           # 全局配置 (站点名称、域名、导航菜单、分类元数据)
-├── public/                 # 静态资源 (图片、robots.txt, llms.txt, og-default)
-├── docs/                   # 团队协作与写作规范 (content-guide.md)
-├── astro.config.mjs        # Astro 配置文件 (Sitemap 插件与 Shiki 代码高亮)
-├── tsconfig.json           # TypeScript 路径别名配置
-└── package.json            # 项目依赖与构建脚本
-```
+<p align="center">
+  <a href="https://wanfengzn.com">访问网站</a> •
+  <a href="https://wanfengzn.com/recommend/">核心精选推荐</a> •
+  <a href="https://wanfengzn.com/category/tutorials/">客户端教程</a> •
+  <a href="#免责声明">免责声明</a>
+</p>
+
+</div>
 
 ---
 
-## 快速上手与常用命令 (Getting Started)
+## 关于 晚风博客
 
-### 1. 安装项目依赖
+**[晚风博客 (wanfengzn.com)](https://wanfengzn.com)** 是由资深网络工程师 **W** 独立主理的网络技术评测与节点选型知识站点。
 
-```bash
-npm install
-```
-
-### 2. 本地开发调试 (Dev Server)
-
-启动本地开发服务器（默认端口 `http://localhost:4321`）：
-
-```bash
-npm run dev
-```
-
-### 3. 类型与 Astro 静态检查 (Check)
-
-在提交或部署前运行静态类型检查：
-
-```bash
-npm run check
-```
-
-### 4. 正式生产环境构建 (Build)
-
-自动完成静态页面编译、Sitemap 生成与 Pagefind 全文检索索引构建：
-
-```bash
-npm run build
-```
-
-构建成功后，所有静态 HTML 文件将输出至 `dist/` 目录。
-
-### 5. 本地预览构建产物 (Preview)
-
-```bash
-npm run preview
-```
+面对网络上泛滥的营销跑分图与虚假宣传，本站始终坚持：
+- **客观实测核验**：基于晚高峰真实网络表现、流媒体及 AI 原生解锁状态进行长期实测，杜绝夸大与虚标；
+- **透明资费测算**：亲自核验服务商套餐单价、真实计费倍率与优惠码有效性，核算真实使用成本；
+- **主动风险提示**：如实标注退款政策与工单响应时效，坚持倡导**优先小额月付、按需续费**，防范运营变故与资金风险。
 
 ---
 
-## 域名与全局配置修改 (Configuration)
+## 核心精选推荐
 
-部署前，请在以下文件中修改为您真实的网站域名与品牌名称：
+本站根据线路稳定性、流媒体/AI 解锁能力、客户端兼容度及使用成本精选以下服务商：
 
-### 1. `src/config.ts`
-修改 `siteUrl`、`siteName`、`description` 及核心导航链接：
+| 推荐机场 | 特性与架构 | 套餐与特惠 | 客户端支持 | 优惠码 | 直达链接 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **神行加速**<br><sub>(主力主推)</sub> | VLESS 透传中转、多设备不限、全流媒体与 AI 原生解锁 | **折后 16.1元/月**<br>年付特惠96元<br>不限时包99元起 | Windows 专属客户端<br>iOS Nextin (`sxjs`)<br>通用订阅联系客服 | **7折优惠码**<br>`sx0077` | [官网开通 ↗](https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8)<br>[详细评测](/reviews/shenxing/) |
+| **大佬云**<br><sub>(自研四端)</sub> | 四端自研客户端、开箱即用、通用订阅双轨、平价大碗 | **19.99元/月** (100GB)<br>年付特惠96元<br>不限时包99元起 | 四端官方自研客户端<br>iOS Nextin 适配<br>支持 Clash 通用订阅 | 邀请码<br>`1o7gYhTL` | [官网开通 ↗](https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL)<br>[详细评测](/reviews/dalaoyun/) |
+| **榴莲云**<br><sub>(大带宽)</sub> | 30天自动刷新、设备数量不限制、大带宽冗余 | **24元/月** (140GB)<br>年付特惠96元<br>长周期折扣 | 四端专属客户端教程<br>iOS Nextin (`lly`)<br>通用订阅联系客服 | **常驻7折码**<br>`ll88` | [官网开通 ↗](https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN)<br>[详细评测](/reviews/liulianyun/) |
+| **云界线**<br><sub>(不限时备用)</sub> | 多档不限时流量包不过期、线路实测核验、首单特惠 | **实测 22元/月** (150GB)<br>年付特惠96元<br>多档不限时包99元起 | Windows 专属客户端<br>iOS Nextin (`yjx`)<br>通用订阅向客服领取 | **首单7折码**<br>`yjx888` | [官网开通 ↗](https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW)<br>[详细评测](/reviews/yunjiexian/) |
+| **闪电鼠**<br><sub>(轻量入门)</sub> | 起步门槛低、极简轻巧、新人首购折扣 | **22元/月** (120GB)<br>年付特惠96元 | 四平台客户端教程<br>iOS Nextin (`sd88`)<br>账号登录使用 | **首购7折码**<br>`sd88` | [官网开通 ↗](https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK)<br>[详细评测](/reviews/shandianshu/) |
+| **环球梯**<br><sub>(多设备畅连)</sub> | 支持 3 台设备并发在线、365天按量包、专属客服 | **23元/月** (120GB)<br>年付特惠96元<br>365天按量包99元起 | 官方多端客户端教程<br>iOS Nextin (`HQ66`)<br>账号登录使用 | **限量7折码**<br>`HQ66` | [官网开通 ↗](https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG)<br>[详细评测](/reviews/huanqiuti/) |
 
-```typescript
-export const SITE_CONFIG = {
-  siteName: '网络服务选择指南',
-  siteUrl: 'https://yourdomain.com', // 替换为您的真实域名
-  description: '面向中文用户的网络服务选择与使用知识博客...',
-  // ...
-};
-```
-
-### 2. `astro.config.mjs`
-修改 `site` 字段：
-
-```javascript
-export default defineConfig({
-  site: 'https://yourdomain.com', // 替换为您的真实域名
-  // ...
-});
-```
+> 选购建议：初次体验优先选择小额月付周期，在本地网络环境验证稳定后再根据需要延长订阅周期。
 
 ---
 
-## 如何添加文章 (Adding Articles)
+## 客户端工具与配置指南
 
-在 `src/content/articles/` 目录下创建新的 `.md` 文件。每篇文章必须包含完整的 Frontmatter 信息：
+全平台主流代理软件与图文配置教程：
 
-```markdown
----
-title: "文章标题"
-description: "文章摘要，用于 Meta Description 与卡片显示"
-publishedAt: 2026-10-05
-category: "recommend" # 分类 slug
-tags: ["机场推荐", "新手教程"]
-author: "网络服务指南编辑部"
-cover: "/images/covers/recommend-guide.svg"
-coverAlt: "封面图描述"
-featured: false
-draft: false
-tldr: "核心结论 (TL;DR)"
-faq:
-  - question: "常见问题？"
-    answer: "回答内容..."
----
-
-正文内容从 H2 开始...
-```
-
-详细的写作规范与 GEO 优化策略请参阅 [`docs/content-guide.md`](file:///docs/content-guide.md)。
-
----
-
-## Content Collections Schema 字段说明
-
-| 字段名 | 类型 | 必须 | 说明 |
+| 平台 | 推荐客户端 | 优势特点 | 教程直达 |
 | :--- | :--- | :--- | :--- |
-| `title` | String | 是 | 文章标题 (H1) |
-| `description` | String | 是 | 文章摘要与 Meta Description |
-| `publishedAt` | Date | 是 | 首次发布日期 |
-| `updatedAt` | Date | 否 | 最近更新日期 |
-| `category` | Enum | 是 | 主题分类 (`recommend`, `ranking`, `reviews`, `compare`, `price`, `network`, `use-case`, `clients`, `tutorials`, `problems`, `guide`) |
-| `tags` | Array | 否 | 文章标签数组 |
-| `author` | String | 否 | 作者姓名 (默认: "网络服务指南编辑部") |
-| `cover` | String | 否 | 封面图片路径 |
-| `coverAlt` | String | 否 | 封面图 Alt 替代文本 |
-| `featured` | Boolean | 否 | 是否推荐至首页精选模块 (默认: false) |
-| `draft` | Boolean | 否 | 草稿状态 (设置为 true 不会生成页面和 sitemap) |
-| `tldr` | String | 否 | 核心结论模块 (TL;DR) |
-| `faq` | Array | 否 | 常见问题数组 `{ question, answer }` (自动生成 FAQPage Schema) |
-| `related` | Array | 否 | 手动关联文章 slug 数组 |
+| **Android** | **FlClash** / Clash Meta | 界面现代、内存占用低、分流规则完善 | [安卓配置教程](/tutorials/import-subscription/) |
+| **iOS / iPadOS** | **Shadowrocket** / Clash Mi | 老牌小火箭省电稳定、支持免外区直装方案 | [iOS 配置教程](/articles/shadowrocket-ios-setup-subscription-tutorial/) |
+| **Windows** | **Clash Verge Rev** / 专属客户端 | 内核切换便捷、系统代理稳定、支持订阅转换 | [Windows 教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/) |
+| **macOS** | **Clash Verge Rev** / Hiddify | 原生适配 Apple Silicon 芯片、开机后台静默运行 | [Mac 配置教程](/category/tutorials/) |
 
 ---
 
-## 部署说明 (Deployment)
+## 合作说明与商业披露
 
-本项目为 100% 纯静态生成（SSG），非常适合部署于各种云端静态托管平台：
-
-### Cloudflare Pages / Vercel / Netlify
-* **Build Command:** `npm run build`
-* **Output Directory:** `dist`
-* **Node.js Version:** `18.x` 或更高
+1. **商业披露**：站点部分链接包含推广参数（Affiliate Links）。推广收益用于支持本站服务器、域名及长期实测带宽支出。
+2. **客观独立原则**：本站始终保持技术客观立场，绝不因推广收益隐瞒服务商的负面表现、退款限制或掉线异常。凡出现严重质量问题或异常失联的服务商将无条件降级或下架。
+3. **商务合作**：欢迎具有稳定运营背景、支持透明退款政策的服务商洽谈收录。
 
 ---
 
-## 许可协议 (License)
+## 免责声明
 
-MIT License.
+- 本站所有内容仅供网络技术交流与学术测试参考。
+- 代理网络服务具有较强时效性与外部网络依赖性，本站不对第三方服务商的长期可用性提供担保。
+- 请自觉遵守当地法律法规，坚持小额按需购买，避免囤积大额长期套餐。
+
+---
+
+<div align="center">
+  <sub>© 2026 晚风博客 (wanfengzn.com). All rights reserved.</sub>
+</div>
