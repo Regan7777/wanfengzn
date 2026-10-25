@@ -165,20 +165,25 @@ rules:
 
 1. **针对 Claude 使用者的 4 项铁律**：
    * **锁定单一地区**：账号在注册及日常使用过程中，固定使用同一国家（建议美西或英国）的优质节点，严禁开启自动负载均衡（URL-Test / Fallback）；
-   * **防范 WebRTC 泄漏**：在 Chrome / Firefox 浏览器中安装 WebRTC Control 扩展，强制关闭真实 IP 广播；
-   * **环境一致性检查**：在登录前打开 `whoer.net` 或 `iphey.com`，确认伪装度评分达到 90% 以上（语言、时区与 DNS 无明显中国本土特征）；
-   * **保持登录状态整洁**：若必须更换节点，先完全登出账号，清理浏览器 Cookie 并关闭窗口，更换节点测试通过后再重新登录。
+   * **防范 WebRTC 泄漏**：在 Chrome / Firefox 浏览器中安装 WebRTC Control 扩展，强制关闭真实 IP 广播；使用 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip) 验证无本机局域网 IP 暴露；
+   * **环境一致性与纯净度检查**：在登录前使用 [IPinfo 数据库](https://ipinfo.io/) 与 [Cloudflare Speed Test](https://speed.cloudflare.com/)，确认节点 ASN 属性、时区与 DNS 无中国本土特征；
+   * **保持登录状态整洁**：若必须更换节点，先完全登出账号，清理浏览器 Cookie 并关闭窗口，更换节点测试通过后再重新登录。访问报错排错详见 [《ChatGPT / Claude 访问受限与人机验证排障指南》](/articles/chatgpt-claude-access-denied-and-human-verify-troubleshooting/)。
 2. **针对自媒体跨境从业者的忠告**：
    * 切勿图省事用日常翻墙机场兼职做 TikTok。自媒体账号资产极高，务必投入成本采购专业的静态固定住宅 ISP，并配合指纹浏览器进行物理隔离。
 3. **日常追剧与学术科研选型**：
-   * 选择具备大带宽冗余、支持流媒体全解锁和 VLESS/SS 协议的成熟服务商（如本站实测推荐的透传中转集群），即可在保障极致性价比的同时获得舒心的体验。
+   * 选择具备大带宽冗余、支持流媒体全解锁和 VLESS/SS 协议的成熟服务商，使用 [Netflix Fast.com](https://fast.com/) 与 [Speedtest 测速](https://www.speedtest.net/) 验证 4K 播放能力，即可在保障性价比的同时获得舒心体验。测速指标解读请看 [《网络节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)。
 
 ---
 
 ## 6. 关联深度技术阅读指南
 
+- [2026 优质机场推荐终极指南：稳定、价格与线路全方位指南](/articles/2026-airport-recommendation-guide/)
 - [深港 IEPL 专线与 BGP 中转原理全解析](/articles/network-line-types-iepl-iplc-guide/)
 - [全平台科学上网客户端（Windows/Mac/iOS/Android）选型与分流配置指南](/articles/all-platforms-client-selection-and-config-guide/)
 - [BGP 隧道中转与公网直连性能实测对比](/articles/bgp-transit-vs-direct-line-deep-dive/)
 - [2026 神行加速深度评测：透传中转架构与全流媒体解锁实测](/articles/shenxing-airport-review-2026/)
+- [2026 边缘节点深度评测：专属客户端生态与两款买断包](/articles/edgenova-airport-review-2026/)
+- [2026 月之暗面深度评测：5元超低月付与AnyTLS通用订阅](/articles/yuezhianmian-airport-review-2026/)
+- [2026 飞V机场深度评测：22元月付起与终身不限时买断包](/articles/feiv-airport-review-2026/)
+- [2026 灵动云机场深度评测：20元月付起与永久有效不限时包](/articles/lingdongyun-airport-review-2026/)
 - [2026 大佬云机场深度评测：BGP隧道中转与高性价比实测](/articles/dalaoyun-airport-review-2026/)

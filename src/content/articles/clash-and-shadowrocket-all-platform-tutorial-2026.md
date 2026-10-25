@@ -101,18 +101,28 @@ faq:
 
 ## 5. Clash 与小火箭常见故障排查表
 
-| 故障现象 | 可能原因 | 解决办法 |
+| 故障现象 | 可能原因 | 解决办法与参考指南 |
 | :--- | :--- | :--- |
-| **Clash 节点全部显示 Timeout** | 系统时间同步偏差 / 订阅过期 | 在系统设置中同步北京时间；刷新机场订阅链接 |
-| **小火箭能打开网页但打不开 ChatGPT** | 节点 IP 被 AI 风控封锁 | 在小火箭中切换至具有“原生 IP”或“住宅 IP”的节点 |
-| **网页提示 403 / 404 Error** | 订阅 URL 复制缺失或被污染 | 重新在机场后台复制完整订阅，在 Clash 中重新导入 |
-| **打开 Clash 后电脑连不上网** | 异常关机导致系统代理未关闭 | 打开 Clash 重新勾选并取消一次“系统代理”开关 |
+| **Clash 节点全部显示 Timeout** | 系统时间同步偏差 / 订阅过期 | 在系统设置中同步北京时间；参考 [《节点连上但无法上网排障指南》](/articles/node-connected-no-internet-troubleshooting/) |
+| **小火箭能打开网页但打不开 ChatGPT** | 节点 IP 被 AI 风控封锁 | 切换原生 IP 节点；实操请参考 [《ChatGPT / Claude 访问受限排障指南》](/articles/chatgpt-claude-access-denied-and-human-verify-troubleshooting/) |
+| **网页提示 403 / 404 Error** | 订阅 URL 复制缺失或被拦截 | 重新复制完整订阅；排障技巧详见 [《订阅更新失败与 403/404 故障排错》](/articles/subscription-update-failed-and-403-404-error-guide/) |
+| **打开 Clash 后电脑连不上网** | 异常关机导致系统代理未关闭 | 重新勾选并取消系统代理；详见 [《DNS 污染与解析故障排查》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/) |
 
 ---
 
-## 6. 总结与建议
+## 6. 节点连通性与真实速率验证
+
+配置完成并连通节点后，请通过权威测试平台检测分流与速度质量：
+* **单线程与多线程峰值带宽**：登录 [Speedtest by Ookla 官网测速站](https://www.speedtest.net/) 测量上下行带宽；实操指南见 [《节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)；
+* **流媒体直连吞吐能力**：使用 [Netflix Fast.com 测速平台](https://fast.com/) 验证海外流媒体 CDN 吞吐；
+* **高并发丢包率与网络抖动**：打开 [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/) 测试网络稳定性；
+* **原生 IP 与 WebRTC 泄漏排查**：使用 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip) 确认本地 IP 无泄漏；深度解析见 [《流媒体与 ChatGPT 原生 IP 解锁指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)。
+
+---
+
+## 7. 总结与建议
 
 不管是使用桌面端的 **Clash（Clash Verge / Clash Meta）** 还是移动端的 **Shadowrocket（小火箭）**，核心都在于：
-1. **选择正版安全软件**：避开第三方修改版与钓鱼 App。
-2. **配合优质机场服务**：优质的 BGP 中转与 IEPL 专线节点能发挥 Clash 与小火箭的最佳性能。
-3. **保持订阅定期更新**：建议每周在 Clash 或小火箭中手动更新一次订阅，获取服务商最新的节点 IP 与优化路由。
+1. **选择正版安全软件**：避开第三方修改版与钓鱼 App。全平台选型对比可参考 [《2026 全平台客户端选型对比终极指南》](/articles/all-platforms-client-selection-and-config-guide/)。
+2. **配合优质机场服务**：优质的 BGP 中转与 IEPL 专线节点能发挥最佳性能，挑选指南见 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。
+3. **保持订阅定期更新**：建议每周在客户端中更新一次订阅，获取服务商最新的节点 IP 与优化路由。

@@ -67,7 +67,11 @@ related:
 * **手机/移动端超低功耗保活**：可参考 [闪电鼠深度评测](/articles/shandianshu-airport-review-2026/)（极轻 Shadowsocks 协议）；
 * **全球 60+ 丰富多国节点池**：可参考 [环球梯深度评测](/articles/huanqiuti-airport-review-2026/)（多国流媒体与跨境业务）；
 * **校园弱网与高丢包环境暴力穿透**：可参考 [云界限深度评测](/articles/yunjiexian-airport-review-2026/)（Hysteria 2 端口跳跃）；
-* **纯正 Trojan 深度加密高抗封**：可参考 [榴莲云深度评测](/articles/liulianyun-airport-review-2026/)（高敏感期存活率保障）。
+* **纯正 Trojan 深度加密高抗封**：可参考 [榴莲云深度评测](/articles/liulianyun-airport-review-2026/)（高敏感期存活率保障）；
+* **专属自研客户端与永久不限时**：可参考 [边缘节点深度评测](/articles/edgenova-airport-review-2026/)（15元起步/两款买断包）；
+* **超低门槛平价通用订阅**：可参考 [月之暗面深度评测](/articles/yuezhianmian-airport-review-2026/)（5元月付/AnyTLS协议/10元不限时）；
+* **免配置多端与独享专线定制**：可参考 [飞V深度评测](/articles/feiv-airport-review-2026/)（22元月付/终身不限时买断）；
+* **自研极简客户端与社群技术支持**：可参考 [灵动云深度评测](/articles/lingdongyun-airport-review-2026/)（20元月付/穿云年付/永久买断）。
 
 ---
 

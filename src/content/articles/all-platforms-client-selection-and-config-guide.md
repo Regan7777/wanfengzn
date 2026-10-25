@@ -125,6 +125,22 @@ faq:
 
 ---
 
-## 6. 总结
+## 6. 全平台深度实操指南与测速工具直达
 
-选择一款契合当前操作系统的客户端能让网络体验事半功倍。掌握 **“下载对应正版客户端 -> 复制订阅 URL 一键导入 -> 保持规则分流模式”** 的黄金逻辑，即可在各终端设备上获得稳定高速的上网体验。
+为了深入掌握特定系统平台的高级特性与规则调优，可参阅本站各终端专项保姆级图文教程：
+
+* **电脑端全能实操**：[《Windows & macOS 电脑客户端深度配置指南（Clash Verge Rev / Sing-box）》](/articles/windows-mac-clash-verge-singbox-setup-tutorial/)
+* **安卓手机配置**：[《Android 安卓手机客户端深度配置指南（Flclash / Surfboard）》](/articles/android-flclash-surfboard-setup-tutorial/)
+* **苹果手机配置**：[《iOS 小火箭 (Shadowrocket) 零基础配置全流程》](/articles/shadowrocket-ios-setup-subscription-tutorial/)
+* **路由器全屋透明代理**：[《OpenWrt 路由器 OpenClash / PassWall 全屋分流实战》](/articles/router-openwrt-openclash-passwall-setup-guide/)
+* **订阅同步与排错**：[《订阅链接导入全流程实操教程》](/articles/subscription-link-import-and-sync-tutorial/) ｜ [《订阅更新失败与 403 / 404 错误深度排查》](/articles/subscription-update-failed-and-403-404-error-guide/)
+* **核心服务商精选**：[《2026 稳定网络服务商横向选型对比》](/articles/2026-airport-recommendation-guide/) ｜ [《机场价格梯队与性价比横向对比》](/articles/airport-pricing-plan-comparison/)
+
+在完成客户端配置并开启连接后，建议通过以下官方权威平台进行基准带宽与网络纯净度校验：
+- **上下行基准带宽测试**：[Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)
+- **流媒体直连吞吐验证**：[Netflix Fast.com 测速平台](https://fast.com/)
+- **高并发延迟抖动与丢包率**：[Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)
+- **出口 IP 纯净度与流媒体解锁**：[BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip) ｜ [IPinfo 官方数据库](https://ipinfo.io/)
+
+掌握 **“下载对应正版客户端 -> 复制订阅 URL 一键导入 -> 保持规则分流模式”** 的黄金逻辑，即可在各终端设备上获得稳定高速的上网体验。
+

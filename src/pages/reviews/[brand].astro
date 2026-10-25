@@ -6,7 +6,8 @@ import ComparisonTable, { type ComparisonRow } from '../../components/Comparison
 export async function getStaticPaths() {
   const brandSlugs = [
     'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
-    'yunjiexian', 'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
+    'yunjiexian', 'edgenova', 'yuezhianmian', 'feiv', 'lingdongyun',
+    'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
     'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan',
     'ermaoyun', 'jisucloud', 'liangxin', 'chuixue', 'kdj'
   ];
@@ -76,6 +77,38 @@ const brandMap: Record<string, BrandDetail> = {
     desc: '新一代 Hysteria 2 协议 + 端口跳跃优化，使用专属优惠码 yjx888 起步月付折后仅 ¥15.4/月，恶劣弱网与校园网暴力穿透。',
     reviewArticleSlug: 'yunjiexian-airport-review-2026',
     officialUrl: '/go/yunjiexian'
+  },
+  edgenova: {
+    name: '边缘节点',
+    type: '专属多端客户端 / Anycast',
+    price: '¥15/月起',
+    desc: '轻量自研客户端生态，15元50GB月付起步，提供两款永久不限时买断包，专属8折优惠码 xk808，多设备无并发限制。',
+    reviewArticleSlug: 'edgenova-airport-review-2026',
+    officialUrl: '/go/edgenova'
+  },
+  yuezhianmian: {
+    name: '月之暗面',
+    type: '通用订阅 / AnyTLS 协议',
+    price: '¥5/月起',
+    desc: '高性价比通用订阅服务商，5元100GB月付起步，提供10元起四档不限时流量包，全节点1倍率不限速。',
+    reviewArticleSlug: 'yuezhianmian-airport-review-2026',
+    officialUrl: '/go/yuezhianmian'
+  },
+  feiv: {
+    name: '飞V',
+    type: '专属多端客户端 / 专线优化',
+    price: '¥22/月起',
+    desc: '专属多端傻瓜式客户端体系，22元150GB月付起，提供三档终身不限时流量买断包与独立定制专线，新客8折优惠码 fly20。',
+    reviewArticleSlug: 'feiv-airport-review-2026',
+    officialUrl: '/go/feiv'
+  },
+  lingdongyun: {
+    name: '灵动云',
+    type: '专属多端客户端 / IPLC专线',
+    price: '¥20/月起',
+    desc: '专属极简自研客户端，20元100GB月付起，提供99元年付穿云小包与三款永久不限时包，官方TG社群实时福利。',
+    reviewArticleSlug: 'lingdongyun-airport-review-2026',
+    officialUrl: '/go/lingdongyun'
   },
   yiyuan: {
     name: '一元机场',

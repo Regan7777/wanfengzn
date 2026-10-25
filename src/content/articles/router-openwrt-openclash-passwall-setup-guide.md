@@ -100,13 +100,26 @@ faq:
 
 ---
 
-## 5. 常见故障自救 FAQ
+---
+
+## 5. 路由器透明代理网速与连通性验证
+
+部署完软路由透明代理后，建议通过局域网内 PC 或手机浏览器进行全方位检测：
+* **局域网设备峰值带宽测速**：登录 [Speedtest by Ookla 官网平台](https://www.speedtest.net/)，测试多设备并发下的路由器转发性能；实操解读见 [《网络节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)；
+* **流媒体直连播放吞吐**：使用 [Netflix Fast.com 测速平台](https://fast.com/)；
+* **高并发丢包率与网络抖动**：访问 [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)；
+* **DNS 与 WebRTC 泄漏测试**：打开 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)，确保路由器不存在 DNS 污染泄漏。
+
+---
+
+## 6. 常见故障自救 FAQ
 
 ### Q1: 开启路由器代理后，局域网部分设备打不开网页，提示“无 Internet 连接”？
 **答**：
 1. 检查设备的 IP 设置，确保设备的 **网关 (Gateway)** 和 **DNS** 都指向 OpenWrt 路由器的 IP。
 2. 如果局域网存在主旁路由架构，请检查旁路由的防火墙规则，确保添加了 NAT 伪装规则：
    `iptables -t nat -A POSTROUTING -j MASQUERADE`
+3. 详细排障请参考 [《节点连上但无法上网排障指南》](/articles/node-connected-no-internet-troubleshooting/) 与 [《DNS 污染与解析故障排查指南》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/)。
 
 ### Q2: 国内应用（如微信、哔哩哔哩）经常加载缓慢或断流？
-**答**：说明 GeoIP/GeoSite 规则库未及时更新。请在 OpenClash 规则管理中点击“更新 GEO 数据库”，确保国内流量精准直连。
+**答**：说明 GeoIP/GeoSite 规则库未及时更新。请在 OpenClash 规则管理中点击“更新 GEO 数据库”，确保国内流量精准直连。软路由适合承载高并发网络，机场选购可参考 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。

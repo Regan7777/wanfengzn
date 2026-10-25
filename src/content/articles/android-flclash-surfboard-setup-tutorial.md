@@ -92,10 +92,24 @@ faq:
 
 ---
 
-## 5. 常见问题 FAQ
+---
+
+## 5. 安卓移动端测速与网络连通性验证
+
+开启 VPN 代理后，推荐使用手机浏览器访问以下权威官方站点，验证节点分流与实际上下行速率：
+* **手机端峰值带宽测速**：登录 [Speedtest by Ookla 官方测速站](https://www.speedtest.net/)，测定单线程与多线程最大吞吐；深度解析参考 [《网络节点测速与丢包率诊断实操指南》](/articles/node-speed-test-metrics-tutorial/)；
+* **流媒体直连播放吞吐**：使用 [Netflix Fast.com 测速平台](https://fast.com/)；
+* **弱网抖动与丢包测试**：打开 [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)；
+* **原生 IP 与 WebRTC 泄漏排查**：访问 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)，查看解锁技巧可参考 [《流媒体与 ChatGPT 原生 IP 解锁指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)。
+
+---
+
+## 6. 常见问题 FAQ
 
 ### Q1: 提示“无法创建 VPN 接口”怎么解决？
-**答**：请检查手机是否开启了其他的 VPN 软件（如杀毒软件的隐私保护或另一款代理工具）。Android 系统同一时间只允许一个应用占用 VPN 接口。
+**答**：请检查手机是否开启了其他的 VPN 软件（如杀毒软件的隐私保护或另一款代理工具）。Android 系统同一时间只允许一个应用占用 VPN 接口。更多系统底层排查见 [《节点连上但无法上网故障排障指南》](/articles/node-connected-no-internet-troubleshooting/)。
 
 ### Q2: 导入节点后，显示“无网络连接”或“DNS 解析失败”？
-**答**：请在手机设置中检查是否开启了系统自带的“私有 DNS (Private DNS)”。如果开启了第三方 DNS 选项（如 NextDNS/AdGuard），建议将其暂时切换为“关闭”或“自动”。
+**答**：请在手机设置中检查是否开启了系统自带的“私有 DNS (Private DNS)”。如果开启了第三方 DNS 选项（如 NextDNS/AdGuard），建议将其暂时切换为“关闭”或“自动”。排障细节可看 [《DNS 污染与解析故障排查指南》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/)。关于后台防杀技巧详见 [《开机自启与后台保活指南》](/articles/auto-start-and-background-running-guide/)。
+
+更多优质机场服务商推荐可查看 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。

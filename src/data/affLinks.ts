@@ -57,6 +57,36 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     targetUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
     code: 'qA3LF6hW',
     discountCode: 'yjx888'
+  },
+  edgenova: {
+    id: 'edgenova',
+    name: '边缘节点',
+    path: '/go/edgenova',
+    targetUrl: 'https://wep.edgenovaaff.com/#/?code=q1BOP7EV',
+    code: 'q1BOP7EV',
+    discountCode: 'xk808'
+  },
+  yuezhianmian: {
+    id: 'yuezhianmian',
+    name: '月之暗面',
+    path: '/go/yuezhianmian',
+    targetUrl: 'https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2',
+    code: 'lAzTYBl2'
+  },
+  feiv: {
+    id: 'feiv',
+    name: '飞V',
+    path: '/go/feiv',
+    targetUrl: 'https://fugui.flyvaff.com/#/?code=gxmUajhy',
+    code: 'gxmUajhy',
+    discountCode: 'fly20'
+  },
+  lingdongyun: {
+    id: 'lingdongyun',
+    name: '灵动云',
+    path: '/go/lingdongyun',
+    targetUrl: 'https://fugui.lingdongaff.com/#/?code=lyfEXnqR',
+    code: 'lyfEXnqR'
   }
 };
 

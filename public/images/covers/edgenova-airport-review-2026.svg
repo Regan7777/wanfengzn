@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="url(#paint0_linear)"/>
+  <circle cx="120" cy="80" r="150" fill="#06B6D4" fill-opacity="0.08"/>
+  <circle cx="710" cy="370" r="180" fill="#0891B2" fill-opacity="0.2"/>
+  <rect x="60" y="50" width="680" height="350" rx="16" stroke="#06B6D4" stroke-opacity="0.2" stroke-width="2"/>
+  <text x="400" y="195" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="bold">边缘节点机场 深度评测</text>
+  <text x="400" y="260" text-anchor="middle" fill="#22D3EE" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">15元月付起 • 永久不限时买断包 • 专属8折优惠码 xk808</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E2439"/>
+      <stop offset="1" stop-color="#0A1118"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -100,19 +100,31 @@ faq:
 
 ---
 
-## 4. 常见报错与排错 FAQ
+---
 
-### Q1: 节点全部测试失败，提示超时 (Timeout)？
-**答**：请依次排查以下三点：
-1. **系统时间误差**：打开 iOS `设置 -> 通用 -> 日期与时间`，开启“自动设置”。系统时间只要误差超过 60 秒会导致握手协议失效。
-2. **更新订阅**：在小火箭首页向左滑动订阅分组名称，点击 **更新 (Update)**。
-3. **节点倍率**：确认没有误选到已被服务商维护废弃的旧节点。
+## 4. iPhone 移动端网络测速与连通性验证
 
-### Q2: 开启小火箭后，微信或国内 App 打不开？
-**答**：说明你的全局路由误选为了 `代理 (Proxy)` 模式。请将其重新修改为 **`配置文件 (Config)`**。
+开启小火箭连接后，建议在 Safari 浏览器中通过以下权威官方平台验证网络性能与分流效果：
+* **单线程与多线程峰值带宽**：访问 [Speedtest by Ookla 官方测速站](https://www.speedtest.net/)，测速技巧与指标解析可查看 [《网络节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)；
+* **流媒体直连播放吞吐**：使用 [Netflix Fast.com 测速平台](https://fast.com/)；
+* **移动网络丢包抖动测试**：打开 [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)；
+* **原生 IP 属性与流媒体解锁**：访问 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)，流媒体与 AI 解锁技巧详见 [《流媒体与 ChatGPT 原生 IP 解锁指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)。
 
 ---
 
-## 5. 总结
+## 5. 常见报错与排错 FAQ
 
-Shadowrocket 配置的核心理念是：**美区正版下载 + 一键导入订阅 + 配置文件分流**。掌握了这三个步骤，即可在 iPhone 上享受高速、稳定且省电的上网体验。
+### Q1: 节点全部测试失败，提示超时 (Timeout)？
+**答**：请依次排查以下三点：
+1. **系统时间误差**：打开 iOS `设置 -> 通用 -> 日期与时间`，开启“自动设置”。系统时间误差超过 60 秒会导致握手协议失效；
+2. **更新订阅**：在小火箭首页向左滑动订阅分组名称，点击 **更新 (Update)**。如果持续报错请看 [《订阅更新失败与 403/404 排障》](/articles/subscription-update-failed-and-403-404-error-guide/)；
+3. **连接无网络**：排查请参考 [《节点连上但无法上网排障指南》](/articles/node-connected-no-internet-troubleshooting/)。
+
+### Q2: 开启小火箭后，微信或国内 App 打不开？
+**答**：说明你的全局路由误选为了 `代理 (Proxy)` 模式。请将其重新修改为 **`配置文件 (Config)`**。访问 AI 报错排查可参考 [《ChatGPT / Claude 访问受限排错教程》](/articles/chatgpt-claude-access-denied-and-human-verify-troubleshooting/)。
+
+---
+
+## 6. 总结与延伸阅读
+
+Shadowrocket 配置的核心理念是：**美区正版下载 + 一键导入订阅 + 配置文件分流**。掌握了这三个步骤，即可在 iPhone 上享受高速、稳定且省电的上网体验。全平台客户端选型对比请查看 [《2026 全平台客户端选型终极指南》](/articles/all-platforms-client-selection-and-config-guide/)，优质机场推荐请参考 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。

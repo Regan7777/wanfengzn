@@ -112,3 +112,23 @@ YouTube 详细统计信息 (Stats for nerds) 指标解析：
 
 ### Q2: 测速时产生大量流量怎么办？
 **答**：在 Speedtest 上跑一次千兆测速可能会消耗 500MB 到 1GB 的流量。若你的套餐是按量计费或月流量较少，建议降低测速频率，平时以 YouTube 视频加载状态评估即可。
+
+---
+
+## 6. 进阶评测指南与工具矩阵
+
+通过客观测速数据选型节点，能让你避开虚假跑分陷阱。推荐配合以下指南与工具深入评估：
+
+* **核心服务商横向测评**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+* **价格与性价比深度对比**：[《机场价格梯队与性价比横向对比》](/articles/airport-pricing-plan-comparison/)
+* **流媒体与 AI 解锁全攻略**：[《流媒体与 ChatGPT 原生 IP 解锁终极指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+* **客户端分流配置教程**：[《分流规则配置与自定义规则集实战指南》](/articles/routing-rules-and-custom-ruleset-guide/)
+* **断网排错指南**：[《节点已连接却无法上网？5 大常见断网与报错排查手册》](/articles/node-connected-no-internet-troubleshooting/)
+
+官方权威在线测速与诊断平台汇总：
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：基准上下行带宽与单线程测速
+- [Netflix Fast.com 测速平台](https://fast.com/)：流媒体 CDN 链路测速
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 与 DNS 泄漏
+- [Ping.pe 全球丢包检测](https://ping.pe/)：全球 30+ 节点对 IP 发包丢包统计
+

@@ -106,3 +106,17 @@ DNS_PROBE_FINISHED_NXDOMAIN       ──> 本地 DNS 解析失效
 ## 4. 总结与日常自检流程
 
 面对“节点已连接却无法上网”的问题，记住 **“时间第一、更新第二、代理第三、DNS 第四”** 的排错口诀。按顺序自检 95% 以上的网络断连故障均可顺利解决。
+
+### 推荐关联深度教程与实操指引
+* **DNS 污染修复**：[《DNS 污染、DNS 泄露与网页加载缓慢排查指南》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/)
+* **订阅更新失败排查**：[《订阅更新失败与 403 / 404 报错自救手册》](/articles/subscription-update-failed-and-403-404-error-guide/)
+* **订阅全流程实操**：[《网络服务订阅链接导入全流程实操教程》](/articles/subscription-link-import-and-sync-tutorial/)
+* **全平台客户端配置**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **服务商横向测评**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+
+### 官方权威测速与连通性检测工具
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：基准上下行带宽与单线程延迟测试
+- [Netflix Fast.com 测速平台](https://fast.com/)：流媒体 CDN 链路测速
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 与 DNS 泄漏
+

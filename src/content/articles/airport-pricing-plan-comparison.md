@@ -90,13 +90,13 @@ related:
 
 根据自身的使用频率、设备数量与核心业务，对照下表可快速锁定最优计费模式：
 
-| 典型使用画像 | 月均预估流量 | 推荐计费类型 | 推荐预算范围 | 核心关注点 |
+| 典型使用画像 | 月均预估流量 | 推荐计费类型 | 推荐预算范围 | 核心实测参考与关注点 |
 | :--- | :--- | :--- | :--- | :--- |
-| **高校学生 / 轻度查资料** | 10 GB - 30 GB | 不限时按量包 / 廉价月付 | ¥5 - ¥15 / 月 | 查阅 GitHub、文献检索、低试错成本 |
-| **普通个人日常主力 / 4K追剧** | 100 GB - 250 GB | 优质 BGP 中转月付包 | ¥15 - ¥30 / 月 | 1.0x 主力节点充足、晚高峰不卡顿 |
-| **多设备家庭 / 高清影音发烧友** | 300 GB - 600 GB | 大流量月付 / 进阶季付 | ¥30 - ¥60 / 月 | 支持 5 台以上并发、千兆高带宽冗余 |
-| **跨境电商 / 远程办公生产力** | 200 GB - 500 GB | 纯 IEPL 专线月付/季付 | ¥60 - ¥120 / 月 | SLA 可用性承诺、原生 IP 纯净度、零丢包 |
-| **差旅出海备用 / 防失联** | 按需使用 | 不限时按量流量包 | ¥50 - ¥100 一次性 | 长期不过期、协议通用性强 |
+| **高校学生 / 轻度查资料** | 10 GB - 30 GB | 不限时按量包 / 廉价月付 | ¥5 - ¥15 / 月 | 低试错成本：可参考 [月之暗面评测](/articles/yuezhianmian-airport-review-2026/)（5元月付）、[边缘节点评测](/articles/edgenova-airport-review-2026/)（15元体验小包） |
+| **普通个人日常主力 / 4K追剧** | 100 GB - 250 GB | 优质 BGP 中转月付包 | ¥15 - ¥30 / 月 | 1.0x 节点充足、晚高峰不卡：可参考 [神行加速评测](/articles/shenxing-airport-review-2026/)、[大佬云评测](/articles/dalaoyun-airport-review-2026/)、[闪电鼠评测](/articles/shandianshu-airport-review-2026/) |
+| **多设备家庭 / 高清影音发烧友** | 300 GB - 600 GB | 大流量月付 / 进阶季付 | ¥30 - ¥60 / 月 | 支持多台并发：可参考 [环球梯评测](/articles/huanqiuti-airport-review-2026/)、[榴莲云评测](/articles/liulianyun-airport-review-2026/)、[云界限评测](/articles/yunjiexian-airport-review-2026/) |
+| **跨境电商 / 远程办公生产力** | 200 GB - 500 GB | 纯 IEPL 专线月付/季付 | ¥60 - ¥120 / 月 | SLA 承诺与原生 IP：可参考 [飞V独享专线评测](/articles/feiv-airport-review-2026/)、[灵动云定制专线评测](/articles/lingdongyun-airport-review-2026/) |
+| **差旅出海备用 / 防失联** | 按需使用 | 不限时按量流量包 | ¥50 - ¥100 一次性 | 长期不过期备用：可参考 [飞V终身不限时](/articles/feiv-airport-review-2026/)、[灵动云永久买断](/articles/lingdongyun-airport-review-2026/)、[边缘节点买断包](/articles/edgenova-airport-review-2026/) |
 
 ---
 

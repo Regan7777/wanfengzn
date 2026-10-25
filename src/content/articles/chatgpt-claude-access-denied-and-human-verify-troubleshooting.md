@@ -90,6 +90,21 @@ rules:
 
 ---
 
-## 4. 总结
+## 4. 总结与深度自救指引
 
 面对 AI 平台的风控拦截，核心秘诀是：**“纯净住宅 IP 节点 + 干净无痕浏览器环境”**。配置好专属分流规则后，即可告别痛苦的验证码循环。
+
+### 推荐关联深度教程与实操指引
+* **流媒体与 AI 解锁全景**：[《流媒体与 ChatGPT 原生 IP 解锁终极指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+* **IP 属性知识科普**：[《原生 IP、广播 IP、住宅 IP (ISP) 与双 ISP 知识详解》](/articles/native-ip-vs-residential-ip-unlock-guide/)
+* **精准规则分流配置**：[《分流规则配置与自定义规则集实战指南》](/articles/routing-rules-and-custom-ruleset-guide/)
+* **全平台客户端配置**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **2026 稳定服务商推荐**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+
+### 官方权威 IP 风险与连通性检测工具
+- [IPinfo.io 官方数据库](https://ipinfo.io/)：核验出口 IP 归属地与 ASN 运营商属性（ISP 还是 Hosting）
+- [Scamalytics 欺诈风险分查询平台](https://scamalytics.com/)：检测 IP 风险值，低于 20 分为纯净原生 IP
+- [BrowserLeaks IP 与 WebRTC 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 是否泄露真实网络地址
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：验证网络延迟与上下行吞吐带宽
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络丢包率与网络抖动
+

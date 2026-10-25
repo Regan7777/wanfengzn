@@ -96,17 +96,32 @@ IP 属性金字塔 (风控通过率由高到低)：
 
 ## 4. 如何自主检测节点的 IP 属性与解锁能力？
 
-如果你想检测当前使用的节点 IP 质量，可以使用以下公开工具：
+如果你想检测当前使用的节点 IP 质量与风控状态，可以使用以下公开工具矩阵：
 
-1. **IP 属性与风控值检测**：
-   访问 [scamalytics.com](https://scamalytics.com/) 或 [ip2location.com](https://www.ip2location.com/)。输入你的出口 IP，查看 `Risk Score (欺诈风险分)`。风控分小于 10 代表极度纯净。
-2. **流媒体与 AI 解锁测试**：
-   在客户端内部使用检测脚本（如 `Check-Media` 或 `Loon/Stash` 的节点解封检测插件），可一键测试当前节点对 OpenAI、Netflix、YouTube Premium、Spotify 的解锁状态。
+1. **IP 属性与 ASN 数据库查询**：
+   - [IPinfo.io 官方数据库](https://ipinfo.io/)：核查节点真实归属地、运营商属性（ISP 还是 Hosting）及 ASN 编号；
+   - [IP2Location 官网查询平台](https://www.ip2location.com/)：国际权威 IP 数据库，核验是否为双 ISP 住宅归属；
+2. **IP 欺诈风险分检测 (Fraud Score)**：
+   - [Scamalytics 欺诈风险分平台](https://scamalytics.com/)：检测出口 IP 风险分值，低于 20 分为纯净优质原生 IP；
+3. **WebRTC 与 DNS 泄漏排查**：
+   - [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查浏览器是否向外部泄露本机真实 IPv4/IPv6 与 DNS；
+4. **带宽吞吐与丢包率基准测试**：
+   - [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：基准上下行带宽与单线程测速；
+   - [Netflix Fast.com 测速平台](https://fast.com/)：验证当前节点至 Netflix 国际 CDN 的吞吐；
+   - [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：高并发延迟抖动与丢包率统计。
 
 ---
 
-## 5. 总结
+## 5. 总结与推荐指引
 
 - 选节点不能只看“延迟低”或“跑分高”；
 - **刷视频看网页**：选普通高带宽 BGP/IEPL 专线节点即可；
 - **玩转 AI / 跨境业务**：认准服务商提供的 **“原生双 ISP 住宅 IP 专属节点”**。
+
+### 推荐关联深度教程与实操指引
+* **流媒体与 AI 解锁全攻略**：[《流媒体与 ChatGPT 原生 IP 解锁终极指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+* **AI 平台报错排查**：[《ChatGPT / Claude 提示 Access Denied 排查手册》](/articles/chatgpt-claude-access-denied-and-human-verify-troubleshooting/)
+* **线路架构对比**：[《BGP 中转与 IEPL/IPLC 专线深度对比》](/articles/bgp-transit-vs-direct-line-deep-dive/)
+* **客户端分流配置**：[《分流规则配置与自定义规则集实战指南》](/articles/routing-rules-and-custom-ruleset-guide/)
+* **2026 稳定服务商选型**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+

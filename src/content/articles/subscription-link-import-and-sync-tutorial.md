@@ -103,6 +103,19 @@ faq:
 
 ---
 
-## 6. 总结
+## 6. 总结与进阶指南
 
 掌握 **“复制 URL -> 客户端添加 -> 开启 24h 自动刷新 -> 规则模式运行”** 四步连招，便可保障订阅时刻稳定在线。
+
+### 推荐关联深度教程与实操指引
+* **客户端选型对比**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **电脑端深度教程**：[《Windows & macOS 电脑客户端深度配置指南》](/articles/windows-mac-clash-verge-singbox-setup-tutorial/)
+* **订阅更新失败排错**：[《订阅更新失败与 403 / 404 错误深度排查手册》](/articles/subscription-update-failed-and-403-404-error-guide/)
+* **假连接排错**：[《节点已连接却无法上网？5 大排查手册》](/articles/node-connected-no-internet-troubleshooting/)
+* **服务商横向选型**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+
+### 官方权威测速与连通性检测工具
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：测试节点峰值带宽
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 与 DNS 泄漏
+

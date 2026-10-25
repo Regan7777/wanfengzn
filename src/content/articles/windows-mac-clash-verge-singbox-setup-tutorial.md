@@ -107,10 +107,24 @@ faq:
 
 ---
 
-## 5. 常见问题 FAQ
+---
+
+## 5. 桌面端网络测速与连通性验证
+
+完成配置并连接节点后，推荐使用以下官方测试工具检验网络质量与分流：
+* **上下行带宽测速**：打开 [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/) 进行峰值测速，具体指标解读见 [《网络节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)；
+* **流媒体直连测速**：访问 [Netflix Fast.com 测速平台](https://fast.com/) 验证流媒体 CDN 吞吐；
+* **高并发抖动与丢包率**：访问 [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)；
+* **出口 IP 纯净度检测**：使用 [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip) 与 [IPinfo 数据库](https://ipinfo.io/)，流媒体与 AI 解锁技巧详见 [《流媒体与 ChatGPT 原生 IP 解锁指南》](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)。
+
+---
+
+## 6. 常见问题 FAQ
 
 ### Q1: 开机后访问不了网页，必须打开客户端才能上网？
-**答**：这是因为退出客户端时未能正常关闭系统代理。请打开 Clash Verge 重新关闭“系统代理”开关，或者在 Windows `设置 -> 网络和 Internet -> 代理` 中手动关闭代理服务器服务。
+**答**：这是因为退出客户端时未能正常关闭系统代理。请打开 Clash Verge 重新关闭“系统代理”开关，或者参考 [《节点连上但无法上网故障排障指南》](/articles/node-connected-no-internet-troubleshooting/)；开机自启设置请查看 [《开机自启与后台保活指南》](/articles/auto-start-and-background-running-guide/)。
 
 ### Q2: 切换节点后页面依然没有刷新或提示地区不匹配？
-**答**：浏览器可能缓存了 DNS 或 Socket 管道。尝试使用无痕模式 (Incognito) 重新打开，或者在 Clash Verge 中点击“清除 DNS 缓存”。
+**答**：浏览器可能缓存了 DNS 或 Socket 管道。尝试使用无痕模式 (Incognito) 重新打开，或者在 Clash Verge 中点击“清除 DNS 缓存”。若订阅链接拉取失败，请查看 [《订阅更新失败与 403/404 排错指南》](/articles/subscription-update-failed-and-403-404-error-guide/)。
+
+更多优质机场服务商推荐可查看 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。

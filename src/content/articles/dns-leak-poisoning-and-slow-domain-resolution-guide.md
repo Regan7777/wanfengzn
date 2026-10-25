@@ -114,3 +114,21 @@ dns:
 
 ### Q2: 为什么使用 `dnsleaktest.com` 测试显示有国内 IP？
 **答**：如果你访问的是国内网站（如百度、淘宝），走国内 DNS 解析出现本地运营商 IP 是完全正常且推荐的（这样才能拿到最近的 CDN 节点速度最快）。只要在测试海外域名时**不出现**本地运营商 DNS，即代表防护有效。
+
+---
+
+## 6. 关联排查指南与测速自检
+
+治理好 DNS 污染后，推荐配合以下指南与工具验证链路性能：
+
+* **断网排查手册**：[《节点已连接却无法上网？5 大常见断网与报错排查手册》](/articles/node-connected-no-internet-troubleshooting/)
+* **分流规则精细调优**：[《分流规则配置与自定义规则集实战指南》](/articles/routing-rules-and-custom-ruleset-guide/)
+* **路由器全屋防污染**：[《OpenWrt 路由器 OpenClash / PassWall 全屋分流实战》](/articles/router-openwrt-openclash-passwall-setup-guide/)
+* **全平台客户端配置**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **网络服务商横向选型**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+
+在线基准测速与网络健康检测：
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：测试网络上下行峰值
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：检测真实 DNS 与 WebRTC 泄漏
+

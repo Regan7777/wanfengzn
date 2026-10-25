@@ -101,3 +101,22 @@ related:
 3. **手动一键更新订阅**：服务商经常微调节点域名或 IP，客户端内右键或下拉刷新“更新订阅”即可获取最新节点。
 4. **切换地区测试**：若香港节点因维护暂不可用，切至日本或新加坡节点测试是否通畅，排查单节点故障。
 5. **排查端口冲突与系统代理劫持**：检查本地是否同时运行了其他 VPN 软件、迅雷网速加速或安全管家，关闭多余代理软件后重启客户端。
+
+---
+
+## 7. 进阶选型指南与连通性验证
+
+掌握了避坑准则后，可参考以下专项指南深入了解选型与配置：
+
+* **核心服务商横向测评**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+* **价格与性价比深度对比**：[《机场价格梯队与性价比横向对比》](/articles/airport-pricing-plan-comparison/)
+* **全平台客户端配置**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **测速与丢包诊断教程**：[《网络节点测速与丢包率诊断指南》](/articles/node-speed-test-metrics-tutorial/)
+* **断网排错指南**：[《节点已连接却无法上网？5 大常见断网与报错排查手册》](/articles/node-connected-no-internet-troubleshooting/)
+
+官方权威在线测速与 IP 纯净度检测工具：
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：基准上下行带宽与单线程测速
+- [Netflix Fast.com 测速平台](https://fast.com/)：流媒体 CDN 链路测速
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 与 DNS 泄漏
+

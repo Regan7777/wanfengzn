@@ -90,3 +90,21 @@ faq:
 
 ### Q2: 提示“User-Agent Blocked”是什么意思？
 **答**：某些服务商为了防止恶意爬虫刷接口，限定了只允许特定客户端的请求头（如 `Clash` / `Shadowrocket`）访问订阅 API。如果在客户端内使用了自定义的 User-Agent，请将其恢复为默认设置。
+
+---
+
+## 5. 关联排查指南与测速自检
+
+完成订阅更新与节点刷新后，推荐配合以下指南与工具验证连通性：
+
+* **订阅全流程实操**：[《网络服务订阅链接导入全流程实操教程》](/articles/subscription-link-import-and-sync-tutorial/)
+* **断网排错指南**：[《节点已连接却无法上网？5 大常见断网与报错排查手册》](/articles/node-connected-no-internet-troubleshooting/)
+* **DNS 污染修复**：[《DNS 污染、DNS 泄露与网页加载缓慢排查指南》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/)
+* **全平台客户端配置**：[《2026 全平台网络客户端选型对比与配置教程》](/articles/all-platforms-client-selection-and-config-guide/)
+* **优质服务商评测对比**：[《2026 稳定网络服务商选型横向对比》](/articles/2026-airport-recommendation-guide/)
+
+验证连通性与网络性能推荐工具：
+- [Speedtest by Ookla 官方测速平台](https://www.speedtest.net/)：基准上下行带宽与单线程延迟测试
+- [Cloudflare Speed Test 官方平台](https://speed.cloudflare.com/)：测试网络抖动与丢包率
+- [BrowserLeaks IP 泄漏检测](https://browserleaks.com/ip)：排查 WebRTC 与 DNS 泄漏
+
