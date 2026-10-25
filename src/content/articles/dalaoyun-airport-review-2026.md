@@ -42,7 +42,7 @@ related:
 本文由晚风指南编辑部展开全场景深度实测，从底层骨干架构、节点分布、晚高峰抗压性能、流媒体与 AI 解锁矩阵、套餐阶梯性价比到避坑选购指南做出客观总结。
 
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1.5px solid #bfdbfe; text-align: center;">
-  <a href="https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL" target="_blank" rel="nofollow sponsored noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
+  <a href="/go/dalaoyun" target="_blank" rel="nofollow sponsored noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
     🚀 点击直达大佬云官方网站注册与查看最新套餐（邀请码：1o7gYhTL） →
   </a>
   <div style="margin-top: 0.75rem; font-size: 0.9rem; color: #1e40af; font-weight: 600;">

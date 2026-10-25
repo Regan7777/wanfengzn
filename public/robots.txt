@@ -3,6 +3,7 @@ Allow: /
 
 Disallow: /search/
 Disallow: /draft/
+Disallow: /go/
 
 Sitemap: https://wanfengzn.com/sitemap-index.xml
 Sitemap: https://wanfengzn.com/sitemap.xml
