@@ -245,8 +245,11 @@ const tableData: ComparisonRow[] = [
     <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0;">{brandMeta.name} 深度评测正文与直达入口</h2>
     <p style="margin: 0; color: #475569;">{brandMeta.desc}</p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-      <a href={`/articles/${brandMeta.reviewArticleSlug}/`} class="btn-review" style="padding: 0.6rem 1.25rem; background: #e2e8f0; color: #0f172a; text-decoration: none; border-radius: 6px; font-weight: 600;">阅读 {brandMeta.name} 深度评测文章 →</a>
-      <a href={brandMeta.officialUrl} target="_blank" rel="noopener noreferrer" style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 官网查看最新月付与注册 →</a>
+      {brandMeta.officialUrl.startsWith('http') ? (
+        <a href={brandMeta.officialUrl} target="_blank" rel="nofollow sponsored noopener noreferrer" style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 官网查看最新月付与注册 →</a>
+      ) : (
+        <a href={brandMeta.officialUrl} style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 评测指南 →</a>
+      )}
     </div>
   </div>
 

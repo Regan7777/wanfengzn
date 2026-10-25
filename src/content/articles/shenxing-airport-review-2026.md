@@ -39,7 +39,7 @@ related:
 本文依据神行加速官方最新架构参数与核验资料，全面梳理其 50+ 透传中转节点拓扑、流媒体与 AI 全矩阵解锁表现、真实套餐资费细则以及客户端订阅配置流程。
 
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1.5px solid #bfdbfe; text-align: center;">
-  <a href="https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
+  <a href="https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8" target="_blank" rel="nofollow sponsored noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
     👉 点击直达神行加速官方网站注册与查看最新套餐（邀请码：WUQMrgI8） →
   </a>
   <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #475569;">

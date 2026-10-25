@@ -43,7 +43,7 @@ related:
 本文从底层能耗控制、BGP 隧道调度、流媒体/AI 实测到与神行、大佬云的横向选型对比，展开全方位硬核实测。
 
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1.5px solid #bfdbfe; text-align: center;">
-  <a href="https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
+  <a href="https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK" target="_blank" rel="nofollow sponsored noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
     点击直达闪电鼠官方网站注册与查看最新套餐（邀请码：I2yK9PfK） →
   </a>
   <div style="margin-top: 0.75rem; font-size: 0.9rem; color: #1e40af; font-weight: 600;">

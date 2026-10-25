@@ -9,7 +9,8 @@
     "build": "astro check && astro build && node -e \"import('fs').then(fs => fs.copyFileSync('dist/sitemap-0.xml', 'dist/sitemap.xml'))\"",
     "build:astro": "astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",

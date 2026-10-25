@@ -58,7 +58,7 @@ const { data, title = '2026优质网络服务商横向对比' } = Astro.props;
                   <a href={row.reviewLink} class="btn-review">阅读评测</a>
                 )}
                 {row.affLink && (
-                  <a href={row.affLink} target="_blank" rel="noopener noreferrer" class="btn-aff">
+                  <a href={row.affLink} target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn-aff">
                     {row.linkText || '直达官网'}
                   </a>
                 )}
