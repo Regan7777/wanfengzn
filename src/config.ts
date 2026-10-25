@@ -23,8 +23,8 @@ export const SITE_CONFIG = {
   tgUser: 'https://t.me/wanfengzn',
   defaultOgImage: '/images/og-default.png',
   locale: 'zh-CN',
-  bingVerificationCode: '', // Bing 站长所有权验证代码（如通过 DNS 或 GSC 验证则可留空）
-  
+  bingVerificationCode: '7ec54bed5e684bee9e50ea059b0e5538', // Bing 站长所有权验证代码（用于输出 msvalidate.01 meta 标签）
+  indexNowKey: '7ec54bed5e684bee9e50ea059b0e5538', // IndexNow API Key（用于即时推送收录）
   // 核心导航结构
   navigation: [
     { title: '首页', path: '/' },
