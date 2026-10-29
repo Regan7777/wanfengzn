@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <!-- 苹果深空暗夜渐变 -->
+    <linearGradient id="appleBg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <!-- App Store 标志性高光渐变 -->
+    <linearGradient id="appStoreGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <!-- 蓝紫微光 -->
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 220) scale(180)">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 避坑警告色渐变 -->
+    <linearGradient id="warnGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#b91c1c" stop-opacity="0.28"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 1. 背景层 -->
+  <rect width="800" height="450" fill="url(#appleBg)"/>
+  
+  <!-- 微弱网格 -->
+  <pattern id="appleGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="450" fill="url(#appleGrid)"/>
+
+  <!-- 光晕 -->
+  <circle cx="180" cy="220" r="180" fill="url(#blueGlow)"/>
+
+  <!-- 外边框 -->
+  <rect x="25" y="25" width="750" height="400" rx="16" stroke="#38bdf8" stroke-opacity="0.18" stroke-width="1.2"/>
+  <rect x="28" y="28" width="744" height="394" rx="14" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- 2. 左侧拟物与图腾：立体 App Store 图标与小火箭符号 -->
+  <g transform="translate(180, 215)">
+    <!-- 底部柔和阴影 -->
+    <ellipse cx="0" cy="115" rx="90" ry="16" fill="#000000" fill-opacity="0.6"/>
+
+    <!-- App Store 经典立体圆角大图标 -->
+    <rect x="-70" y="-70" width="140" height="140" rx="32" fill="url(#appStoreGrad)" stroke="#7dd3fc" stroke-opacity="0.4" stroke-width="2"/>
+
+    <!-- App Store「A」字矢量 (由尺子、画笔、三角尺构成的极简美学符号) -->
+    <g stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 左斜笔 -->
+      <line x1="-30" y1="36" x2="0" y2="-36"/>
+      <!-- 右斜笔 -->
+      <line x1="30" y1="36" x2="0" y2="-36"/>
+      <!-- 横杠 -->
+      <line x1="-24" y1="14" x2="24" y2="14"/>
+    </g>
+
+    <!-- 右上角腾飞的小火箭 (Shadowrocket 象征) -->
+    <g transform="translate(65, -60)">
+      <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+      <!-- 火箭图标 -->
+      <path d="M-4 12 L0 -14 L4 12 L0 8 Z" fill="#38bdf8"/>
+      <path d="M-8 6 L-4 12 L-4 5 Z" fill="#60a5fa"/>
+      <path d="M8 6 L4 12 L4 5 Z" fill="#60a5fa"/>
+      <!-- 尾焰 -->
+      <path d="M-2 13 L0 18 L2 13 Z" fill="#f59e0b"/>
+    </g>
+
+    <!-- 底部悬浮指示标 -->
+    <g transform="translate(0, 95)">
+      <rect x="-85" y="-12" width="170" height="24" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="0" y="4" text-anchor="middle" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="700">免信用卡 · +86 手机号</text>
+    </g>
+  </g>
+
+  <!-- 3. 右侧排版区 -->
+  <g transform="translate(390, 60)">
+    <!-- 顶部胶囊标签 -->
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="175" height="28" rx="14" fill="#0369a1" fill-opacity="0.3" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1"/>
+      <circle cx="14" cy="14" r="4" fill="#38bdf8"/>
+      <text x="26" y="18" fill="#e0f2fe" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">iOS 科学上网必修课</text>
+    </g>
+
+    <!-- 主标题 -->
+    <text x="0" y="95" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="34" font-weight="900" letter-spacing="0.5">
+      美区 Apple ID 注册教程
+    </text>
+
+    <!-- 副标题 -->
+    <text x="0" y="132" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="17" font-weight="700">
+      2026 保姆级指南 ｜ 零门槛下载小火箭与 Clash Mi
+    </text>
+
+    <!-- 核心四大流程与避坑要点卡片 -->
+    <g transform="translate(0, 160)">
+      <!-- 流程点 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="180" height="42" rx="6" fill="#1e293b" fill-opacity="0.6" stroke="#334155" stroke-width="1"/>
+        <circle cx="16" cy="21" r="7" fill="#0284c7"/>
+        <text x="16" y="24" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">1</text>
+        <text x="32" y="25" fill="#f1f5f9" font-family="sans-serif" font-size="11.5" font-weight="600">+86 手机号直接验证</text>
+      </g>
+
+      <!-- 流程点 2 -->
+      <g transform="translate(190, 0)">
+        <rect width="180" height="42" rx="6" fill="#1e293b" fill-opacity="0.6" stroke="#334155" stroke-width="1"/>
+        <circle cx="16" cy="21" r="7" fill="#0284c7"/>
+        <text x="16" y="24" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">2</text>
+        <text x="32" y="25" fill="#f1f5f9" font-family="sans-serif" font-size="11.5" font-weight="600">5大免税州真实地址生成</text>
+      </g>
+
+      <!-- 流程点 3 -->
+      <g transform="translate(0, 52)">
+        <rect width="180" height="42" rx="6" fill="#1e293b" fill-opacity="0.6" stroke="#334155" stroke-width="1"/>
+        <circle cx="16" cy="21" r="7" fill="#0284c7"/>
+        <text x="16" y="24" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">3</text>
+        <text x="32" y="25" fill="#f1f5f9" font-family="sans-serif" font-size="11.5" font-weight="600">支付方式选「None」免卡</text>
+      </g>
+
+      <!-- 流程点 4 (核心避坑警告) -->
+      <g transform="translate(190, 52)">
+        <rect width="180" height="42" rx="6" fill="url(#warnGrad)" stroke="#ef4444" stroke-opacity="0.5" stroke-width="1"/>
+        <circle cx="16" cy="21" r="7" fill="#ef4444"/>
+        <text x="16" y="25" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">!</text>
+        <text x="32" y="25" fill="#fca5a5" font-family="sans-serif" font-size="11.5" font-weight="700">切忌在系统登iCloud</text>
+      </g>
+    </g>
+
+    <!-- 底部状态指示 -->
+    <g transform="translate(0, 280)">
+      <text x="0" y="0" fill="#94a3b8" font-family="sans-serif" font-size="12">
+        安全合规 · 仅在 App Store 登录 · 永不串号锁机 · 稳定独享
+      </text>
+    </g>
+  </g>
+</svg>

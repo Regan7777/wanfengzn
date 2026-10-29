@@ -17,6 +17,8 @@ faq:
     answer: "Error code 1020 是 Cloudflare 防火墙规则拦截。这意味着你当前使用的出口节点 IP 被 Cloudflare 识别为高风险机房 IP，或者同一 IP 下有大量异常并发请求触发了自动封禁。请尝试更换节点或切换为无痕模式。"
   - question: "人机验证（Turnstile / HCaptcha）陷入死循环，点完图片又弹验证怎么办？"
     answer: "验证码死循环通常是由于浏览器开启了 Canvas 伪装防追踪插件、或使用了被标记为垃圾流量的代理出口 IP。请先禁用浏览器所有的隐私防追踪插件，若无效必须更换节点出口 IP。"
+  - question: "什么是双 ISP 与住宅原生 IP？为什么对防封号至关重要？"
+    answer: "双 ISP 属性代表 IP 地址在各大风控数据库（如 IP2Location、MaxMind）中被识别为真实家庭宽带住宅网络而非机房云主机（Hosting/DataCenter）。AI 平台对机房 IP 往往采用严格的验证码或直接阻断，而纯净住宅 IP 能够显著降低封号概率。"
 ---
 
 随着人工智能工具（OpenAI ChatGPT, Anthropic Claude, Google Gemini）的普及，越来越多的开发者和日常办公用户将其作为生产力工具。

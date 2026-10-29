@@ -1,14 +1,164 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
-  <rect width="800" height="450" fill="url(#paint0_linear)"/>
-  <circle cx="100" cy="70" r="140" fill="#60A5FA" fill-opacity="0.08"/>
-  <circle cx="730" cy="380" r="190" fill="#1D4ED8" fill-opacity="0.25"/>
-  <rect x="60" y="50" width="680" height="350" rx="16" stroke="#60A5FA" stroke-opacity="0.15" stroke-width="2"/>
-  <text x="400" y="200" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="bold">神行加速机场 深度评测</text>
-  <text x="400" y="265" text-anchor="middle" fill="#60A5FA" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">全BGP中转优化 • 原生家宽IP • 4K极清流畅</text>
   <defs>
-    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1D4ED8"/>
-      <stop offset="1" stop-color="#0F172A"/>
+    <!-- 深邃科技黑金/蓝紫渐变背景 -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- 科技网格背景 -->
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#38bdf8" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+
+    <!-- 左侧雷达光晕 -->
+    <radialGradient id="radarGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 225) scale(200)">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#1d4ed8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 右上角金色光晕 -->
+    <radialGradient id="goldGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(680 90) scale(160)">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 金色主推勋章渐变 -->
+    <linearGradient id="goldBadge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+
+    <!-- 标题文字高光渐变 -->
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+
+    <!-- 测速胶囊背景 -->
+    <linearGradient id="pillGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9"/>
     </linearGradient>
   </defs>
+
+  <!-- 1. 基础背景层 -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- 2. 气氛环境光 -->
+  <circle cx="180" cy="225" r="200" fill="url(#radarGlow)"/>
+  <circle cx="680" cy="90" r="160" fill="url(#goldGlow)"/>
+
+  <!-- 3. 外层微光科技边框 -->
+  <rect x="25" y="25" width="750" height="400" rx="16" stroke="#38bdf8" stroke-opacity="0.18" stroke-width="1.2"/>
+  <rect x="28" y="28" width="744" height="394" rx="14" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- 4. 左侧网络拓扑与雷达仪表盘图形 -->
+  <g transform="translate(180, 225)">
+    <!-- 拓扑雷达同心圆 -->
+    <circle cx="0" cy="0" r="130" stroke="#38bdf8" stroke-opacity="0.12" stroke-dasharray="4 6" stroke-width="1"/>
+    <circle cx="0" cy="0" r="95" stroke="#60a5fa" stroke-opacity="0.2" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="60" stroke="#38bdf8" stroke-opacity="0.25" stroke-dasharray="3 3" stroke-width="1"/>
+    <circle cx="0" cy="0" r="28" fill="#1e3a8a" fill-opacity="0.4" stroke="#60a5fa" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="6" fill="#38bdf8"/>
+
+    <!-- 拓扑节点连线与卫星点 (代表 50+ 全球节点) -->
+    <!-- 港 20 -->
+    <line x1="0" y1="0" x2="-75" y2="-55" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.2"/>
+    <circle cx="-75" cy="-55" r="5" fill="#38bdf8"/>
+    <text x="-86" y="-51" text-anchor="end" fill="#93c5fd" font-family="sans-serif" font-size="11" font-weight="600">香港20</text>
+
+    <!-- 台 10 -->
+    <line x1="0" y1="0" x2="80" y2="-45" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.2"/>
+    <circle cx="80" cy="-45" r="4.5" fill="#60a5fa"/>
+    <text x="92" y="-41" text-anchor="start" fill="#93c5fd" font-family="sans-serif" font-size="11" font-weight="600">台湾10</text>
+
+    <!-- 日 10 -->
+    <line x1="0" y1="0" x2="-85" y2="40" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.2"/>
+    <circle cx="-85" cy="40" r="4.5" fill="#60a5fa"/>
+    <text x="-96" y="44" text-anchor="end" fill="#93c5fd" font-family="sans-serif" font-size="11" font-weight="600">日本10</text>
+
+    <!-- 新 10 (实测点) -->
+    <line x1="0" y1="0" x2="70" y2="55" stroke="#f59e0b" stroke-opacity="0.6" stroke-width="1.5"/>
+    <circle cx="70" cy="55" r="6" fill="#f59e0b"/>
+    <circle cx="70" cy="55" r="10" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1"/>
+    <text x="84" y="59" text-anchor="start" fill="#fbbf24" font-family="sans-serif" font-size="11" font-weight="bold">新加坡10 · 实测</text>
+
+    <!-- 美 10 -->
+    <line x1="0" y1="0" x2="0" y2="-95" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1"/>
+    <circle cx="0" cy="-95" r="4" fill="#38bdf8"/>
+    <text x="0" y="-105" text-anchor="middle" fill="#93c5fd" font-family="sans-serif" font-size="11" font-weight="600">美国10</text>
+
+    <!-- 测速指示浮标 -->
+    <g transform="translate(0, 100)">
+      <rect x="-65" y="-12" width="130" height="24" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="0" y="4" text-anchor="middle" fill="#fef08a" font-family="sans-serif" font-size="11" font-weight="700">实测峰值 246 Mbps</text>
+    </g>
+  </g>
+
+  <!-- 5. 右侧核心内容排版区 -->
+  <g transform="translate(420, 60)">
+    <!-- 顶部角标：旗舰评测与站长主推 -->
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="185" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+      <circle cx="14" cy="14" r="4" fill="#a855f7"/>
+      <text x="26" y="18" fill="#c7d2fe" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="0.5">2026 站长首选 · 旗舰实测</text>
+    </g>
+
+    <!-- 金色 7 折徽章 -->
+    <g transform="translate(200, 15)">
+      <rect x="0" y="0" width="110" height="28" rx="14" fill="url(#goldBadge)"/>
+      <text x="55" y="18" text-anchor="middle" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800">新客 7 折特惠</text>
+    </g>
+
+    <!-- 主品牌标题 -->
+    <text x="0" y="95" fill="url(#titleGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="36" font-weight="900" letter-spacing="0.5">
+      神行加速 深度评测
+    </text>
+
+    <!-- 架构说明 -->
+    <text x="0" y="132" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="18" font-weight="700">
+      VLESS 透传架构 ｜ 50+ 全球多节点实测
+    </text>
+
+    <text x="0" y="165" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', sans-serif" font-size="13.5" font-weight="400">
+      三网多线优化 · 新加坡/香港原生家宽IP · 全矩阵AI解锁
+    </text>
+
+    <!-- 硬核实测数据指标卡片群 -->
+    <g transform="translate(0, 195)">
+      <!-- 指标 1：Cloudflare 测速 -->
+      <g transform="translate(0, 0)">
+        <rect width="150" height="58" rx="8" fill="url(#pillGrad)" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="22" fill="#94a3b8" font-family="sans-serif" font-size="11">Cloudflare 实测下载</text>
+        <text x="14" y="44" fill="#38bdf8" font-family="monospace" font-size="18" font-weight="800">246 Mb/s</text>
+      </g>
+
+      <!-- 指标 2：IP 纯净度 -->
+      <g transform="translate(160, 0)">
+        <rect width="150" height="58" rx="8" fill="url(#pillGrad)" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="22" fill="#94a3b8" font-family="sans-serif" font-size="11">IP 属性 / 风控</text>
+        <text x="14" y="44" fill="#4ade80" font-family="sans-serif" font-size="14" font-weight="800">家庭宽带 · 极低</text>
+      </g>
+    </g>
+
+    <!-- 底部特性标签栏 -->
+    <g transform="translate(0, 275)">
+      <!-- Tag 1 -->
+      <rect x="0" y="0" width="95" height="26" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+      <text x="47" y="17" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11.5" font-weight="600">全节点 1.0x</text>
+
+      <!-- Tag 2 -->
+      <rect x="105" y="0" width="95" height="26" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+      <text x="152" y="17" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11.5" font-weight="600">不限设备数</text>
+
+      <!-- Tag 3 -->
+      <rect x="210" y="0" width="105" height="26" rx="6" fill="#312e81" stroke="#6366f1" stroke-width="1"/>
+      <text x="262" y="17" text-anchor="middle" fill="#c7d2fe" font-family="sans-serif" font-size="11.5" font-weight="700">折后 ¥16.1/月</text>
+    </g>
+  </g>
 </svg>

@@ -1,27 +1,31 @@
-# 网络服务选择指南 (Network Service Guide)
+# 晚风指南 (Wanfeng Guide - wanfengzn.com)
 
-> 面向中文用户的专业网络服务选择与使用知识博客。提供 2026 机场推荐、服务商深度评测、排行榜单、IEPL/IPLC 专线知识、客户端使用教程与故障排查指南。
+> 面向中文用户的专业网络技术解析、2026 机场推荐与客户端配置知识博客。提供真实测速、晚高峰丢包与性能诊断、IEPL/IPLC 专线知识、全平台客户端教程与网络排错指南。
 
-## 网站主要知识专题与核心入口
+## 核心专栏与专题索引
 
 - 首页门户: https://wanfengzn.com/
 - 2026 机场推荐 (Pillar Page): https://wanfengzn.com/recommend/
 - 机场排行榜单: https://wanfengzn.com/ranking/
-- 品牌服务商评测: https://wanfengzn.com/reviews/
+- 品牌服务商深度评测: https://wanfengzn.com/reviews/
 - 方案横向对比: https://wanfengzn.com/compare/
 - 价格与套餐选择: https://wanfengzn.com/price/
 - IEPL / IPLC 线路知识: https://wanfengzn.com/network/
-- AI与流媒体场景选择: https://wanfengzn.com/use-case/
+- AI 与流媒体解锁场景: https://wanfengzn.com/use-case/
 - 客户端下载与配置: https://wanfengzn.com/clients/
 - 图文使用教程: https://wanfengzn.com/tutorials/
-- 常见问题与故障排查: https://wanfengzn.com/problems/
+- 常见问题与网络排错: https://wanfengzn.com/problems/
 - 新手零基础指南: https://wanfengzn.com/guide/
 
-## 核心文章索引
+## 核心推荐文章索引
 
-- [2026机场推荐：新手应该怎么选择？稳定、价格与线路全方位指南](https://wanfengzn.com/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操（支持下载 Shadowrocket 小火箭与 Clash Mi）](https://wanfengzn.com/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket（小火箭）全平台下载使用教程](https://wanfengzn.com/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [2026 机场推荐：新手应该怎么选择？稳定、价格与线路全方位指南](https://wanfengzn.com/articles/2026-airport-recommendation-guide/)
+- [2026 神行加速深度评测：透传中转架构、50+节点与全流媒体AI解锁实测](https://wanfengzn.com/articles/shenxing-airport-review-2026/)
 - [机场推荐看哪些指标？稳定性、价格与线路怎么判断](https://wanfengzn.com/articles/airport-selection-metrics-guide/)
 - [机场线路有什么区别？IEPL、IPLC与直连线路新手入门指南](https://wanfengzn.com/articles/network-line-types-iepl-iplc-guide/)
 - [第一次选择机场应该注意什么？新手避坑与安全指南](https://wanfengzn.com/articles/first-time-airport-selection-tips/)
-- [机场套餐怎么选？月付、年付与按量套餐区别与分析](https://wanfengzn.com/articles/airport-pricing-plan-comparison/)
-
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](https://wanfengzn.com/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](https://wanfengzn.com/articles/subscription-link-import-and-sync-tutorial/)
+- [节点已连接却无法上网？5 大常见断网与报错排查手册](https://wanfengzn.com/articles/node-connected-no-internet-troubleshooting/)

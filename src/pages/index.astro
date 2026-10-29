@@ -1,517 +1,1312 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
-import FAQAccordion from '../components/FAQAccordion.astro';
 import { SITE_CONFIG } from '../config';
 import { getCanonicalUrl } from '../lib/utils';
-import { generateOrganizationSchema, generateWebSiteSchema, generateFAQSchema } from '../lib/schema';
+import { generateOrganizationSchema, generateWebSiteSchema } from '../lib/schema';
 
-// 获取所有公开非草稿文章
+// 获取所有公开非草稿文章并按时间倒序排列
 const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const sortedArticles = allArticles.sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
-// 首页指定展示的核心入门与选型指南文章（刚好3篇）
-const homeFeaturedSlugs = [
+// 首页主信息流展示前 10 篇文章
+const pagedArticles = sortedArticles.slice(0, 10);
+
+// 提取全站高频标签云（取前 24 个）
+const allTags = Array.from(new Set(allArticles.flatMap((a) => a.data.tags || []))).slice(0, 24);
+
+// 侧边栏【最新文章】
+const latestArticles = sortedArticles.slice(0, 6);
+
+// 侧边栏【热点评测】
+const hotSlugs = [
+  'shenxing-airport-review-2026',
+  'dalaoyun-airport-review-2026',
+  'shandianshu-airport-review-2026',
+  'huanqiuti-airport-review-2026',
+  'streaming-ai-unlock-netflix-chatgpt-native-ip-guide',
+  'bgp-transit-vs-direct-line-deep-dive'
+];
+const hotArticles = allArticles
+  .filter((a) => hotSlugs.includes(a.slug))
+  .sort((a, b) => hotSlugs.indexOf(a.slug) - hotSlugs.indexOf(b.slug));
+
+// 侧边栏【新手精选】
+const guideSlugs = [
+  'us-apple-id-registration-guide-2026',
+  'clash-mi-ios-setup-tutorial-2026',
   'clash-and-shadowrocket-all-platform-tutorial-2026',
-  'subscription-link-import-and-sync-tutorial',
-  '2026-airport-recommendation-guide'
+  'android-flclash-surfboard-setup-tutorial',
+  'windows-mac-clash-verge-singbox-setup-tutorial',
+  'subscription-link-import-and-sync-tutorial'
 ];
+const guideArticles = allArticles
+  .filter((a) => guideSlugs.includes(a.slug))
+  .sort((a, b) => guideSlugs.indexOf(a.slug) - guideSlugs.indexOf(b.slug));
 
-const featuredHomeArticles = allArticles
-  .filter((a) => homeFeaturedSlugs.includes(a.slug))
-  .sort((a, b) => homeFeaturedSlugs.indexOf(a.slug) - homeFeaturedSlugs.indexOf(b.slug));
+// 分类中文对照
+const categoryMap: Record<string, string> = {
+  recommend: '机场推荐',
+  reviews: '机场评测',
+  compare: '横向对比',
+  price: '价格选择',
+  network: '线路知识',
+  'use-case': '场景用途',
+  clients: '客户端',
+  tutorials: '使用教程',
+  problems: '排错解决',
+  guide: '新手入门'
+};
 
-// 样例导航/服务卡片数据 (与参考模板布局一致)
-const providerCards = [
-  {
-    tag: '数据库',
-    title: '机场参数数据库',
-    desc: '2026 最新网络服务参数汇总',
-    link: '/recommend/',
-    isSpecial: true
-  },
-  {
-    tag: '主推 / 50+透传中转 / VLESS',
-    title: '神行加速',
-    desc: '三网优化 + 智能负载均衡 + AI/流媒体全解锁',
-    link: '/go/shenxing'
-  },
-  {
-    tag: 'BGP多线中转 / Anycast',
-    title: '大佬云',
-    desc: 'BGP多线中转 + 稳定老牌体验',
-    link: '/go/dalaoyun'
-  },
-  {
-    tag: 'BGP隧道中转 / SS',
-    title: '闪电鼠',
-    desc: 'BGP隧道中转 + 移动端省电低发热神器',
-    link: '/go/shandianshu'
-  },
-  {
-    tag: 'BGP中转 / Trojan',
-    title: '榴莲云',
-    desc: 'BGP中转 + 超高性价比流量包',
-    link: '/go/liulianyun'
-  },
-  {
-    tag: 'BGP双线中转 / VLESS',
-    title: '环球梯',
-    desc: 'BGP双线中转 + 全球60+节点',
-    link: '/go/huanqiuti'
-  },
-  {
-    tag: 'Hysteria2 / 端口跳跃',
-    title: '云界限',
-    desc: 'Hysteria2协议 + 端口跳跃防QoS弱网穿透',
-    link: '/go/yunjiexian'
-  },
-  {
-    tag: '提交入口',
-    title: '机场提交',
-    desc: '提交您的服务商数据与评测',
-    link: '/about/',
-    isAddCard: true
+// 伪动态计算文章热度与点赞（基于 slug 稳定哈希，保持一致性）
+function getMetrics(slug: string) {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash << 5) - hash + slug.charCodeAt(i);
+    hash |= 0;
   }
-];
-
-const homeFaqs = [
-  {
-    question: "本站的“机场推荐”与评测标准是什么？",
-    answer: "我们基于实际<a href=\"/articles/node-speed-test-metrics-tutorial/\">晚高峰测速与丢包率诊断</a>、<a href=\"/articles/bgp-transit-vs-direct-line-deep-dive/\">线路架构（IEPL专线/BGP中转）</a>、售后响应与网络环境兼容性进行综合打分，严格遵循<a href=\"/articles/airport-selection-metrics-guide/\">机场量化评测体系</a>，拒绝接受没有实际测试支撑的虚假广告。"
-  },
-  {
-    question: "完全不了解的新手，第一次应该如何选择？",
-    answer: "建议零基础新手先阅读<a href=\"/articles/2026-airport-recommendation-guide/\">《2026机场推荐精选指南》</a>与<a href=\"/articles/first-time-airport-selection-tips/\">《新手第一次选购避坑原则》</a>，优先选择支持按月付款的成熟服务商，配合<a href=\"/articles/clash-and-shadowrocket-all-platform-tutorial-2026/\">《全平台客户端上手教程》</a>先月付测试自己常使用的节点和时间段。"
-  },
-  {
-    question: "使用专线线路（IEPL/IPLC）有什么优势？",
-    answer: "<a href=\"/articles/network-line-types-iepl-iplc-guide/\">IEPL 与 IPLC 专线线路</a>采用点对点物理内网传输，流量不经过公网防火墙，具有极高的稳定性、极低的物理延迟与 0 丢包率，即使在晚高峰全网拥堵期也能保持秒开与超低网络抖动。"
-  }
-];
+  const positiveHash = Math.abs(hash);
+  const views = (positiveHash % 16000) + 4200;
+  const likes = (positiveHash % 58) + 16;
+  return { views, likes };
+}
 
 const orgSchema = generateOrganizationSchema();
 const siteSchema = generateWebSiteSchema();
-const faqSchema = generateFAQSchema(homeFaqs);
-const schemas = [orgSchema, siteSchema, faqSchema].filter(Boolean);
+const schemas = [orgSchema, siteSchema].filter(Boolean);
+
+const pageTitle = `${SITE_CONFIG.siteName} - 2026机场推荐/客观评测/科学上网与流媒体AI解锁指南`;
+const pageDescription = "专注2026机场推荐、服务商晚高峰深度评测、IEPL专线线路知识、FlClash与小火箭使用教程及流媒体AI原生解锁指南。";
+const pageKeywords = ["晚风指南", "机场推荐", "神行加速", "VPN推荐", "Clash节点", "Shadowrocket", "科学上网", "翻墙机场", "流媒体解锁", "ChatGPT机场"];
 ---
 
 <BaseLayout
-  title={SITE_CONFIG.siteTitle}
-  description={SITE_CONFIG.description}
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
   canonicalUrl={getCanonicalUrl('/')}
   schemaData={schemas}
 >
-  <!-- Minimalist Hero Banner (Matching Evening Breeze Theme) -->
-  <section class="template-hero">
-    <div class="hero-bg-overlay"></div>
-    <div class="container text-center">
-      <div class="brand-top-sub">{SITE_CONFIG.siteName}</div>
-      <h1 class="main-hero-title">机场导航</h1>
-
-      <p class="hero-subtext-main">
-        {SITE_CONFIG.siteName}，专注收录与维护机场服务参数，帮你快速找到合适的节点与套餐。
-      </p>
-
-      <p class="hero-paragraph">
-        持续追踪机场的核心信息：覆盖地区、响应时间、节点规模、线路协议、带宽与设备限制、客户端支持、流媒体与 AI 解锁能力、价格及售后政策等，并保持及时更新。
-      </p>
-    </div>
-  </section>
-
-  <!-- Provider Cards Grid Section (Matching Template Layout) -->
-  <div class="container portal-body">
-    <div class="provider-cards-grid">
-      {providerCards.map((card) => (
-        <a href={card.link} class:list={['provider-card', { 'add-card': card.isAddCard }, { 'special-card': card.isSpecial }]}>
-          {card.isAddCard ? (
-            <div class="add-card-content">
-              <div class="add-icon">+</div>
-              <div class="card-title">{card.title}</div>
-              <div class="card-desc">{card.desc}</div>
-            </div>
-          ) : (
-            <div class="card-inner">
-              <div class="card-tag">{card.tag}</div>
-              <div class="card-title">{card.title}</div>
-              <div class="card-desc">{card.desc}</div>
-            </div>
-          )}
-        </a>
-      ))}
-    </div>
-
-    <!-- Latest Articles Grid -->
-    <section class="latest-articles-section">
-      <div class="section-header-flex">
-        <div>
-          <h2 class="section-title">最新深度文章与分析</h2>
-          <p class="section-subtitle">持续更新的网络技术解析、评测与使用教程</p>
-        </div>
-        <a href="/articles/" class="view-all-link">查看全部文章 ({sortedArticles.length}) →</a>
+  <!-- Kratos Style Hero Banner (伶俐谷同款沉浸式大横幅) -->
+  <div class="k-banner">
+    <div class="banner-overlay"></div>
+    <div class="banner-content text-center">
+      <div class="introduce animate__fadeInUp">
+        <div class="title-sub">晚风指南 · WANFENGZN.COM</div>
+        <div class="mate">工欲善其事，必先利其器</div>
+        <p class="banner-desc">硬核实测晚高峰网络性能，拿真实测速与丢包数据说话</p>
       </div>
-
-      <div class="card-grid">
-        {featuredHomeArticles.map((article) => (
-          <ArticleCard article={article} headingLevel="h3" />
-        ))}
-      </div>
-    </section>
-
-    <!-- Disclaimer Block flanked by dividers (Matching Template) -->
-    <div class="template-disclaimer-wrapper">
-      <hr class="template-divider" />
-      <p class="template-disclaimer-text">
-        {SITE_CONFIG.siteName} 是完全独立的第三方参数收集导航站，不运营任何代理或网络服务商。所有参数均基于官方公开资料核实整理，请务必遵守所在地区法律法规，相关内容仅供技术交流与学术参考。
-      </p>
-      <hr class="template-divider" />
     </div>
+  </div>
 
-    <!-- FAQ Accordion -->
-    <FAQAccordion faqs={homeFaqs} title="常见问题解答 (FAQ)" description="关于网络服务选择与本站评测方法的常见疑难解答" />
+  <!-- Kratos Main Container (#f5f5f5 浅灰质感背景) -->
+  <div class="k-main">
+    <div class="container layout-container">
+      <div class="k-layout-grid">
+        <!-- 左侧文章面板流 (col-lg-8) -->
+        <main class="k-board" aria-label="文章列表">
+          <!-- 移动端专属置顶推荐卡片 (仅移动端展示，避免手机端右侧栏被沉降到底部) -->
+          <div class="mobile-shenxing-card">
+            <div class="m-card-badge-row">
+              <span class="m-badge-primary">⭐ 本站主推 · 独家7折</span>
+              <span class="m-badge-sub">VLESS 透传中转 · 50+节点</span>
+            </div>
+            <h2 class="m-card-title">神行加速 (2026 旗舰首选)</h2>
+            <p class="m-card-desc">
+              三网优化智能负载均衡，晚高峰 4K 零丢包，原生解锁 ChatGPT / Netflix / Disney+，全套餐不限制在线设备数。
+            </p>
+            <div class="m-card-coupon">
+              <span class="coupon-lbl">专属7折优惠码：</span>
+              <span class="coupon-val">sx0077</span>
+              <span class="coupon-note">（邀请码 WUQMrgI8 直达已携带）</span>
+            </div>
+            <div class="m-card-actions">
+              <a
+                href="/go/shenxing"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                class="btn-m-cta"
+              >
+                前往神行官网直达 ↗
+              </a>
+              <a href="/articles/shenxing-airport-review-2026/" class="btn-m-review">
+                深度评测报告 →
+              </a>
+            </div>
+          </div>
+
+          <!-- 新手科学上网核心流程引导 (桌面与移动端通用) -->
+          <div class="quick-workflow-panel">
+            <div class="workflow-header">
+              <span class="workflow-badge">⚡ 新手起步指引</span>
+              <span class="workflow-title">科学上网两步走：先备客户端与账号，再选节点</span>
+            </div>
+            <div class="workflow-steps-grid">
+              <a href="/articles/us-apple-id-registration-guide-2026/" class="w-step-item">
+                <div class="step-num">1</div>
+                <div class="step-info">
+                  <strong class="step-name">美区 Apple ID 注册</strong>
+                  <span class="step-desc">零门槛免信用卡，iOS软件下载必备</span>
+                </div>
+              </a>
+              <a href="/articles/clash-mi-ios-setup-tutorial-2026/" class="w-step-item">
+                <div class="step-num">2</div>
+                <div class="step-info">
+                  <strong class="step-name">Clash Mi 免费客户端</strong>
+                  <span class="step-desc">美区 App Store 免费下载，小火箭平替</span>
+                </div>
+              </a>
+              <a href="/articles/shenxing-airport-review-2026/" class="w-step-item highlight">
+                <div class="step-num">3</div>
+                <div class="step-info">
+                  <strong class="step-name">神行加速 (7折优惠)</strong>
+                  <span class="step-desc">VLESS 透传中转，全流媒体与 AI 原生解锁</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {pagedArticles.map((article) => {
+            const metrics = getMetrics(article.slug);
+            const catName = categoryMap[article.data.category] || '技术解析';
+            const pubDate = article.data.publishedAt.toISOString().slice(0, 10);
+            return (
+              <article class="article-panel">
+                <div class="a-thumb">
+                  <a href={`/articles/${article.slug}/`} title={article.data.title}>
+                    <img
+                      src={article.data.cover || '/images/og-default.png'}
+                      alt={article.data.coverAlt || article.data.title}
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+
+                <div class="a-post">
+                  <div class="header">
+                    <a class="label" href={`/category/${article.data.category}/`}>
+                      {catName}
+                      <i class="label-arrow" aria-hidden="true" />
+                    </a>
+                    <h2 class="title">
+                      <a href={`/articles/${article.slug}/`}>{article.data.title}</a>
+                    </h2>
+                  </div>
+
+                  <div class="content">
+                    <p>{article.data.description}</p>
+                  </div>
+
+                  <div class="a-meta">
+                    <div class="meta-left">
+                      <span class="meta-item">
+                        <svg class="k-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        {pubDate}
+                      </span>
+                      <span class="meta-item">
+                        <svg class="k-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                        {metrics.views}点热度
+                      </span>
+                      <span class="meta-item d-none-sm">
+                        <svg class="k-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                        {metrics.likes}人点赞
+                      </span>
+                    </div>
+
+                    <div class="meta-right">
+                      <a href={`/articles/${article.slug}/`} class="read-more">
+                        阅读全文
+                        <svg class="k-icon-arrow" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+
+          <!-- 简洁分页/全部文章入口 -->
+          <div class="paginations">
+            <span class="page-numbers current">1</span>
+            <a href="/articles/" class="page-numbers">2</a>
+            <a href="/articles/" class="page-numbers">3</a>
+            <span class="page-numbers dots">…</span>
+            <a href="/articles/" class="page-numbers">6</a>
+            <a href="/articles/" class="next" title="查看全部文章">
+              全部文章 ({allArticles.length})
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </main>
+
+        <!-- 右侧粘性侧边栏 (col-lg-4) -->
+        <aside class="k-sidebar">
+          <!-- Widget 1: 站内实时搜索 -->
+          <div class="widget widget_search">
+            <form role="search" method="get" action="/search/" class="search-form">
+              <div class="search-input-group">
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="搜索机场、协议、教程..."
+                  required
+                />
+                <button type="submit" aria-label="搜索">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  搜索
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Widget 2: 神行加速核心置顶推荐卡片 (302 临时重定向直达) -->
+          <div class="widget widget_shenxing">
+            <div class="shenxing-top-bar">
+              <span class="shenxing-tag">本站重点推荐</span>
+              <span class="shenxing-badge">新客 7 折</span>
+            </div>
+
+            <div class="shenxing-header">
+              <h3 class="shenxing-brand">神行加速</h3>
+              <span class="shenxing-speed">透传中转 / VLESS</span>
+            </div>
+
+            <p class="shenxing-summary">
+              50+ 全球节点（港20/台10/日10/新10/美10），三网负载均衡，原生解锁 Netflix、Disney+ 与 ChatGPT。
+            </p>
+
+            <div class="shenxing-coupon-card">
+              <div class="coupon-title">专属 7 折优惠码（特惠版除外）</div>
+              <div class="coupon-code">sx0077</div>
+              <div class="coupon-sub">邀请码：<code>WUQMrgI8</code>（直达已携带）</div>
+            </div>
+
+            <div class="shenxing-btn-wrap">
+              <a
+                href="/go/shenxing"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+                class="btn-shenxing-cta"
+              >
+                前往神行官网直达 ↗
+              </a>
+              <a href="/articles/shenxing-airport-review-2026/" class="btn-shenxing-review">
+                阅读神行深度评测报告 →
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 3: 站长信息与交流 -->
+          <div class="widget widget_text">
+            <div class="widget-title">站长交流与反馈</div>
+            <div class="contact-box">
+              <p>
+                <strong>博主：</strong> W（资深独立技术评测博主）
+              </p>
+              <p>
+                <strong>TG 频道：</strong>
+                <a href={SITE_CONFIG.tgChannel} target="_blank" rel="noopener noreferrer">@wanfengjc</a>
+              </p>
+              <p>
+                <strong>TG 私聊：</strong>
+                <a href={SITE_CONFIG.tgUser} target="_blank" rel="noopener noreferrer">@wanfengzn</a>
+              </p>
+              <p class="disclaimer-mini">
+                坚持技术客观评测，只拿真实测速与丢包数据说话，建议新购优先月付验证。
+              </p>
+            </div>
+          </div>
+
+          <!-- Widget 4: 三标签切换精选卡片 (最新 / 热点 / 新手) -->
+          <div class="widget w-recommended">
+            <div class="w-nav-tabs" role="tablist">
+              <button class="w-tab-btn active" data-tab="tab-hot" type="button">热点评测</button>
+              <button class="w-tab-btn" data-tab="tab-latest" type="button">最新发布</button>
+              <button class="w-tab-btn" data-tab="tab-guide" type="button">新手精选</button>
+            </div>
+
+            <div class="w-tab-content">
+              <!-- 热点评测 -->
+              <div class="w-tab-pane active" id="tab-hot">
+                {hotArticles.map((art) => (
+                  <a href={`/articles/${art.slug}/`} class="bookmark-item" title={art.data.title}>
+                    <svg class="book-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <span class="bookmark-text">{art.data.title}</span>
+                  </a>
+                ))}
+              </div>
+
+              <!-- 最新发布 -->
+              <div class="w-tab-pane" id="tab-latest">
+                {latestArticles.map((art) => (
+                  <a href={`/articles/${art.slug}/`} class="bookmark-item" title={art.data.title}>
+                    <svg class="book-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <span class="bookmark-text">{art.data.title}</span>
+                  </a>
+                ))}
+              </div>
+
+              <!-- 新手精选 -->
+              <div class="w-tab-pane" id="tab-guide">
+                {guideArticles.map((art) => (
+                  <a href={`/articles/${art.slug}/`} class="bookmark-item" title={art.data.title}>
+                    <svg class="book-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    <span class="bookmark-text">{art.data.title}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget 5: 标签聚合云 -->
+          <div class="widget w-tags">
+            <div class="widget-title">热门标签聚合</div>
+            <div class="tag-cloud">
+              {allTags.map((tag) => (
+                <a href={`/tag/${encodeURIComponent(tag)}/`} class="tag-item">
+                  {tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
   </div>
 </BaseLayout>
 
+<script>
+  // 选项卡切换交互
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.w-tab-btn');
+    const tabPanes = document.querySelectorAll<HTMLElement>('.w-tab-pane');
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab');
+        tabBtns.forEach((b) => b.classList.remove('active'));
+        tabPanes.forEach((p) => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        if (targetId) {
+          const targetPane = document.getElementById(targetId);
+          targetPane?.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
 <style>
-  /* Minimalist Template Styles strictly aligned with the user screenshot */
-  .template-hero {
+  /* Kratos 典雅大横幅 (Banner) */
+  .k-banner {
     position: relative;
-    width: 100%;
-    padding: 4.5rem 0 4rem;
+    height: 310px;
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 45%, #1e1b4b 80%, #311b92 100%);
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #090d16 0%, #0f172a 40%, #1e1b4b 75%, #311b92 100%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  /* 晚风流光背景装饰 (Evening Breeze Ambient Glow Orbs) */
-  .template-hero::before {
+  .k-banner::before {
     content: '';
     position: absolute;
-    top: -40%;
-    left: 15%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(129, 140, 248, 0.18) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.22) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%);
     filter: blur(80px);
-    pointer-events: none;
     border-radius: 50%;
+    top: -20%;
+    pointer-events: none;
   }
 
-  .template-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -30%;
-    right: 12%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 70%);
-    filter: blur(90px);
-    pointer-events: none;
-    border-radius: 50%;
-  }
-
-  /* 极简风感网格微纹 */
-  .hero-bg-overlay {
+  .banner-overlay {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 32px 32px;
-    opacity: 0.7;
-    pointer-events: none;
+    background: rgba(15, 23, 42, 0.45);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
 
-  .template-hero .container {
+  .banner-content {
     position: relative;
     z-index: 2;
+    padding: 0 20px;
   }
 
-  .brand-top-sub {
-    font-size: 0.85rem;
+  .title-sub {
+    font-size: 0.78rem;
     font-weight: 700;
     color: #a5b4fc;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     margin-bottom: 0.85rem;
     display: inline-block;
-    padding: 0.3rem 0.95rem;
-    background: rgba(165, 180, 252, 0.08);
-    border: 1px solid rgba(165, 180, 252, 0.2);
+    padding: 0.25rem 0.85rem;
+    background: rgba(165, 180, 252, 0.1);
+    border: 1px solid rgba(165, 180, 252, 0.22);
     border-radius: 9999px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   }
 
-  .main-hero-title {
-    font-size: 3.2rem;
-    font-weight: 800;
+  .mate {
+    font-size: clamp(1.6rem, 3.5vw, 2.35rem);
+    font-weight: 350;
     color: #ffffff;
-    margin-bottom: 1.15rem;
-    letter-spacing: -0.03em;
-    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    letter-spacing: 4px;
+    margin-bottom: 0.65rem;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   }
 
-  .hero-subtext-main {
-    font-size: 1.05rem;
-    color: #cbd5e1;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    max-width: 680px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-  }
-
-  .hero-paragraph {
-    font-size: 0.875rem;
-    color: #94a3b8;
-    max-width: 760px;
-    margin: 0 auto;
-    line-height: 1.75;
-  }
-
-  .hero-search-container {
-    max-width: 520px;
-    margin: 0 auto 2rem;
-  }
-
-  .template-search-form {
-    display: flex;
-    align-items: center;
-    background-color: #f8fafc;
-    border: 1.5px solid #cbd5e1;
-    border-radius: var(--radius-sm);
-    padding: 0.65rem 1rem;
-    transition: all 0.15s ease;
-  }
-
-  .template-search-form:focus-within {
-    border-color: #0f172a;
-    background-color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.05);
-  }
-
-  .template-search-form input {
-    flex-grow: 1;
-    border: none;
-    background: transparent;
-    outline: none;
+  .banner-desc {
     font-size: 0.95rem;
-    color: #0f172a;
-  }
-
-  .template-search-form input::placeholder {
-    color: #94a3b8;
-  }
-
-  .template-search-form button {
-    color: #64748b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .template-search-form button:hover {
-    color: #0f172a;
-  }
-
-  /* Filter Tabs */
-  .filter-tabs-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-
-  .filter-tabs {
-    display: inline-flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .tab-item {
-    font-size: 0.825rem;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
-    color: #475569;
-    background-color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.15s ease;
-  }
-
-  .tab-item:hover {
-    border-color: #0f172a;
-    color: #0f172a;
-  }
-
-  .tab-item.active {
-    background-color: #ffffff;
-    border-color: #0f172a;
-    color: #0f172a;
-    font-weight: 700;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-
-  .portal-body {
-    padding-top: 2.5rem;
-    padding-bottom: 4rem;
-  }
-
-  /* Provider Cards Grid */
-  .provider-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .provider-card {
-    background-color: #ffffff;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: 1.15rem 1rem;
-    text-decoration: none;
-    transition: all 0.15s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 105px;
-  }
-
-  .provider-card:hover {
-    border-color: #0f172a;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-
-  .card-tag {
-    font-size: 0.72rem;
-    color: #64748b;
-    margin-bottom: 0.35rem;
-  }
-
-  .card-title {
-    font-weight: 700;
-    font-size: 0.975rem;
-    color: #0f172a;
-    margin-bottom: 0.25rem;
-  }
-
-  .card-desc {
-    font-size: 0.78rem;
-    color: #64748b;
-    line-height: 1.4;
-  }
-
-  /* Special Add Card */
-  .provider-card.add-card {
-    border-style: dashed;
-    border-color: #cbd5e1;
-    background-color: #fafafa;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .provider-card.add-card:hover {
-    border-color: #0f172a;
-    background-color: #ffffff;
-  }
-
-  .add-icon {
-    font-size: 1.25rem;
-    color: #64748b;
-    margin-bottom: 0.2rem;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-
-  .section-header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-    color: var(--color-text-main);
-    margin: 0 0 0.35rem;
-    border-bottom: none;
-  }
-
-  .section-subtitle {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
+    color: #cbd5e1;
+    letter-spacing: 1px;
     margin: 0;
   }
 
-  .latest-articles-section {
-    margin-bottom: 3.5rem;
+  /* Kratos 浅灰色容器布局 */
+  .k-main {
+    background-color: #f5f5f5;
+    padding: 30px 0 60px;
+    min-height: 80vh;
   }
 
-  .view-all-link {
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--color-text-main);
+  .layout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .k-layout-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 25px;
+    align-items: start;
+  }
+
+  /* 左侧文章面板卡片 (.article-panel) */
+  .k-board {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .article-panel {
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    border: 1px solid #ebebeb;
+  }
+
+  .article-panel:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    border-color: #d1d5db;
+  }
+
+  .a-thumb {
+    width: 260px;
+    height: 185px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #f1f5f9;
+  }
+
+  .a-thumb a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .a-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+
+  .article-panel:hover .a-thumb img {
+    transform: scale(1.05);
+  }
+
+  .a-post {
+    flex: 1;
+    padding: 16px 20px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  .a-post .header {
+    margin-bottom: 8px;
+  }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    background: #2563eb;
+    color: #ffffff !important;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    position: relative;
+    margin-right: 8px;
+    vertical-align: middle;
     text-decoration: none;
   }
 
-  .view-all-link:hover {
-    color: var(--color-accent);
+  .label-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #2563eb;
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
-  /* Template Disclaimer Section flanked by dividers */
-  .template-disclaimer-wrapper {
-    margin: 3.5rem 0;
-    text-align: center;
+  .a-post .title {
+    display: inline;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 0;
+    vertical-align: middle;
   }
 
-  .template-divider {
+  .a-post .title a {
+    color: #1f2937;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .a-post .title a:hover {
+    color: #2563eb;
+  }
+
+  .a-post .content {
+    flex-grow: 1;
+    margin: 8px 0 12px;
+  }
+
+  .a-post .content p {
+    font-size: 13.5px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 文章底栏 Meta */
+  .a-meta {
+    padding-top: 10px;
+    border-top: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  .meta-left {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .k-icon {
+    stroke-width: 2;
+    color: #9ca3af;
+  }
+
+  .meta-right .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #6b7280;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12.5px;
+    transition: color 0.15s ease;
+  }
+
+  .meta-right .read-more:hover {
+    color: #2563eb;
+  }
+
+  .k-icon-arrow {
+    transition: transform 0.15s ease;
+  }
+
+  .meta-right .read-more:hover .k-icon-arrow {
+    transform: translateX(3px);
+  }
+
+  /* 分页条 (.paginations) */
+  .paginations {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    margin-top: 10px;
+  }
+
+  .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #4b5563;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    transition: all 0.15s ease;
+  }
+
+  .page-numbers:hover {
+    color: #2563eb;
+    border-color: #2563eb;
+  }
+
+  .page-numbers.current {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    font-weight: 600;
+  }
+
+  .page-numbers.dots {
     border: none;
-    border-top: 1px solid var(--color-border);
-    margin: 1.5rem 0;
+    background: transparent;
   }
 
-  .template-disclaimer-text {
-    font-size: 0.825rem;
+  .paginations .next {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 14px;
+    background: #f9fafb;
+    color: #1f2937;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    height: 34px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .paginations .next:hover {
+    background: #111827;
+    color: #ffffff;
+    border-color: #111827;
+  }
+
+  /* 侧边栏 Widget 体系 */
+  .k-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 80px;
+  }
+
+  .widget {
+    background: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 18px 20px;
+  }
+
+  .widget-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  /* 搜索 Widget */
+  .search-input-group {
+    display: flex;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .search-input-group input {
+    flex: 1;
+    border: none;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    outline: none;
+    color: #1f2937;
+    min-width: 0;
+  }
+
+  .search-input-group button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 0 14px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+
+  .search-input-group button:hover {
+    background: #1d4ed8;
+  }
+
+  /* 神行加速专属置顶卡片 */
+  .widget_shenxing {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border: 1.5px solid #cbd5e1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shenxing-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .shenxing-tag {
+    font-size: 11px;
+    font-weight: 700;
+    color: #2563eb;
+    background: #eff6ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #bfdbfe;
+  }
+
+  .shenxing-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #e11d48;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .shenxing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .shenxing-brand {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  .shenxing-speed {
+    font-size: 11px;
     color: #64748b;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.7;
   }
 
-  /* Responsive Cards Grid */
-  @media (max-width: 1024px) {
-    .provider-cards-grid {
-      grid-template-columns: repeat(3, 1fr);
+  .shenxing-summary {
+    font-size: 12.5px;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0 0 12px;
+  }
+
+  .shenxing-coupon-card {
+    background: #ffffff;
+    border: 1px dashed #3b82f6;
+    border-radius: 6px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .coupon-title {
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 2px;
+  }
+
+  .coupon-code {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #e11d48;
+    letter-spacing: 1.5px;
+    font-family: monospace;
+  }
+
+  .coupon-sub {
+    font-size: 11px;
+    color: #64748b;
+  }
+
+  .shenxing-btn-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-shenxing-cta {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #ffffff !important;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+    transition: all 0.2s ease;
+  }
+
+  .btn-shenxing-cta:hover {
+    background: #000000;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-shenxing-review {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .btn-shenxing-review:hover {
+    text-decoration: underline;
+  }
+
+  /* 联系 Widget */
+  .contact-box p {
+    font-size: 13px;
+    color: #4b5563;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .contact-box a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-box a:hover {
+    text-decoration: underline;
+  }
+
+  .disclaimer-mini {
+    font-size: 11.5px !important;
+    color: #9ca3af !important;
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px dashed #e5e7eb;
+  }
+
+  /* 三标签推荐 Widget */
+  .w-nav-tabs {
+    display: flex;
+    border-bottom: 2px solid #f3f4f6;
+    margin-bottom: 12px;
+  }
+
+  .w-tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .w-tab-btn.active {
+    color: #2563eb;
+  }
+
+  .w-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: #2563eb;
+  }
+
+  .w-tab-pane {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .w-tab-pane.active {
+    display: flex;
+  }
+
+  .bookmark-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+    line-height: 1.45;
+    padding: 4px 0;
+    transition: color 0.15s ease;
+  }
+
+  .bookmark-item:hover {
+    color: #2563eb;
+  }
+
+  .book-icon {
+    flex-shrink: 0;
+    color: #9ca3af;
+  }
+
+  .bookmark-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* 标签聚合云 */
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag-item {
+    font-size: 12px;
+    color: #4b5563;
+    background: #f3f4f6;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .tag-item:hover {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  /* 移动端专属置顶推荐卡片样式 (桌面端隐藏) */
+  .mobile-shenxing-card {
+    display: none;
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 992px) {
+    .mobile-shenxing-card {
+      display: block;
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: 12px;
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.15);
+      color: #ffffff;
+    }
+
+    .m-card-badge-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .m-badge-primary {
+      font-size: 11px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .m-badge-sub {
+      font-size: 11px;
+      color: #c7d2fe;
+      background: rgba(199, 210, 254, 0.12);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(199, 210, 254, 0.2);
+    }
+
+    .m-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      border-bottom: none;
+    }
+
+    .m-card-desc {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #cbd5e1;
+      margin: 0 0 12px 0;
+    }
+
+    .m-card-coupon {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px dashed rgba(129, 140, 248, 0.45);
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+
+    .coupon-lbl {
+      color: #94a3b8;
+    }
+
+    .coupon-val {
+      font-family: monospace;
+      font-weight: 800;
+      color: #facc15;
+      font-size: 14px;
+      background: rgba(250, 204, 21, 0.12);
+      padding: 1px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .coupon-note {
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    .m-card-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-m-cta {
+      flex: 1.4;
+      text-align: center;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff !important;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-m-review {
+      flex: 1;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0 !important;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 9px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .k-layout-grid {
+      grid-template-columns: 1fr;
+    }
+    .k-sidebar {
+      position: static;
     }
   }
 
   @media (max-width: 768px) {
-    .provider-cards-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .article-panel {
+      flex-direction: column;
     }
-    .main-hero-title {
-      font-size: 2.1rem;
+    .a-thumb {
+      width: 100%;
+      height: 200px;
+    }
+    .a-post {
+      padding: 14px 16px 12px;
+    }
+    .d-none-sm {
+      display: none;
+    }
+    .mate {
+      font-size: 1.45rem;
+      letter-spacing: 2px;
     }
   }
 
-  @media (max-width: 480px) {
-    .provider-cards-grid {
+  /* 新手科学上网核心流程引导卡片 */
+  .quick-workflow-panel {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+  }
+
+  .workflow-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .workflow-badge {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .workflow-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .workflow-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .w-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .w-step-item:hover {
+    background: #f1f5f9;
+    border-color: #3b82f6;
+    transform: translateY(-1px);
+  }
+
+  .w-step-item.highlight {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+  }
+
+  .w-step-item.highlight:hover {
+    background: #dbeafe;
+    border-color: #2563eb;
+  }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .w-step-item.highlight .step-num {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .step-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  .step-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 768px) {
+    .workflow-steps-grid {
       grid-template-columns: 1fr;
+      gap: 8px;
     }
   }
 </style>

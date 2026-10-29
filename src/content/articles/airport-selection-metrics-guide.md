@@ -17,6 +17,9 @@ faq:
     answer: "节点倍率是指你在使用该节点时，实际扣除套餐流量的比例。例如在1.0倍率节点用1GB扣1GB，在2.0倍率节点用1GB扣2GB，在0.1倍率节点用1GB只扣100MB。"
   - question: "延迟（Ping值）越低就一定越快吗？"
     answer: "不一定。Ping值只代表数据包往返时间，不代表传输带宽。100ms低延迟的节点如果带宽只有5Mbps，依然看不了4K视频；反之200ms延迟但带宽1000Mbps的节点下载速度极快。"
+  - question: "为什么晚高峰测速与丢包率比白天测速跑分更具参考价值？"
+    answer: "白天国际出口带宽普遍空闲，普通单线直连也能跑出较高带宽。只有在晚高峰 20:00 - 23:00 全网拥堵期，才能真正检验服务商是否拥有优质 BGP 跨境中转或内网 IEPL 专线冗余调度能力。"
+
 related:
   - "2026-airport-recommendation-guide"
   - "airport-pricing-plan-comparison"
@@ -130,3 +133,16 @@ $$\text{真实可用有效流量 (GB)} = \frac{\text{套餐标称流量 (GB)}}{\
 ```
 
 坚持用真实数据和使用体验替代主观感受，才是每一个理智用户保护钱包、获取稳定网络的最佳途径。
+
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

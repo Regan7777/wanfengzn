@@ -30,12 +30,16 @@ function rehypeAffExternalLinks() {
 export default defineConfig({
   site: 'https://wanfengzn.com',
   redirects: {
-    '/go/shenxing': { status: 301, destination: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8' },
-    '/go/dalaoyun': { status: 301, destination: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL' },
-    '/go/shandianshu': { status: 301, destination: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK' },
-    '/go/liulianyun': { status: 301, destination: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN' },
-    '/go/huanqiuti': { status: 301, destination: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG' },
-    '/go/yunjiexian': { status: 301, destination: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW' }
+    '/go/shenxing': { status: 302, destination: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8' },
+    '/go/dalaoyun': { status: 302, destination: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL' },
+    '/go/shandianshu': { status: 302, destination: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK' },
+    '/go/liulianyun': { status: 302, destination: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN' },
+    '/go/huanqiuti': { status: 302, destination: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG' },
+    '/go/yunjiexian': { status: 302, destination: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW' },
+    '/go/edgenova': { status: 302, destination: 'https://wep.edgenovaaff.com/#/?code=q1BOP7EV' },
+    '/go/yuezhianmian': { status: 302, destination: 'https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2' },
+    '/go/feiv': { status: 302, destination: 'https://fugui.flyvaff.com/#/?code=gxmUajhy' },
+    '/go/lingdongyun': { status: 302, destination: 'https://fugui.lingdongaff.com/#/?code=lyfEXnqR' }
   },
   integrations: [
     sitemap({

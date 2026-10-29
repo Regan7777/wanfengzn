@@ -60,7 +60,7 @@ async function main() {
     const urls = getUrls();
     await submitToIndexNow(urls);
     console.log('\n=============================================');
-    console.log(' 全站 382 个链接已全量推送到 Bing IndexNow！');
+    console.log(` 全站 ${urls.length} 个链接已全量推送到 Bing IndexNow！`);
     console.log(' 现在请回到 Bing 站长后台刷新 IndexNow 页面查看。');
     console.log('=============================================\n');
   } catch (error) {

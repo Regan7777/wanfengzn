@@ -269,7 +269,7 @@ const tableData: ComparisonRow[] = [
 <PillarLayout
   categorySlug="reviews"
   title={`${brandMeta.name} 深度评测报告 (2026最新)`}
-  seoTitle={`${brandMeta.name} 评测｜真实月付套餐价格与线路分析 - 晚风机场服务指南`}
+  seoTitle={`${brandMeta.name} 评测｜真实月付套餐价格与线路分析 - 晚风指南`}
   description={brandMeta.desc}
   coreAnswer={`综合评估：${brandMeta.name} 在 ${brandMeta.type} 架构下表现优秀，起步套餐月付 ${brandMeta.price}。点击下方按钮可直接跳转官方网站注册与查看最新套餐。`}
   articles={filteredArticles}
@@ -278,7 +278,7 @@ const tableData: ComparisonRow[] = [
     <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 0;">{brandMeta.name} 深度评测正文与直达入口</h2>
     <p style="margin: 0; color: #475569;">{brandMeta.desc}</p>
     <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-      {brandMeta.officialUrl.startsWith('http') ? (
+      {brandMeta.officialUrl.startsWith('http') || brandMeta.officialUrl.startsWith('/go/') ? (
         <a href={brandMeta.officialUrl} target="_blank" rel="nofollow sponsored noopener noreferrer" style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 官网查看最新月付与注册 →</a>
       ) : (
         <a href={brandMeta.officialUrl} style="padding: 0.6rem 1.25rem; background: #0f172a; color: #fff; text-decoration: none; border-radius: 6px; font-weight: 700;">前往 {brandMeta.name} 评测指南 →</a>

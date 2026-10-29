@@ -123,7 +123,7 @@ related:
 | **iOS / iPad** | [Nextin (App Store 官方下载)](https://apps.apple.com/us/app/nextin/id6475731303) | 登录控制台获取专属动态识别接入信息，登录连接 |
 
 ### 4.1 详细连接步骤：
-1. 从 [灵动云官网注册入口](/go/lingdongyun) 注册账号（邀请码 `lyfEXnqR`），并在套餐商店挑选入门版或不限时包；
+1. 从 <a href="/go/lingdongyun" target="_blank" rel="nofollow sponsored noopener noreferrer">灵动云官网注册入口</a> 注册账号（邀请码 `lyfEXnqR`），并在套餐商店挑选入门版或不限时包；
 2. 登录控制台进入“客户端下载”，下载对应操作系统的客户端；
 3. 启动程序输入官网注册账号与密码登录，系统自动同步节点集群；
 4. 移动端按提示允许 VPN 配置权限，桌面端开启系统代理后开启加速。

@@ -156,3 +156,15 @@ related:
 * **反感任何复杂倍率计算、追求 100% 透明无缩水流量的精明用户**；
 * **日常有家庭多设备大流量追剧、大文件频繁下载的重度影音发烧友**。
 
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

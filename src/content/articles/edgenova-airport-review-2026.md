@@ -133,7 +133,7 @@ related:
 | **iOS / iPad** | [Nextin (App Store 官方下载)](https://apps.apple.com/us/app/nextin/id6475731303) | 填入识别码 `edgenova0526`，登录官网账号载入节点 |
 
 ### 4.1 详细连接四步法：
-1. **注册与选购**：通过 [边缘节点官网直达通道](/go/edgenova) 注册账号（邀请码 `q1BOP7EV`），并在套餐商店选购适合的月付或不限时套餐；
+1. **注册与选购**：通过 <a href="/go/edgenova" target="_blank" rel="nofollow sponsored noopener noreferrer">边缘节点官网直达通道</a> 注册账号（邀请码 `q1BOP7EV`），并在套餐商店选购适合的月付或不限时套餐；
 2. **下载专属应用**：登录控制台“客户端下载”，下载匹配操作系统的安装包；
 3. **输入认证信息**：
    - Windows/macOS/Android：直接输入官网注册邮箱与密码登录；

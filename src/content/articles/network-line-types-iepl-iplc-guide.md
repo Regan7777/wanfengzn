@@ -17,6 +17,9 @@ faq:
     answer: "两者本质上都是端到端的二层/三层内网专线。IPLC（International Private Leased Circuit）是传统的国际私用出租电路；IEPL（International Ethernet Private Line）是基于以太网技术的专线，以太网协议开销更小、扩展更灵活。在网络服务中两者的体验基本一致，都是最高规格的代表。"
   - question: "BGP 中转线路适合什么人群？"
     answer: "BGP 中转适合预算中等、追求良好体验的用户。BGP 入口能够解决国内电信、联通、移动用户到国际出口的路由优化问题。"
+  - question: "IEPL 专线与普通公网中转有什么根本区别？"
+    answer: "普通中转仍走公网隧道，敏感时期入口或传输层易受干扰；IEPL（国际以太网私有专线）是点对点物理局域网光纤，数据不过公网防火墙，具有极致的抗封锁性与超低抖动。"
+
 related:
   - "2026-airport-recommendation-guide"
   - "airport-selection-metrics-guide"
@@ -65,3 +68,16 @@ related:
 * **如果你需要稳定办公或频繁使用 AI 工具**：强力推荐选择 **IEPL / IPLC 专线** 方案。
 * **如果你主要看视频、追剧、日常冲浪**：选择 **BGP 中转** 方案性价比最高。
 * **如果你预算有限或作为备用线路**：可以考虑性价比更高的中转或直连方案。
+
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

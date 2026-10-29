@@ -17,6 +17,8 @@ faq:
     answer: "请检查客户端设置中是否勾选了‘开机自动开启系统代理 (Auto Enable System Proxy)’。如果仅仅启动了软件但未勾选自动开启代理，仍需手动点击连接开关。"
   - question: "Windows 开机时弹出 UAC 管理员权限确认框，无法静默启动？"
     answer: "如果开启了 TUN 虚拟网卡模式，客户端需要管理员权限。解决办法：在 Clash Verge 中勾选‘服务模式 (Service Mode)’并点击安装服务，后续即可实现无弹窗静默自启。"
+  - question: "移动端后台长时间运行代理客户端耗电严重怎么办？"
+    answer: "推荐选用协议开销小、内存占用低的轻量客户端（如 Android 端的 Flclash 或 iOS 端的 Shadowrocket），并在客户端内保持‘规则分流模式’，避免开启全局模式产生无谓的后台心跳保活流量。"
 ---
 
 对于每日都需要使用网络代理服务的用户来说，每次开机后手动寻找软件图标、双击打开、点击连接、最小化窗口的过程显得既繁琐又打断工作节奏。
@@ -92,3 +94,16 @@ iOS 系统受限于安全隔离，应用无法在后台隐蔽自启。但可以�
 
 ### Q2: 电脑重启后，之前开启的 TUN 模式失效了？
 **答**：请检查是否没有安装“系统服务 (Service Mode)”。以普通权限运行的 TUN 模式在重启后无法自动重新绑定虚拟网卡，必须安装服务模式将其注册为系统服务。
+
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

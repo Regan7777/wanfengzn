@@ -17,6 +17,8 @@ faq:
     answer: "客户端测速如果选择的是 TCP/Ping 模式，测试的仅仅是你的电脑到入口中转服务器的延迟（公网第一段），并不代表中转服务器到海外目标网站的完整响应速度。请将测速模式切换为基于真实 HTTP 握手的‘URL Test / Web Ping’模式。"
   - question: "开启自动选择 (Auto/URL-Test) 会导致登录状态频繁失效吗？"
     answer: "当节点在不同国家或出口 IP 之间频繁跳变时，部分对安全敏感的网站（如 ChatGPT、Google、银行 App）可能会触发风控退出登录。建议将 URL-Test 的容差 (Tolerance) 设为 50-100ms，或者针对安全网站设置固定节点策略。"
+  - question: "url-test 自动切换的容差（Tolerance）应该设置多少比较合适？"
+    answer: "建议设置在 50ms - 100ms 之间。若容差过小会导致网络稍有抖动就频繁切换节点，容易触发特定流媒体或银行 App 的异地登录风控；若过大则无法及时跳过真正宕机的节点。"
 ---
 
 在使用网络服务商（机场）时，不少新手常常遇到这样的困扰：手动挑选的节点在白天速度飞快，一到晚上 8 点至 11 点的晚高峰，节点忽然变得卡顿甚至丢包超时。
@@ -106,3 +108,16 @@ proxy-groups:
 
 ### Q2: 为什么测速 URL 推荐使用 `generate_204`？
 **答**：`http://www.gstatic.com/generate_204` 是谷歌官方提供的轻量级连通测试点，成功连通时只返回 `204 No Content` HTTP 状态码，数据量极小（几十字节），既不消耗套餐流量，又能精准反映节点连通状态。
+
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

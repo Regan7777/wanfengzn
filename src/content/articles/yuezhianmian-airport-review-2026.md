@@ -103,7 +103,7 @@ related:
 | **OpenWrt** | [OpenClash 官方 Releases](https://github.com/vernesong/OpenClash/releases) | 上传 IPK 固件插件，在配置文件管理中填入订阅更新 |
 
 ### 3.1 实操配置要点：
-1. 从 [月之暗面官网入口](/go/yuezhianmian) 注册并登录个人仪表盘；
+1. 从 <a href="/go/yuezhianmian" target="_blank" rel="nofollow sponsored noopener noreferrer">月之暗面官网入口</a> 注册并登录个人仪表盘；
 2. 在用户中心复制对应格式的 Clash 或通用订阅链接；
 3. 打开对应客户端粘贴并点击更新，建议内核保持在较新版本以完美兼容 AnyTLS；
 4. 遇到订阅更新超时等问题，可查阅 [《订阅更新失败与 403/404 故障排查》](/articles/subscription-update-failed-and-403-404-error-guide/)。

@@ -17,6 +17,8 @@ faq:
     answer: "说明流量被误分流到了海外代理节点。请确认客户端的路由模式是否为‘规则模式 (Rule)’而非‘全局模式 (Global)’，并检查系统的 GEOIP / GeoSite 规则库是否升级到了最新版本。"
   - question: "如何让特定的网站固定走直连或者走指定的代理节点？"
     answer: "可以在客户端的自定义规则 (User Rules) 中添加一行规则：直连示例 DOMAIN-SUFFIX,example.com,DIRECT；指定代理节点示例 DOMAIN-SUFFIX,chatgpt.com,AI 节点组。"
+  - question: "分流规则的匹配顺序是怎样的？为什么自定义规则没有生效？"
+    answer: "所有智能分流规则遵循‘从上到下、命中即止’的优先级逻辑。如果将兜底的 MATCH / FINAL 放到了最上方，下方的特定域名分流将全部失效。自定义白名单或黑名单务必置于规则列表顶部。"
 ---
 
 为什么在开启网络代理软件后，浏览 YouTube、Twitter 能够顺畅打开，而访问国内的百度、微信或淘宝依然能保持原生的极速加载且不消耗代理流量？
@@ -124,3 +126,16 @@ rules:
 
 ### Q2: 规则匹配成功了，为什么页面依然显示旧的节点 IP？
 **答**：浏览器或操作系统可能缓存了之前的 TCP 连接或 DNS 解析结果。请尝试：1. 清空浏览器缓存；2. 在客户端界面点击 **“清除 DNS 缓存 (Clear DNS Cache)”** 并重新加载页面。
+
+---
+
+## 延伸阅读与相关指南推荐
+
+为了深入了解网络选型、客户端配置与线路调优，可参阅本站核心指南：
+- [2026 机场推荐精选指南：新手避坑与稳定专线选型全方位指南](/articles/2026-airport-recommendation-guide/)
+- [2026 美区 Apple ID 注册教程：免信用卡免海外手机号纯白嫖保姆级实操](/articles/us-apple-id-registration-guide-2026/)
+- [2026 Clash 与 Shadowrocket 全平台下载使用教程](/articles/clash-and-shadowrocket-all-platform-tutorial-2026/)
+- [BGP 跨网入口中转与公网直连原理详解：为什么单线直连晚高峰容易卡顿？](/articles/bgp-transit-vs-direct-line-deep-dive/)
+- [流媒体与 AI 解锁全攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测](/articles/streaming-ai-unlock-netflix-chatgpt-native-ip-guide/)
+- [网络服务订阅链接导入全流程实操教程](/articles/subscription-link-import-and-sync-tutorial/)
+

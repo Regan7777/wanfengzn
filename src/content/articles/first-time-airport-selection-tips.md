@@ -17,6 +17,9 @@ faq:
     answer: "建议使用专门的独立邮箱注册（如 Outlook, ProtonMail 等），不要使用平时绑定重要资产的主邮箱，并且不要与银行或社交软件设置相同密码。可参考<a href=\"/articles/2026-airport-recommendation-guide/\">《2026网络服务商精选推荐指南》</a>了解成熟服务商的资金安全与运营背景。"
   - question: "订阅链接泄漏了怎么办？"
     answer: "订阅链接包含你的身份凭证。如果不小心公开发布到论坛或社交媒体，请立即登录服务商后台，点击‘重置订阅链接/重置密钥’。详细自救与托管防泄露步骤请查阅<a href=\"/articles/subscription-link-import-and-sync-tutorial/\">《订阅链接导入与同步教程》</a>。"
+  - question: "新手第一次使用为什么坚决不建议直接购买年付？"
+    answer: "网络代理行业变数较多，低价小作坊跑路或线路故障频发。新用户必须坚持‘先月付、后长期’的原则，至少完整体验一个月晚高峰和日常客服响应后，再考虑长期套餐。"
+
 related:
   - "2026-airport-recommendation-guide"
   - "airport-pricing-plan-comparison"

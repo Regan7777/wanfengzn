@@ -1,14 +1,146 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
-  <rect width="800" height="450" fill="url(#paint0_linear)"/>
-  <circle cx="100" cy="70" r="140" fill="#38BDF8" fill-opacity="0.08"/>
-  <circle cx="730" cy="380" r="190" fill="#1E1B4B" fill-opacity="0.25"/>
-  <rect x="60" y="50" width="680" height="350" rx="16" stroke="#38BDF8" stroke-opacity="0.15" stroke-width="2"/>
-  <text x="400" y="200" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="bold">Clash 与 小火箭 配置教程</text>
-  <text x="400" y="265" text-anchor="middle" fill="#38BDF8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="600">多平台客户端 • 一键订阅导入 • 智能规则分流</text>
   <defs>
-    <linearGradient id="paint0_linear" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1E1B4B"/>
-      <stop offset="1" stop-color="#0F172A"/>
+    <!-- 背景渐变 -->
+    <linearGradient id="allBg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#030712"/>
     </linearGradient>
+
+    <!-- Clash 官方猫咪蓝色渐变 -->
+    <linearGradient id="clashCatBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <!-- 小火箭标志性渐变 -->
+    <linearGradient id="rocketGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+
+    <!-- 光晕 -->
+    <radialGradient id="clashGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 225) scale(180)">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="iconShadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.55"/>
+    </filter>
   </defs>
+
+  <!-- 背景 -->
+  <rect width="800" height="450" fill="url(#allBg)"/>
+  
+  <!-- 网格 -->
+  <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-opacity="0.04" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="450" fill="url(#gridPattern)"/>
+
+  <!-- 光晕 -->
+  <circle cx="180" cy="225" r="180" fill="url(#clashGlow)"/>
+
+  <!-- 边框 -->
+  <rect x="25" y="25" width="750" height="400" rx="16" stroke="#38bdf8" stroke-opacity="0.2" stroke-width="1.2"/>
+  <rect x="28" y="28" width="744" height="394" rx="14" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- 左侧：官方 Clash 猫咪与 Shadowrocket 小火箭双图标联动 -->
+  <g transform="translate(185, 225)">
+    <!-- 底部阴影 -->
+    <ellipse cx="0" cy="95" rx="100" ry="18" fill="#000000" fill-opacity="0.6"/>
+
+    <!-- Clash 官方猫咪图标卡片 (左上方) -->
+    <g transform="translate(-40, -25)" filter="url(#iconShadow)">
+      <rect x="-46" y="-46" width="92" height="92" rx="22" fill="url(#clashCatBlue)" stroke="#7dd3fc" stroke-opacity="0.7" stroke-width="1.5"/>
+      
+      <!-- 官方 Clash 猫咪剪影 -->
+      <path d="M -15 -14 C -7 -12, 7 -12, 15 -14 C 20 -21, 26 -29, 31 -33 C 34 -25, 36 -15, 36 -7 C 41 4, 41 16, 29 26 C 17 33, -17 33, -29 26 C -41 16, -41 4, -36 -7 C -36 -15, -34 -25, -31 -33 C -26 -29, -20 -21, -15 -14 Z" fill="#ffffff"/>
+      <path d="M -16 -12 L -27 -27 C -29 -20, -30 -12, -29 -6 Z" fill="#bae6fd"/>
+      <path d="M 16 -12 L 27 -27 C 29 -20, 30 -12, 29 -6 Z" fill="#bae6fd"/>
+      <circle cx="-12" cy="2" r="3.8" fill="#0f172a"/>
+      <circle cx="12" cy="2" r="3.8" fill="#0f172a"/>
+      <circle cx="-10.5" cy="0.8" r="1.2" fill="#ffffff"/>
+      <circle cx="13.5" cy="0.8" r="1.2" fill="#ffffff"/>
+      <path d="M -2 9 L 2 9 L 0 11.5 Z" fill="#0f172a"/>
+      <path d="M -5 13 Q -2.5 16 0 13.5 Q 2.5 16 5 13" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <line x1="-26" y1="3" x2="-38" y2="1" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="-26" y1="10" x2="-38" y2="13" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="26" y1="3" x2="38" y2="1" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="26" y1="10" x2="38" y2="13" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+
+    <!-- Shadowrocket 小火箭图标卡片 (右下方) -->
+    <g transform="translate(42, 25)" filter="url(#iconShadow)">
+      <rect x="-42" y="-42" width="84" height="84" rx="20" fill="url(#rocketGrad)" stroke="#93c5fd" stroke-opacity="0.6" stroke-width="1.5"/>
+      <!-- 火箭白色图标 -->
+      <g transform="translate(0, -2) scale(0.9)">
+        <!-- 火箭机身 -->
+        <path d="M0 -24 C8 -16 14 -2 14 16 L-14 16 C-14 -2 -8 -16 0 -24 Z" fill="#ffffff"/>
+        <!-- 侧翼 -->
+        <path d="M-14 6 L-22 18 L-14 16 Z" fill="#bfdbfe"/>
+        <path d="M14 6 L22 18 L14 16 Z" fill="#bfdbfe"/>
+        <!-- 舷窗 -->
+        <circle cx="0" cy="-2" r="5" fill="#1d4ed8"/>
+        <!-- 尾焰 -->
+        <path d="M-6 18 Q 0 30 6 18 Z" fill="#f59e0b"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- 右侧排版文字 -->
+  <g transform="translate(345, 75)">
+    <!-- 顶部标签组 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="104" height="26" rx="6" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="52" y="17" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">全平台客户端</text>
+      
+      <rect x="114" y="0" width="94" height="26" rx="6" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="161" y="17" fill="#60a5fa" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">官方猫咪标</text>
+      
+      <rect x="218" y="0" width="112" height="26" rx="6" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="274" y="17" fill="#34d399" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">一键订阅导入</text>
+    </g>
+
+    <!-- 主标题 -->
+    <text x="0" y="70" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="800">Clash 与 小火箭 配置教程</text>
+    <text x="0" y="112" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="21" font-weight="700">Windows / macOS / iOS / Android 全能通</text>
+
+    <!-- 四大核心功能卡片 -->
+    <g transform="translate(0, 145)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ Clash Verge</text>
+        <text x="104" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">PC桌面首选</text>
+      </g>
+      
+      <g transform="translate(205, 0)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#60a5fa" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ Shadowrocket</text>
+        <text x="115" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">iOS小火箭</text>
+      </g>
+      
+      <g transform="translate(0, 52)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#34d399" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ 智能分流</text>
+        <text x="80" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">国内直连省流量</text>
+      </g>
+      
+      <g transform="translate(205, 52)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#fbbf24" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ TUN 模式</text>
+        <text x="88" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">接管整机流量</text>
+      </g>
+    </g>
+
+    <!-- 底部状态栏 -->
+    <g transform="translate(0, 270)">
+      <line x1="0" y1="0" x2="395" y2="0" stroke="#334155" stroke-width="1"/>
+      <text x="0" y="24" fill="#64748b" font-family="-apple-system, sans-serif" font-size="12">晚风博客技术评测室 · WANFENGZN.COM</text>
+      <text x="395" y="24" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="end">W 资深网络实测</text>
+    </g>
+  </g>
 </svg>

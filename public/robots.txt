@@ -1,9 +1,28 @@
+# Robots.txt for 晚风指南 (wanfengzn.com)
 User-agent: *
 Allow: /
-
 Disallow: /search/
 Disallow: /draft/
 Disallow: /go/
+
+# AI Search & Crawlers (Explicitly Allowed)
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
 
 Sitemap: https://wanfengzn.com/sitemap-index.xml
 Sitemap: https://wanfengzn.com/sitemap.xml

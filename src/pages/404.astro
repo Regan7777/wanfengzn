@@ -6,7 +6,7 @@ import ArticleCard from '../components/ArticleCard.astro';
 const popularArticles = (await getCollection('articles', ({ data }) => !data.draft)).slice(0, 3);
 ---
 
-<BaseLayout title="404 - 页面未找到 - 晚风机场服务指南" noindex={true}>
+<BaseLayout title="404 - 页面未找到 - 晚风指南" noindex={true}>
   <div class="container error-container">
     <div class="error-box text-center">
       <span class="error-code">404</span>

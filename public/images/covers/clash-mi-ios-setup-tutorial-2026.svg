@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" fill="none">
+  <defs>
+    <!-- 深邃暗黑科技背景 -->
+    <linearGradient id="miBg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#080d1a"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+
+    <!-- 官方 Clash 标志性渐变蓝 -->
+    <linearGradient id="clashOfficialBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+
+    <!-- 绿色免费徽章 -->
+    <linearGradient id="freeBadgeGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+
+    <!-- 柔和光晕 -->
+    <radialGradient id="miGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 220) scale(190)">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 拟物阴影 -->
+    <filter id="iconShadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- 1. 背景层 -->
+  <rect width="800" height="450" fill="url(#miBg)"/>
+  
+  <!-- 微弱科技点阵网格 -->
+  <pattern id="miGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-opacity="0.04" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="450" fill="url(#miGrid)"/>
+
+  <!-- 蓝色氛围光 -->
+  <circle cx="180" cy="220" r="190" fill="url(#miGlow)"/>
+
+  <!-- 科技边框 -->
+  <rect x="25" y="25" width="750" height="400" rx="16" stroke="#0284c7" stroke-opacity="0.22" stroke-width="1.2"/>
+  <rect x="28" y="28" width="744" height="394" rx="14" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+
+  <!-- 2. 左侧：iPhone 与官方 Clash 猫咪 App 图标拟物展示 -->
+  <g transform="translate(180, 220)">
+    <!-- 设备底部阴影 -->
+    <ellipse cx="0" cy="120" rx="90" ry="16" fill="#000000" fill-opacity="0.65"/>
+
+    <!-- iPhone 机身 -->
+    <rect x="-72" y="-125" width="144" height="240" rx="28" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+    <rect x="-66" y="-119" width="132" height="228" rx="24" fill="#0b1120"/>
+    
+    <!-- 顶部灵动岛 -->
+    <rect x="-22" y="-111" width="44" height="11" rx="5.5" fill="#020617"/>
+
+    <!-- 核心：官方 Clash 猫咪 App 图标 (Squircle 圆角矩形 + 经典小猫) -->
+    <g transform="translate(0, -10)" filter="url(#iconShadow)">
+      <!-- App 图标外框 -->
+      <rect x="-48" y="-48" width="96" height="96" rx="22" fill="url(#clashOfficialBlue)" stroke="#7dd3fc" stroke-opacity="0.6" stroke-width="1.5"/>
+      
+      <!-- 官方 Clash 小猫白底剪影 -->
+      <path d="M -15 -14 C -7 -12, 7 -12, 15 -14 C 20 -21, 26 -29, 31 -33 C 34 -25, 36 -15, 36 -7 C 41 4, 41 16, 29 26 C 17 33, -17 33, -29 26 C -41 16, -41 4, -36 -7 C -36 -15, -34 -25, -31 -33 C -26 -29, -20 -21, -15 -14 Z" fill="#ffffff"/>
+      
+      <!-- 猫耳内侧粉淡色 -->
+      <path d="M -16 -12 L -27 -27 C -29 -20, -30 -12, -29 -6 Z" fill="#bae6fd"/>
+      <path d="M 16 -12 L 27 -27 C 29 -20, 30 -12, 29 -6 Z" fill="#bae6fd"/>
+      
+      <!-- 眼睛 (经典圆萌黑眼珠 + 灵动高光) -->
+      <circle cx="-12" cy="2" r="4" fill="#0f172a"/>
+      <circle cx="12" cy="2" r="4" fill="#0f172a"/>
+      <circle cx="-10.5" cy="0.8" r="1.3" fill="#ffffff"/>
+      <circle cx="13.5" cy="0.8" r="1.3" fill="#ffffff"/>
+      
+      <!-- 小黑鼻与经典猫咪嘴 (:3) -->
+      <path d="M -2 9 L 2 9 L 0 11.5 Z" fill="#0f172a"/>
+      <path d="M -5 13 Q -2.5 16 0 13.5 Q 2.5 16 5 13" stroke="#0f172a" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      
+      <!-- 两侧胡须 (每侧2根，纯正官方风) -->
+      <line x1="-27" y1="3" x2="-40" y2="1" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="-27" y1="10" x2="-40" y2="13" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+      
+      <line x1="27" y1="3" x2="40" y2="1" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="27" y1="10" x2="40" y2="13" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- 手机屏幕底部运行状态指示卡片 -->
+    <rect x="-48" y="58" width="96" height="24" rx="12" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+    <circle cx="-34" cy="70" r="3.5" fill="#10b981"/>
+    <text x="-24" y="74" fill="#34d399" font-family="-apple-system, sans-serif" font-size="10.5" font-weight="bold">官方猫咪 · 运行中</text>
+  </g>
+
+  <!-- 3. 右侧文案与排版 -->
+  <g transform="translate(340, 75)">
+    <!-- 顶部标签组 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="84" height="26" rx="6" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="42" y="17" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">iOS 必备</text>
+      
+      <rect x="94" y="0" width="130" height="26" rx="6" fill="url(#freeBadgeGrad)"/>
+      <text x="159" y="17" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">美区 App Store 免费</text>
+      
+      <rect x="234" y="0" width="115" height="26" rx="6" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-opacity="0.5" stroke-width="1"/>
+      <text x="291" y="17" fill="#c084fc" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">小火箭免费替代</text>
+    </g>
+
+    <!-- 主标题 -->
+    <text x="0" y="70" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="33" font-weight="800" letter-spacing="0.5">Clash Mi 下载与配置</text>
+    <text x="0" y="112" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700">2026 最新 iPhone / iPad 保姆级实操指南</text>
+
+    <!-- 核心优势四要素卡片 -->
+    <g transform="translate(0, 145)">
+      <!-- 特性 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#22d3ee" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ 零花费</text>
+        <text x="64" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">无需2.99刀充值</text>
+      </g>
+      
+      <!-- 特性 2 -->
+      <g transform="translate(205, 0)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ 现代协议</text>
+        <text x="80" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">VLESS / Hy2支持</text>
+      </g>
+      
+      <!-- 特性 3 -->
+      <g transform="translate(0, 52)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#34d399" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ 智能分流</text>
+        <text x="80" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">国内直连省流量</text>
+      </g>
+      
+      <!-- 特性 4 -->
+      <g transform="translate(205, 52)">
+        <rect x="0" y="0" width="190" height="42" rx="8" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+        <text x="14" y="26" fill="#fbbf24" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold">✓ 1秒导入</text>
+        <text x="76" y="26" fill="#94a3b8" font-family="-apple-system, sans-serif" font-size="12">支持神行通用订阅</text>
+      </g>
+    </g>
+
+    <!-- 底部状态栏 -->
+    <g transform="translate(0, 270)">
+      <line x1="0" y1="0" x2="395" y2="0" stroke="#334155" stroke-width="1"/>
+      <text x="0" y="24" fill="#64748b" font-family="-apple-system, sans-serif" font-size="12">晚风博客技术评测室 · WANFENGZN.COM</text>
+      <text x="395" y="24" fill="#38bdf8" font-family="-apple-system, sans-serif" font-size="12" font-weight="bold" text-anchor="end">W 资深网络实测</text>
+    </g>
+  </g>
+</svg>

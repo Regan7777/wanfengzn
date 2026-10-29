@@ -47,9 +47,9 @@ faq:
 2. 在手机文件管理器中点击安装包完成安装（若提示未知来源应用安装，请在系统设置中临时放行）。
 
 ### 步骤二：订阅导入
-1. 打开浏览器登录你的服务商后台。
+1. 打开浏览器登录你的服务商后台（如本站主推的 [神行加速](/articles/shenxing-airport-review-2026/) 或其他支持 Clash 协议的机场）。
 2. 找到“订阅导入”，点击 **一键导入 Flclash / Clash**，系统将自动唤醒 App。
-3. 若自动唤醒失败，点击服务商后台的 **复制订阅 URL**。
+3. 若自动唤醒失败，点击服务商后台的 **复制订阅 URL**（神行加速可在后台复制通用 Clash 订阅）。
 4. 打开 Flclash，点击底部导航栏的 **配置 (Profiles)**，点击右上角的 **`+`** 按钮，选择 **URL 导入**。
 5. 粘贴复制的链接，点击 **保存 (Save)** 并等待节点刷新。
 
@@ -112,4 +112,10 @@ faq:
 ### Q2: 导入节点后，显示“无网络连接”或“DNS 解析失败”？
 **答**：请在手机设置中检查是否开启了系统自带的“私有 DNS (Private DNS)”。如果开启了第三方 DNS 选项（如 NextDNS/AdGuard），建议将其暂时切换为“关闭”或“自动”。排障细节可看 [《DNS 污染与解析故障排查指南》](/articles/dns-leak-poisoning-and-slow-domain-resolution-guide/)。关于后台防杀技巧详见 [《开机自启与后台保活指南》](/articles/auto-start-and-background-running-guide/)。
 
-更多优质机场服务商推荐可查看 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/)。
+---
+
+## 7. 延伸阅读与多端指南
+
+- **苹果 iOS 用户配置**：参考 [《2026 美区 Apple ID 注册教程》](/articles/us-apple-id-registration-guide-2026/) 与 [《Clash Mi 免费客户端教程》](/articles/clash-mi-ios-setup-tutorial-2026/) 或 [《Shadowrocket 小火箭教程》](/articles/shadowrocket-ios-setup-subscription-tutorial/)。
+- **电脑 PC/Mac 用户配置**：参考 [《Windows 与 macOS 客户端配置指南》](/articles/windows-mac-clash-verge-singbox-setup-tutorial/)。
+- **网络服务精选**：查看 [《2026 优质机场推荐终极指南》](/articles/2026-airport-recommendation-guide/) 与主力评测 [《神行加速 2026 深度评测》](/articles/shenxing-airport-review-2026/)。

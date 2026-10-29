@@ -1,11 +1,11 @@
-# Cloudflare Pages / Netlify 301 Redirects for AFF Links
-/go/shenxing https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8 301
-/go/dalaoyun https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL 301
-/go/shandianshu https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK 301
-/go/liulianyun https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN 301
-/go/huanqiuti https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG 301
-/go/yunjiexian https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW 301
-/go/edgenova https://wep.edgenovaaff.com/#/?code=q1BOP7EV 301
-/go/yuezhianmian https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2 301
-/go/feiv https://fugui.flyvaff.com/#/?code=gxmUajhy 301
-/go/lingdongyun https://fugui.lingdongaff.com/#/?code=lyfEXnqR 301
+# Cloudflare Pages / Netlify 302 Temporary Redirects for AFF Links
+/go/shenxing https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8 302
+/go/dalaoyun https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL 302
+/go/shandianshu https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK 302
+/go/liulianyun https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN 302
+/go/huanqiuti https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG 302
+/go/yunjiexian https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW 302
+/go/edgenova https://wep.edgenovaaff.com/#/?code=q1BOP7EV 302
+/go/yuezhianmian https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2 302
+/go/feiv https://fugui.flyvaff.com/#/?code=gxmUajhy 302
+/go/lingdongyun https://fugui.lingdongaff.com/#/?code=lyfEXnqR 302
