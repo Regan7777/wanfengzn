@@ -1,5 +1,5 @@
 ---
-title: "Windows 与 macOS 客户端推荐：Clash Verge Rev 与 Sing-box 下载安装与订阅导入实操教程"
+title: "Windows 与 Mac 客户端推荐：Clash Verge Rev 与 Sing-box 下载配置教程"
 description: "专为 PC 与 Mac 用户打造的主流客户端全流程指南。涵盖 Clash Verge Rev 和 Sing-box 客户端下载、内核选择、一键订阅导入、TUN 虚拟网卡模式配置与开机自启设置。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05

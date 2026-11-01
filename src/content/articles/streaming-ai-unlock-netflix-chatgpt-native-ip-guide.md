@@ -1,5 +1,5 @@
 ---
-title: "流媒体与 AI 解锁全攻略：ChatGPT/Claude/Gemini 风控机制差异、自媒体出海防封与原生 IP 深度实测"
+title: "流媒体与 AI 解锁攻略：ChatGPT/Claude 风控机制差异与原生 IP 实测"
 description: "深度剖析 ChatGPT、Claude 与 Gemini 底层风控机制的本质差异，破除“所有AI都必须原生住宅IP”的行业误区。详解 TikTok 与海外自媒体防关联限流逻辑、Netflix 4K 版权解锁原理与客户端高级分流实操指南。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-22

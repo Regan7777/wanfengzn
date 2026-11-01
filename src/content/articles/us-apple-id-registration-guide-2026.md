@@ -1,5 +1,5 @@
 ---
-title: "2026 美区 Apple ID 注册教程：免信用卡、免国外手机号纯白嫖保姆级实操（支持下载 Shadowrocket 小火箭与 Clash Mi）"
+title: "2026 美区 Apple ID 注册保姆级教程：免信用卡免手机号下载小火箭"
 description: "专为 iOS 用户打造的 2026 最新美区 Apple ID 注册保姆级教程。无需国外信用卡和海外手机号，+86 手机号与全新邮箱即可搞定；详解免税州地址生成、App Store 激活步骤、支付方式选 None 避坑、美区礼品卡充值小火箭与账号防封心得。"
 publishedAt: 2026-10-29
 updatedAt: 2026-10-29

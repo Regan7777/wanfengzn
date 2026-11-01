@@ -1,5 +1,5 @@
 ---
-title: "2026 榴莲云机场深度评测：纯正Trojan深度伪装协议、BGP多线大带宽中转与专属7折优惠码 ll88 折后16.8元140G实测"
+title: "2026 榴莲云机场评测：Trojan 协议深度伪装、BGP 中转与优惠码实测"
 description: "2026 榴莲云机场深度评测报告。深度解析纯正 Trojan 协议 TLS 1.3 深度伪装与高敏感期高存活率优势；输入 7 折优惠码 ll88 折后仅需 ¥16.8/月，iOS 识别码 lly；实测 BGP 中转晚高峰 YouTube 4K 秒开与 ChatGPT 原生解锁表现。"
 publishedAt: 2026-10-06
 updatedAt: 2026-10-22

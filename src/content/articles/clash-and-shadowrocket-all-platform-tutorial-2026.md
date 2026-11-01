@@ -1,5 +1,5 @@
 ---
-title: "2026 Clash 与 Shadowrocket（小火箭）全平台下载使用教程｜包含 Clash Verge / Clash Meta / 小火箭一键订阅导入"
+title: "2026 Clash 与 Shadowrocket 小火箭全平台下载使用教程与订阅配置"
 description: "专为全平台用户打造的 Clash 与 Shadowrocket（小火箭）新手配置教程。深度解析 Clash Verge, Clash Meta, Flclash 与小火箭下载安装、一键导入订阅链接、规则分流模式与 TUN 模式设置。"
 publishedAt: 2026-10-09
 updatedAt: 2026-10-09

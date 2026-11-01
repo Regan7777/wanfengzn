@@ -1,5 +1,5 @@
 ---
-title: "2026 Clash Mi iOS 客户端下载与使用教程：美区 App Store 免费替代小火箭新神器（支持 Clash/VLESS 订阅与一键配置）"
+title: "2026 Clash Mi iOS 下载使用教程：美区免付费替代小火箭支持 VLESS 订阅"
 description: "专为 iPhone/iPad 用户整理的 2026 Clash Mi 客户端下载与配置保姆级教程。免付费无充值，直接通过美区 App Store 免费下载，支持一键导入 Clash/VLESS/Hysteria2 节点订阅，详解分流规则与连接排错。"
 publishedAt: 2026-10-29
 updatedAt: 2026-10-29

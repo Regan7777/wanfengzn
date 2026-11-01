@@ -60,7 +60,7 @@ const schemas = [articleSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 ---
 
 <BaseLayout
-  title={`${title} - ${categoryMeta.name} - 晚风指南`}
+  title={title.endsWith('晚风指南') ? title : `${title} - 晚风指南`}
   description={description}
   keywords={keywords}
   canonicalUrl={currentUrl}
