@@ -26,15 +26,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `clients/${sub}`,
   path: `/clients/${sub}/`,
-  title: `${sub} 客户端下载与使用导航`,
+  title: `${sub.toUpperCase()} 客户端官方下载与使用配置导航`,
   shortName: `${sub} 客户端`,
-  seoTitle: `${sub} 客户端下载与使用导航 - 网络服务指南`,
-  description: `${sub} 客户端官方下载渠道、一键订阅配置与规则设置使用教程。`,
+  seoTitle: `${sub.toUpperCase()} 客户端官方下载渠道与订阅配置教程 - 晚风指南`,
+  description: `晚风指南精选 ${sub} 客户端全流程使用指引：提供正规官方下载渠道、一键订阅导入步骤、PAC分流规则模式设置及节点连不上故障排查技巧。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'clients',
   category: 'clients',
-  keywords: [`${sub} 客户端`],
+  keywords: [`${sub} 客户端`, `${sub} 下载`, `${sub} 配置教程`],
   searchIntent: 'Informational',
   coreAnswer: `请务必通过 GitHub Release 或 App Store 等官方正规渠道下载 ${sub} 客户端。`
 };

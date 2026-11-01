@@ -21,15 +21,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `guide/${sub}`,
   path: `/guide/${sub}/`,
-  title: `${sub} 新手科普指南`,
+  title: `${sub} 新手零基础入门与科普指南`,
   shortName: `${sub} 科普`,
-  seoTitle: `${sub} 新手零基础科普指南 - 网络服务指南`,
-  description: `适合零基础用户的 ${sub} 概念解释、物理工作原理与基础使用框架。`,
+  seoTitle: `${sub} 新手零基础科普入门指南与核心概念 - 晚风指南`,
+  description: `适合零基础新手用户的 ${sub} 概念通俗科普：系统拆解底层物理工作原理、基础运行机制与常见误区，助你快速建立正确的网络使用认知。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'guide',
   category: 'guide',
-  keywords: [`${sub} 入门`],
+  keywords: [`${sub} 入门`, `${sub} 科普`],
   searchIntent: 'Informational',
   coreAnswer: `搞懂基础概念是安全、稳定使用网络连接服务的第一步。`
 };

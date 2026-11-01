@@ -37,8 +37,8 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
 ---
 
 <BaseLayout
-  title={`含 #${tag} 标签的全部指南与文章 - 晚风指南`}
-  description={`关于 #${tag} 主题的精选深度指南与使用教程归档。`}
+  title={`#${tag} 标签相关精选文章与深度评测汇总（共 ${articles.length} 篇）- 晚风指南`}
+  description={`晚风指南 #${tag} 主题聚合页：精选整理收录 ${articles.length} 篇与 ${tag} 相关的实测报告、配置教程与网络线路选择指南，助你快速找到所需内容。`}
   canonicalUrl={currentUrl}
   schemaData={breadcrumbSchema}
 >

@@ -30,15 +30,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `network/${sub}`,
   path: `/network/${sub}/`,
-  title: `${sub.toUpperCase()} 线路知识科普`,
+  title: `${sub.toUpperCase()} 线路架构与核心知识详解`,
   shortName: `${sub} 知识`,
-  seoTitle: `${sub.toUpperCase()} 线路知识与选择指南 - 网络服务指南`,
-  description: `深入剖析 ${sub} 线路的技术架构、优势、劣势及对上网体验的实际影响。`,
+  seoTitle: `${sub.toUpperCase()} 线路架构与核心知识详解 - 晚风指南网络评测`,
+  description: `晚风指南硬核解析 ${sub} 网络线路：剖析其物理传输架构、入口与出口路由、晚高峰丢包率及在实际科学上网和流媒体播放中的稳定性表现。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'network',
   category: 'network',
-  keywords: [`${sub} 线路`],
+  keywords: [`${sub} 线路`, `${sub} 专线`],
   searchIntent: 'Informational',
   coreAnswer: `搞懂 ${sub} 线路特征，有助于挑选出真正符合您稳定性要求的网络方案。`
 };

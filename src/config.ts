@@ -47,7 +47,7 @@ export const SITE_CONFIG = {
       name: '机场推荐',
       shortName: '推荐',
       title: '机场推荐｜2026稳定与性价比选择指南',
-      description: '全网精选稳定、高性价比网络连接服务推荐，包含新手入门、AI环境、流媒体解锁与办公专属方案。',
+      description: '全网精选稳定、高性价比网络连接服务推荐，包含新手入门、AI环境、流媒体解锁与办公专属方案，拒绝虚假超卖与跑路风险。',
       icon: 'star'
     },
     'ranking': {
@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
       name: '机场排行',
       shortName: '排行',
       title: '2026机场排行榜单｜综合、稳定与性价比排名',
-      description: '根据实际测速、线路质量、服务稳定性与用户口碑整理的网络服务商排行榜单。',
+      description: '根据实际测速、晚高峰丢包率、线路质量、服务稳定性与真实用户口碑整理的网络服务商排行榜单，提供多维度横向参考。',
       icon: 'trophy'
     },
     'reviews': {
@@ -63,7 +63,7 @@ export const SITE_CONFIG = {
       name: '机场评测',
       shortName: '评测',
       title: '网络服务商深度评测｜真实体验与节点分析',
-      description: '针对主流服务商进行全方位深度测评，涵盖速度、延迟、流媒体解封率与客服支持。',
+      description: '针对主流服务商进行全方位深度客观测评，全面涵盖晚高峰速度、网络延迟、流媒体与AI工具原生解锁及客服支持。',
       icon: 'search'
     },
     'compare': {
@@ -71,7 +71,7 @@ export const SITE_CONFIG = {
       name: '机场对比',
       shortName: '对比',
       title: '网络服务商横向对比｜价格、线路与功能对照表',
-      description: '多视角对比不同网络服务商的套餐性价比、专线支持与使用体验差异。',
+      description: '多视角对比不同网络服务商的套餐性价比、专线支持、倍率计费透明度与实际使用体验差异，助你精准避坑。',
       icon: 'scale'
     },
     'price': {
@@ -79,7 +79,7 @@ export const SITE_CONFIG = {
       name: '价格选择',
       shortName: '价格',
       title: '网络服务套餐与价格指南｜月付、年付与按量计费选择',
-      description: '教你如何根据预算选择最划算的网络服务套餐，避免低价陷阱与跑路风险。',
+      description: '教你如何根据预算选择最划算的网络服务套餐，深入剖析月付包月、年付折扣与按量不限时套餐的区别，避免价格陷阱与资金损失。',
       icon: 'tag'
     },
     'network': {
@@ -87,7 +87,7 @@ export const SITE_CONFIG = {
       name: '线路知识',
       shortName: '线路',
       title: '网络线路知识详解｜IEPL、IPLC、BGP与节点区别',
-      description: '深入浅出剖析IEPL专线、IPLC内网专线、直连线路与各种传输协议的区别与优劣。',
+      description: '深入浅出剖析IEPL专线、IPLC内网专线、BGP中转入口与直连线路的区别与优劣，用硬核网络工程逻辑拆解节点传输原理。',
       icon: 'cpu'
     },
     'use-case': {
@@ -95,7 +95,7 @@ export const SITE_CONFIG = {
       name: '用途选择',
       shortName: '用途',
       title: '场景化服务选择｜AI平台、流媒体、游戏与协同办公',
-      description: '针对ChatGPT/Claude/Gemini AI使用环境、4K 8K流媒体播放与外服游戏提供针对性方案。',
+      description: '针对ChatGPT、Claude、Gemini等AI大模型交互环境、4K流媒体原生播放及跨国协同办公提供针对性高可靠方案。',
       icon: 'target'
     },
     'clients': {
@@ -103,7 +103,7 @@ export const SITE_CONFIG = {
       name: '客户端',
       shortName: '客户端',
       title: '多平台连接客户端推荐与下载导航',
-      description: '涵盖Windows、macOS、Android、iOS与路由器各平台最佳连接客户端介绍与配置。',
+      description: '涵盖Windows、macOS、Android、iOS与路由器各平台最佳连接客户端介绍、正规下载渠道及快速配置规则指引。',
       icon: 'device'
     },
     'tutorials': {
@@ -111,7 +111,7 @@ export const SITE_CONFIG = {
       name: '使用教程',
       shortName: '教程',
       title: '网络服务图文使用教程｜零基础快速上手',
-      description: '手把手教你完成客户端下载、订阅导入、节点选择与高级规则配置。',
+      description: '手把手教你完成客户端下载安装、订阅链接导入、节点智能分流切换与高级路由规则配置，零基础也能快速上手。',
       icon: 'book'
     },
     'problems': {
@@ -119,7 +119,7 @@ export const SITE_CONFIG = {
       name: '问题解决',
       shortName: '排错',
       title: '常见网络故障与错误连接排查指南',
-      description: '针对节点打不开、连接超时、订阅无法更新、DNS污染与速度慢等典型问题提供解决办法。',
+      description: '针对节点打不开、连接超时、订阅无法更新、DNS污染与网页加载慢等典型问题提供全流程自检与故障排除手册。',
       icon: 'alert'
     },
     'guide': {
@@ -127,7 +127,7 @@ export const SITE_CONFIG = {
       name: '新手指南',
       shortName: '新手',
       title: '网络服务新手零基础入门百科',
-      description: '适合完全不了解的新手用户，快速搞懂节点、线路、客户端与订阅的基本概念。',
+      description: '适合零基础新手用户的入门百科。系统拆解节点、线路、客户端与订阅的基本概念，建立理性客观认知，避免新手踩坑。',
       icon: 'help'
     }
   } as Record<string, CategoryMeta>,

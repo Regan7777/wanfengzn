@@ -22,15 +22,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `tutorials/${sub}`,
   path: `/tutorials/${sub}/`,
-  title: `${sub} 图文使用教程`,
+  title: `${sub} 图文使用与进阶配置教程`,
   shortName: `${sub} 教程`,
-  seoTitle: `${sub} 图文使用教程 - 网络服务指南`,
-  description: `手把手教学：轻松掌握 ${sub} 的具体操作步骤与配置要点。`,
+  seoTitle: `${sub} 图文使用与进阶配置教程指南 - 晚风指南`,
+  description: `晚风指南图文实操教程：手把手教你轻松掌握 ${sub} 的具体安装、订阅导入、分流规则定制与常见错误排查要点，零基础也能快速上手。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'tutorials',
   category: 'tutorials',
-  keywords: [`${sub} 教程`],
+  keywords: [`${sub} 教程`, `${sub} 配置`, `${sub} 使用指南`],
   searchIntent: 'Informational',
   coreAnswer: `按照步骤完成配置，即可实现流畅的规则分流网络体验。`
 };

@@ -21,15 +21,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `compare/${sub}`,
   path: `/compare/${sub}/`,
-  title: `${sub.toUpperCase()} 深度对比`,
+  title: `${sub.toUpperCase()} 深度横向对比与选购指导`,
   shortName: `${sub} 对比`,
-  seoTitle: `${sub} 深度对比分析｜哪个好怎么选 - 网络服务指南`,
-  description: `针对 ${sub} 进行全方位区别、价格、稳定性与适用场景对比分析。`,
+  seoTitle: `${sub.toUpperCase()} 深度横向对比分析｜核心参数与选购指南 - 晚风指南`,
+  description: `晚风指南针对 ${sub} 进行全方位指标横向对比：深入剖析线路架构、高峰期丢包率、解锁能力、价格性价比与适用场景，助你精准避坑。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'compare',
   category: 'compare',
-  keywords: [`${sub} 对比`],
+  keywords: [`${sub} 对比`, `${sub} 区别`],
   searchIntent: 'Commercial',
   coreAnswer: `通过核心指标与场景匹配度帮助您快速作出正确选择。`
 };

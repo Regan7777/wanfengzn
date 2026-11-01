@@ -37,8 +37,8 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
 ---
 
 <BaseLayout
-  title={`${categoryMeta.name}相关文章 - 晚风指南`}
-  description={categoryMeta.description}
+  title={`${categoryMeta.title}｜${categoryMeta.name}精选文章与指南汇总 - 晚风指南`}
+  description={`${categoryMeta.description} 本专题系统收录晚风指南关于${categoryMeta.name}的实测数据、配置步骤与避坑选购建议，助你快速掌握核心要点。`}
   canonicalUrl={currentUrl}
   schemaData={breadcrumbSchema}
 >

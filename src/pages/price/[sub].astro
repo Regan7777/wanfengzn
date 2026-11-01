@@ -27,15 +27,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `price/${sub}`,
   path: `/price/${sub}/`,
-  title: `${sub} 价格方案推荐`,
+  title: `${sub} 价格套餐精选与避坑指南`,
   shortName: `${sub} 价格`,
-  seoTitle: `${sub} 价格与套餐方案指南 - 网络服务指南`,
-  description: `针对 ${sub} 预算或计费模式精选的最佳网络服务方案与防踩坑建议。`,
+  seoTitle: `${sub} 价格套餐精选与月付性价比指南 - 晚风指南`,
+  description: `针对 ${sub} 预算区间或计费模式精选的稳定网络服务商：分析真实倍率、晚高峰测速表现与跑路风险防范，坚持月付尝鲜原则。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'price',
   category: 'price',
-  keywords: [`${sub} 价格`],
+  keywords: [`${sub} 价格`, `${sub} 便宜机场`, `${sub} 性价比`],
   searchIntent: 'Commercial',
   coreAnswer: `根据您的预算区间，优先选择提供完整试用或支持按月订阅的服务商。`
 };

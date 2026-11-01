@@ -35,15 +35,15 @@ const { sub, topicKey } = Astro.props;
 const topicNode = TOPICS_REGISTRY[topicKey] || {
   slug: `recommend/${sub}`,
   path: `/recommend/${sub}/`,
-  title: `${sub} 机场推荐`,
+  title: `${sub} 机场精选推荐与避坑分析`,
   shortName: `${sub} 推荐`,
-  seoTitle: `${sub} 机场推荐｜2026专业指南 - 网络服务指南`,
-  description: `关于 ${sub} 机场推荐的专题选购说明与优缺点分析。`,
+  seoTitle: `${sub} 机场推荐2026｜稳定中转与专线选购避坑指南 - 晚风指南`,
+  description: `晚风指南精选 ${sub} 专题网络服务商推荐：围绕节点速度、晚高峰稳定性、流媒体与ChatGPT解锁表现及售后服务进行全面横向梳理。`,
   type: 'Pillar',
   priority: 'P1',
   parentSlug: 'recommend',
   category: 'recommend',
-  keywords: [`${sub} 机场推荐`],
+  keywords: [`${sub} 机场推荐`, `${sub} 稳定节点`],
   searchIntent: 'Commercial',
   coreAnswer: `针对 ${sub} 需求，建议重点关注晚高峰稳定度与线路质量。`
 };
