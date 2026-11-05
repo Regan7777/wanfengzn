@@ -31,8 +31,8 @@ export default defineConfig({
   site: 'https://wanfengzn.com',
   redirects: {
     '/go/shenxing': { status: 302, destination: 'https://wuhan01.shenxingaff.com/#/?code=WUQMrgI8' },
-    '/go/dalaoyun': { status: 302, destination: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL' },
-    '/go/shandianshu': { status: 302, destination: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK' },
+    '/go/dalaoyun': { status: 302, destination: 'https://fugui0077.dalaoyunaff.com/#/?code=Wpfk4XD5' },
+    '/go/shandianshu': { status: 302, destination: 'https://fugui0077.shandianshuaff.com/#/?code=KSByEAn9' },
     '/go/liulianyun': { status: 302, destination: 'https://fugui007.liulianyunaff.com/#/?code=Y6A1M1MN' },
     '/go/huanqiuti': { status: 302, destination: 'https://fugui0077.huanqiutiaff.com/#/?code=rJyQn4xG' },
     '/go/yunjiexian': { status: 302, destination: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW' },

@@ -22,16 +22,16 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     id: 'dalaoyun',
     name: '大佬云',
     path: '/go/dalaoyun',
-    targetUrl: 'https://fugui0077.dalaoyunaff.com/#/?code=1o7gYhTL',
-    code: '1o7gYhTL',
+    targetUrl: 'https://fugui0077.dalaoyunaff.com/#/?code=Wpfk4XD5',
+    code: 'Wpfk4XD5',
     discountCode: 'dly88'
   },
   shandianshu: {
     id: 'shandianshu',
     name: '闪电鼠',
     path: '/go/shandianshu',
-    targetUrl: 'https://fugui0077.shandianshuaff.com/#/?code=I2yK9PfK',
-    code: 'I2yK9PfK',
+    targetUrl: 'https://fugui0077.shandianshuaff.com/#/?code=KSByEAn9',
+    code: 'KSByEAn9',
     discountCode: 'sd88'
   },
   liulianyun: {

@@ -44,7 +44,7 @@ related:
 
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 8px; border: 1.5px solid #bfdbfe; text-align: center;">
   <a href="/go/shandianshu" target="_blank" rel="nofollow sponsored noopener noreferrer" style="display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff !important; font-size: 1.05rem; font-weight: 800; text-decoration: none; border-radius: 6px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4); transition: all 0.2s ease;">
-    点击直达闪电鼠官方网站注册与查看最新套餐（邀请码：I2yK9PfK） →
+    点击直达闪电鼠官方网站注册与查看最新套餐（邀请码：KSByEAn9） →
   </a>
   <div style="margin-top: 0.75rem; font-size: 0.9rem; color: #1e40af; font-weight: 600;">
     专属 7 折优惠码：<code>sd88</code> ｜ iOS 客户端识别码：<code>sds</code>（年付小包除外）
