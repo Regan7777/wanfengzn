@@ -53,13 +53,17 @@ console.log('Total indexable pages:', indexablePages.length);
 console.log('Total noindex pages:', noindexPages.length);
 
 const shortTitles = indexablePages.filter(p => p.titleLen < 25);
-const longTitles = indexablePages.filter(p => p.titleLen > 70);
+const longTitles = indexablePages.filter(p => p.titleLen > 65);
 const shortDescs = indexablePages.filter(p => p.descLen < 50);
 const longDescs = indexablePages.filter(p => p.descLen > 180);
 
 console.log(`\n=== AUDIT SUMMARY ===`);
 console.log(`Titles < 25 chars: ${shortTitles.length}`);
-console.log(`Titles > 70 chars: ${longTitles.length}`);
+console.log(`Titles > 65 chars: ${longTitles.length}`);
+if (longTitles.length > 0) {
+  console.log('Long titles (>65 chars):');
+  longTitles.forEach(p => console.log(`  [${p.titleLen}] ${p.title} (${p.relPath})`));
+}
 console.log(`Descriptions < 50 chars: ${shortDescs.length}`);
 console.log(`Descriptions > 180 chars: ${longDescs.length}`);
 

@@ -6,7 +6,7 @@ import ComparisonTable, { type ComparisonRow } from '../../components/Comparison
 export async function getStaticPaths() {
   const brandSlugs = [
     'shenxing', 'dalaoyun', 'shandianshu', 'liulianyun', 'huanqiuti', 
-    'yunjiexian', 'edgenova', 'yuezhianmian', 'feiv', 'lingdongyun',
+    'yunjiexian', 'guangsu', 'edgenova', 'yuezhianmian', 'feiv', 'lingdongyun',
     'yiyuan', 'peiqian', 'naixi', 'feinio', 'jike',
     'flybit', 'wangji', 'wgetcloud', 'flowercloud', 'yizhi', 'yangfan',
     'ermaoyun', 'jisucloud', 'liangxin', 'chuixue', 'kdj'
@@ -77,6 +77,14 @@ const brandMap: Record<string, BrandDetail> = {
     desc: '新一代 Hysteria 2 协议 + 端口跳跃优化，使用专属优惠码 yjx888 起步月付折后仅 ¥15.4/月，恶劣弱网与校园网暴力穿透。',
     reviewArticleSlug: 'yunjiexian-airport-review-2026',
     officialUrl: '/go/yunjiexian'
+  },
+  guangsu: { 
+    name: '光速云', 
+    type: 'BGP中转优化 / Trojan & V2Ray', 
+    price: '¥15/月起', 
+    desc: '高性价比 BGP 隧道中转与专线优化服务商，13+ 国家地区节点覆盖，全流媒体与 ChatGPT 原生解锁，多设备同时在线无限制。', 
+    reviewArticleSlug: 'guangsu-cloud-airport-review-2026', 
+    officialUrl: '/go/guangsu' 
   },
   edgenova: {
     name: '边缘节点',

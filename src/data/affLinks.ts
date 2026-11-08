@@ -54,9 +54,16 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     id: 'yunjiexian',
     name: '云界线',
     path: '/go/yunjiexian',
-    targetUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=qA3LF6hW',
-    code: 'qA3LF6hW',
+    targetUrl: 'https://fugui0077.yunjiexianaff.com/#/?code=FVkiFyAx',
+    code: 'FVkiFyAx',
     discountCode: 'yjx888'
+  },
+  guangsu: {
+    id: 'guangsu',
+    name: '光速云',
+    path: '/go/guangsu',
+    targetUrl: 'https://j98j.gsyvipaff.com/#/?code=9506F5Sq',
+    code: '9506F5Sq'
   },
   edgenova: {
     id: 'edgenova',
