@@ -84,7 +84,7 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     id: 'feiv',
     name: '飞V',
     path: '/go/feiv',
-    targetUrl: 'https://fugui.flyvaff.com/#/?code=gxmUajhy',
+    targetUrl: 'https://cola.flyvaff.com/#/register/?code=gxmUajhy',
     code: 'gxmUajhy',
     discountCode: 'fly20'
   },
