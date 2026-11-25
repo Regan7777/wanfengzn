@@ -77,7 +77,7 @@ export const AFF_LINKS: Record<string, AffLinkItem> = {
     id: 'yuezhianmian',
     name: '月之暗面',
     path: '/go/yuezhianmian',
-    targetUrl: 'https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2',
+    targetUrl: 'https://getback.1969130.xyz/#/register?code=lAzTYBl2',
     code: 'lAzTYBl2'
   },
   feiv: {

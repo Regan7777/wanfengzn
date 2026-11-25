@@ -38,7 +38,7 @@ export default defineConfig({
     '/go/yunjiexian': { status: 302, destination: 'https://fugui0077.yunjiexianaff.com/#/?code=FVkiFyAx' },
     '/go/guangsu': { status: 302, destination: 'https://j98j.gsyvipaff.com/#/?code=9506F5Sq' },
     '/go/edgenova': { status: 302, destination: 'https://wep.edgenovaaff.com/#/?code=q1BOP7EV' },
-    '/go/yuezhianmian': { status: 302, destination: 'https://xn--6qrq26ad01c.org/#/register?code=lAzTYBl2' },
+    '/go/yuezhianmian': { status: 302, destination: 'https://getback.1969130.xyz/#/register?code=lAzTYBl2' },
     '/go/feiv': { status: 302, destination: 'https://cola.flyvaff.com/#/register/?code=gxmUajhy' },
     '/go/lingdongyun': { status: 302, destination: 'https://fugui.lingdongaff.com/#/?code=lyfEXnqR' }
   },
