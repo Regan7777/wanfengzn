@@ -1,6 +1,6 @@
 ---
 title: "OpenWrt 路由器端客户端配置指南：OpenClash 与 PassWall 全家桶透明代理实操教程"
-description: "教你如何在 OpenWrt 软路由与硬路由上配置 OpenClash 和 PassWall 客户端，实现全家设备免客户端直连的高速透明代理网络与 SmartDNS 域名防污染分流。"
+description: "教你如何在OpenWrt软路由与硬路由系统上配置OpenClash和PassWall客户端插件，轻松实现全屋家庭设备免客户端直连的高速透明网络代理，结合SmartDNS域名防污染解析与分流策略，打造全屋无感秒开且低延迟的家庭局域网环境。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"

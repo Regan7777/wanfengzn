@@ -1,6 +1,6 @@
 ---
 title: "网络客户端规则分流配置完全指南：DOMAINS、IP-CIDR、Rule-Set 自定义与广告拦截配置"
-description: "手把手教你掌握网络客户端的规则分流（Rule Mode）。涵盖 DOMAIN-SUFFIX、GEOIP、Rule-Set 第三方规则库导入、AI/流媒体指定节点路由及广告拦截规则配置。"
+description: "手把手教你熟练掌握网络客户端的规则分流体系（Rule Mode）。详细涵盖DOMAIN-SUFFIX、GEOIP、Rule-Set第三方规则库自动导入、ChatGPT与海外流媒体指定节点专用路由分流，以及拦截网页广告的自定义规则配置全流程。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"

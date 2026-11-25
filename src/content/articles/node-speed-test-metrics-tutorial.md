@@ -1,6 +1,6 @@
 ---
 title: "网络节点测速与丢包率诊断实操指南：Bench 脚本、Speedtest 与 4K 视频超清测速技巧"
-description: "教你如何科学测量网络服务商节点的真实性能。涵盖客户端 Web Ping、Speedtest 测速、YouTube 4K 统计数据解读以及 Bench 命令行吞吐量诊断。"
+description: "手把手教你如何科学精准地测量网络服务节点的真实性能。深入解析客户端Web Ping延迟、Speedtest单线程/多线程测速、YouTube 4K详细统计信息（Nerds）解读以及Bench压测工具，教你识破本地缓存虚假测速套路。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"

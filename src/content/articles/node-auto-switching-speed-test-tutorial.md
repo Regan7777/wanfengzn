@@ -1,6 +1,6 @@
 ---
 title: "机场节点自动切换与延迟测速优化教程：URL Test 策略组配置与晚高峰丢包自愈指引"
-description: "深入讲解客户端节点自动检测与故障切换设置。详细教学 URL-Test / Fallback 策略组配置、真实 ICMP 与 HTTP 延迟测速原理、以及晚高峰高丢包节点自动退避方案。"
+description: "深入讲解网络客户端节点健康状态自动检测与智能故障切换机制。系统剖析URL-Test自动优选与Fallback容灾策略组配置规则、真实ICMP与HTTP延迟测速原理，教你实现晚高峰高丢包节点自动退避与无缝切换无感保活，全方位保障核心跨国业务与AI交互不中断。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"

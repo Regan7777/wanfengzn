@@ -1,6 +1,6 @@
 ---
 title: "网络客户端开机自启与静默后台运行设置教程：Windows, Mac, Android, iOS 全平台配置"
-description: "教你如何在 Windows, macOS, Android 及 iOS 系统中开启客户端开机自启、静默最小化运行与系统代理自动挂载，打造无需手动介入的无感上网体验。"
+description: "手把手教你如何在Windows、macOS、Android及iOS全平台客户端中开启开机自启、静默后台运行与系统代理自动挂载服务。深入讲解TUN虚拟网卡保活与电池优化白名单设置，彻底摆脱每次手动开启的繁琐操作，打造无感流畅上网体验。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "tutorials"

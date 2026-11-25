@@ -1,6 +1,6 @@
 ---
 title: "Shadowrocket（小火箭）iOS 端下载安装与订阅导入实操教程"
-description: "专为 iOS 用户打造的 Shadowrocket（小火箭）全流程实操指南。涵盖美区 Apple ID 获取、安装包正版下载、一键订阅导入、规则分流模式配置与常见连接故障排查。"
+description: "专为iOS苹果用户打造的Shadowrocket（小火箭）全流程配置实操指南。全面涵盖海外美区Apple ID安全获取、App Store正版下载、一键订阅链接导入、智能规则分流模式切换以及节点连接超时常见故障排查，小白也能轻松搞定。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"

@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
   siteName: '晚风指南',
   siteTitle: '2026机场推荐｜稳定、价格与线路选择指南 - 晚风指南',
   siteUrl: 'https://wanfengzn.com',
-  description: '面向中文用户的网络服务选择与使用知识博客。提供2026机场推荐、服务商深度评测、排行榜单、IEPL/IPLC线路知识、客户端使用教程与常见网络排查指南。',
+  description: '晚风指南（wanfengzn.com）是面向中文用户的网络服务选型与实测知识博客。专注于2026最新高性价比稳定机场推荐、服务商晚高峰深度评测、IEPL/IPLC专线线路科普、主流多端客户端配置教程以及网络故障排查自检手册，坚持数据实测与客观避坑原则。',
   author: '晚风指南编辑团队',
   tgChannel: 'https://t.me/wanfengjc',
   tgUser: 'https://t.me/wanfengzn',
@@ -47,7 +47,7 @@ export const SITE_CONFIG = {
       name: '机场推荐',
       shortName: '推荐',
       title: '机场推荐｜2026稳定与性价比选择指南',
-      description: '全网精选稳定、高性价比网络连接服务推荐，包含新手入门、AI环境、流媒体解锁与办公专属方案，拒绝虚假超卖与跑路风险。',
+      description: '全网精选2026最新稳定、高性价比网络连接服务深度推荐专栏。系统涵盖新手入门避坑、ChatGPT与Claude等AI工具解锁、4K海外流媒体播放与跨境办公专属方案，全维度剖析晚高峰测速、丢包率与月付套餐真实资费，拒绝虚假超卖与跑路风险。',
       icon: 'star'
     },
     'ranking': {
@@ -55,7 +55,7 @@ export const SITE_CONFIG = {
       name: '机场排行',
       shortName: '排行',
       title: '2026机场排行榜单｜综合、稳定与性价比排名',
-      description: '根据实际测速、晚高峰丢包率、线路质量、服务稳定性与真实用户口碑整理的网络服务商排行榜单，提供多维度横向参考。',
+      description: '基于晚高峰真实测速、节点丢包率、物理线路规格、SLA可用性保障与真实用户长期口碑整理的2026网络服务商综合排行榜单。包含综合天梯榜、晚高峰稳定榜与高性价比月付榜，提供客观透明的多维度横向量化数据参考。',
       icon: 'trophy'
     },
     'reviews': {
@@ -63,7 +63,7 @@ export const SITE_CONFIG = {
       name: '机场评测',
       shortName: '评测',
       title: '网络服务商深度评测｜真实体验与节点分析',
-      description: '针对主流服务商进行全方位深度客观测评，全面涵盖晚高峰速度、网络延迟、流媒体与AI工具原生解锁及客服支持。',
+      description: '针对主流网络服务商进行全方位深度客观实测专栏。全面覆盖晚高峰真实测速、网络延迟抖动、Netflix与ChatGPT等流媒体与AI工具原生解锁能力、客服工单响应以及倍率计费透明度，提供详实严谨的选型避坑决策依据。',
       icon: 'search'
     },
     'compare': {
@@ -71,7 +71,7 @@ export const SITE_CONFIG = {
       name: '机场对比',
       shortName: '对比',
       title: '网络服务商横向对比｜价格、线路与功能对照表',
-      description: '多视角对比不同网络服务商的套餐性价比、专线支持、倍率计费透明度与实际使用体验差异，助你精准避坑。',
+      description: '多视角多维度横向对比不同网络服务商的核心特性与套餐配置。深度剖析月付套餐性价比、IEPL与IPLC物理内网专线支持、节点倍率计费透明度与实际日常使用体验差异，助你在繁杂的市场宣传中精准筛选出高匹配度方案。',
       icon: 'scale'
     },
     'price': {
@@ -79,7 +79,7 @@ export const SITE_CONFIG = {
       name: '价格选择',
       shortName: '价格',
       title: '网络服务套餐与价格指南｜月付、年付与按量计费选择',
-      description: '教你如何根据预算选择最划算的网络服务套餐，深入剖析月付包月、年付折扣与按量不限时套餐的区别，避免价格陷阱与资金损失。',
+      description: '教你如何根据实际预算科学挑选最划算的网络服务套餐。深度拆解月付包月、年付折扣特惠与不限时按量计费套餐的核心区别与隐藏规则，传授理性消费与资金安全防范技巧，有效规避虚假超卖跑路陷阱与资金损失。',
       icon: 'tag'
     },
     'network': {
@@ -87,7 +87,7 @@ export const SITE_CONFIG = {
       name: '线路知识',
       shortName: '线路',
       title: '网络线路知识详解｜IEPL、IPLC、BGP与节点区别',
-      description: '深入浅出剖析IEPL专线、IPLC内网专线、BGP中转入口与直连线路的区别与优劣，用硬核网络工程逻辑拆解节点传输原理。',
+      description: '深入浅出硬核科普网络线路底层架构知识。全面解析IEPL国际以太网专线、IPLC内网专线、BGP多线中转入口与普通公网直连的核心技术差异，用通信工程逻辑拆解节点晚高峰丢包机理与原生IP属性，助你掌握科学选购的核心法则。',
       icon: 'cpu'
     },
     'use-case': {
@@ -95,7 +95,7 @@ export const SITE_CONFIG = {
       name: '用途选择',
       shortName: '用途',
       title: '场景化服务选择｜AI平台、流媒体、游戏与协同办公',
-      description: '针对ChatGPT、Claude、Gemini等AI大模型交互环境、4K流媒体原生播放及跨国协同办公提供针对性高可靠方案。',
+      description: '围绕用户真实核心业务场景量身定制的网络服务选型指南。针对OpenAI ChatGPT、Claude、Gemini等AI大模型交互环境、Netflix与Disney+等4K流媒体原生播放、跨国远程办公与跨服游戏对战提供针对性高可靠性网络支撑方案。',
       icon: 'target'
     },
     'clients': {
@@ -103,7 +103,7 @@ export const SITE_CONFIG = {
       name: '客户端',
       shortName: '客户端',
       title: '多平台连接客户端推荐与下载导航',
-      description: '涵盖Windows、macOS、Android、iOS与路由器各平台最佳连接客户端介绍、正规下载渠道及快速配置规则指引。',
+      description: '全面涵盖Windows、macOS、Android、iOS与OpenWrt软路由各平台最佳网络连接客户端软件评测导航。提供官方正版正规下载途径、最新内核版本解析、一键订阅导入指引及系统代理分流规则快速配置操作手册。',
       icon: 'device'
     },
     'tutorials': {
@@ -111,7 +111,7 @@ export const SITE_CONFIG = {
       name: '使用教程',
       shortName: '教程',
       title: '网络服务图文使用教程｜零基础快速上手',
-      description: '手把手教你完成客户端下载安装、订阅链接导入、节点智能分流切换与高级路由规则配置，零基础也能快速上手。',
+      description: '手把手保姆级图文实操教程专栏：详细教学多平台正版客户端安装包获取、通用订阅链接导入与转换、节点智能分流切换、规则模式定制以及开机自启静默运行全流程，零基础初学者也能快速掌握并轻松畅享流畅网络。',
       icon: 'book'
     },
     'problems': {
@@ -119,7 +119,7 @@ export const SITE_CONFIG = {
       name: '问题解决',
       shortName: '排错',
       title: '常见网络故障与错误连接排查指南',
-      description: '针对节点打不开、连接超时、订阅无法更新、DNS污染与网页加载慢等典型问题提供全流程自检与故障排除手册。',
+      description: '针对节点无法打开、连接超时、订阅更新报错、DNS污染劫持与网页加载缓慢等常见网络故障，提供系统化全流程自检排查与诊断解决手册。手把手教你校准系统时间、排查节点可用性并迅速恢复高速稳定的网络连接。',
       icon: 'alert'
     },
     'guide': {
@@ -127,7 +127,7 @@ export const SITE_CONFIG = {
       name: '新手指南',
       shortName: '新手',
       title: '网络服务新手零基础入门百科',
-      description: '适合零基础新手用户的入门百科。系统拆解节点、线路、客户端与订阅的基本概念，建立理性客观认知，避免新手踩坑。',
+      description: '专为零基础初学者打造的网络服务入门百科指南。系统拆解节点类型、物理线路特征、客户端工具与订阅机制等基础核心概念，树立坚持月付、正规下载、多线备份的理性安全使用习惯，帮助新手用户轻松避开各类低价割韭菜陷阱。',
       icon: 'help'
     }
   } as Record<string, CategoryMeta>,

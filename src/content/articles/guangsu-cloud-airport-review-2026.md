@@ -1,6 +1,6 @@
 ---
 title: "2026 光速云机场评测：BGP中转流媒体与AI解锁实测"
-description: "2026 光速云（Guangsu Cloud）深度评测：解析其 BGP 隧道中转网络架构、Trojan 与 V2Ray 协议支持、全流媒体 4K 播放与 ChatGPT 原生解锁表现，汇总月付套餐资费与晚高峰避坑选购指南。"
+description: "2026 光速云（Guangsu Cloud）全方位深度客观实测报告：深入解析其BGP隧道中转与专线优化网络架构、Trojan与V2Ray协议多端兼容性、全流媒体4K秒开播放与ChatGPT原生解锁表现，详细汇总月付套餐资费明细与晚高峰避坑选购决策指南。"
 publishedAt: 2026-10-15
 updatedAt: 2026-10-25
 category: "reviews"

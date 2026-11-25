@@ -1,6 +1,6 @@
 ---
 title: "Android 安卓端客户端推荐：Flclash 与 Surfboard 下载安装与订阅导入实操教程"
-description: "涵盖 Android 手机与平板用户的连接客户端全流程指南。详细讲解 Flclash 与 Surfboard 的正版安装包获取、一键订阅导入、规则分流设置及后台保活避坑技巧。"
+description: "专为Android手机与平板用户打造的客户端全流程上手指南。详细讲解Flclash与Surfboard正版安装包安全下载渠道、通用订阅链接一键导入、规则分流模式配置、系统电池优化白名单与后台常驻防杀后台保活避坑技巧，保障全天稳定连接。"
 publishedAt: 2026-10-05
 updatedAt: 2026-10-05
 category: "clients"
